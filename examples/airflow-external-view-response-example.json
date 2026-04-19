@@ -1,0 +1,9 @@
+{
+  "name": "example-name",
+  "icon": "example-value",
+  "icon_dark_mode": "example-value",
+  "url_route": "example-value",
+  "category": "example-value",
+  "href": "example-value",
+  "destination": "nav"
+}

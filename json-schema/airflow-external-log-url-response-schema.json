@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-external-log-url-response-schema.json",
+  "title": "ExternalLogUrlResponse",
+  "description": "Response for the external log URL endpoint.",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "title": "Url"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}

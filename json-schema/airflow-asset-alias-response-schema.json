@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-asset-alias-response-schema.json",
+  "title": "AssetAliasResponse",
+  "description": "Asset alias serializer for responses.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "group": {
+      "type": "string",
+      "title": "Group"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "group"
+  ]
+}

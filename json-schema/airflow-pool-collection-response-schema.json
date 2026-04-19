@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-pool-collection-response-schema.json",
+  "title": "PoolCollectionResponse",
+  "description": "Pool Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "pools": {
+      "items": {
+        "$ref": "#/components/schemas/PoolResponse"
+      },
+      "type": "array",
+      "title": "Pools"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "pools",
+    "total_entries"
+  ]
+}

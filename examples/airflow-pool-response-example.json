@@ -1,0 +1,13 @@
+{
+  "name": "example-name",
+  "slots": 1,
+  "description": "example-value",
+  "include_deferred": true,
+  "occupied_slots": 1,
+  "running_slots": 1,
+  "queued_slots": 1,
+  "scheduled_slots": 1,
+  "open_slots": 1,
+  "deferred_slots": 1,
+  "team_name": "example-name"
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-connection-response-schema.json",
+  "title": "ConnectionResponse",
+  "description": "Connection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "connection_id": {
+      "type": "string",
+      "title": "Connection Id"
+    },
+    "conn_type": {
+      "type": "string",
+      "title": "Conn Type"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "host": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Host"
+    },
+    "login": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Login"
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Schema"
+    },
+    "port": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Port"
+    },
+    "password": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Password"
+    },
+    "extra": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Extra"
+    },
+    "team_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Name"
+    }
+  },
+  "required": [
+    "connection_id",
+    "conn_type",
+    "description",
+    "host",
+    "login",
+    "schema",
+    "port",
+    "password",
+    "extra",
+    "team_name"
+  ]
+}

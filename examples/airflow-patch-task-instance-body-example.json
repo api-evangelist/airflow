@@ -1,0 +1,8 @@
+{
+  "new_state": "success",
+  "note": "example-value",
+  "include_upstream": true,
+  "include_downstream": true,
+  "include_future": true,
+  "include_past": true
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-import-error-collection-response-structure.json",
+  "name": "ImportErrorCollectionResponse",
+  "description": "Import Error Collection Response.",
+  "type": "object",
+  "properties": {
+    "import_errors": {
+      "items": {
+        "$ref": "#/components/schemas/ImportErrorResponse"
+      },
+      "type": "array",
+      "title": "Import Errors"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "import_errors",
+    "total_entries"
+  ]
+}

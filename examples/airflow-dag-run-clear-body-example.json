@@ -1,0 +1,5 @@
+{
+  "dry_run": true,
+  "only_failed": true,
+  "run_on_latest_version": true
+}

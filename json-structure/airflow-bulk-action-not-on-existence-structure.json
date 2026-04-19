@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-bulk-action-not-on-existence-structure.json",
+  "name": "BulkActionNotOnExistence",
+  "description": "Bulk Action to be taken if the entity does not exist.",
+  "type": "string",
+  "enum": [
+    "fail",
+    "skip"
+  ]
+}

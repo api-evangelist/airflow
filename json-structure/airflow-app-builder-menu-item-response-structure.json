@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-app-builder-menu-item-response-structure.json",
+  "name": "AppBuilderMenuItemResponse",
+  "description": "Serializer for AppBuilder Menu Item responses.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "href": {
+      "type": "string",
+      "title": "Href"
+    },
+    "category": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Category"
+    }
+  },
+  "required": [
+    "name",
+    "href"
+  ],
+  "additionalProperties": true
+}

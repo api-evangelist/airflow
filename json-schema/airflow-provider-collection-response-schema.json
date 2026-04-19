@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-provider-collection-response-schema.json",
+  "title": "ProviderCollectionResponse",
+  "description": "Provider Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "providers": {
+      "items": {
+        "$ref": "#/components/schemas/ProviderResponse"
+      },
+      "type": "array",
+      "title": "Providers"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "providers",
+    "total_entries"
+  ]
+}

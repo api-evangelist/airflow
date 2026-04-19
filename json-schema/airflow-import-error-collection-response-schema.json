@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-import-error-collection-response-schema.json",
+  "title": "ImportErrorCollectionResponse",
+  "description": "Import Error Collection Response.",
+  "type": "object",
+  "properties": {
+    "import_errors": {
+      "items": {
+        "$ref": "#/components/schemas/ImportErrorResponse"
+      },
+      "type": "array",
+      "title": "Import Errors"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "import_errors",
+    "total_entries"
+  ]
+}

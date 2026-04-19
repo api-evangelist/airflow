@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-config-section-schema.json",
+  "title": "ConfigSection",
+  "description": "Config Section Schema.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "options": {
+      "items": {
+        "$ref": "#/components/schemas/ConfigOption"
+      },
+      "type": "array",
+      "title": "Options"
+    }
+  },
+  "required": [
+    "name",
+    "options"
+  ],
+  "additionalProperties": false
+}

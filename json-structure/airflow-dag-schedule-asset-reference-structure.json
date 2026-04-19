@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-schedule-asset-reference-structure.json",
+  "name": "DagScheduleAssetReference",
+  "description": "DAG schedule reference serializer for assets.",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "created_at": {
+      "type": "datetime",
+      "title": "Created At"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "title": "Updated At"
+    }
+  },
+  "required": [
+    "dag_id",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false
+}

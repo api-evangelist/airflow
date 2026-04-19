@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-last-asset-event-response-structure.json",
+  "name": "LastAssetEventResponse",
+  "description": "Last asset event response serializer.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "anyOf": [
+        {
+          "type": "int32",
+          "minimum": 0.0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Id"
+    },
+    "timestamp": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Timestamp"
+    }
+  }
+}

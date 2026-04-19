@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-x-com-response-structure.json",
+  "name": "XComResponse",
+  "description": "Serializer for a xcom item.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "timestamp": {
+      "type": "datetime",
+      "title": "Timestamp"
+    },
+    "logical_date": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logical Date"
+    },
+    "map_index": {
+      "type": "int32",
+      "title": "Map Index"
+    },
+    "task_id": {
+      "type": "string",
+      "title": "Task Id"
+    },
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "run_id": {
+      "type": "string",
+      "title": "Run Id"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    },
+    "task_display_name": {
+      "type": "string",
+      "title": "Task Display Name"
+    },
+    "run_after": {
+      "type": "datetime",
+      "title": "Run After"
+    }
+  },
+  "required": [
+    "key",
+    "timestamp",
+    "logical_date",
+    "map_index",
+    "task_id",
+    "dag_id",
+    "run_id",
+    "dag_display_name",
+    "task_display_name",
+    "run_after"
+  ]
+}

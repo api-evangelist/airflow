@@ -1,0 +1,6 @@
+{
+  "action": "example-value",
+  "entities": [],
+  "update_mask": "example-value",
+  "action_on_non_existence": "example-value"
+}

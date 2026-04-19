@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-run-asset-reference-structure.json",
+  "name": "DagRunAssetReference",
+  "description": "DagRun serializer for asset responses.",
+  "type": "object",
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "title": "Run Id"
+    },
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "logical_date": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logical Date"
+    },
+    "start_date": {
+      "type": "datetime",
+      "title": "Start Date"
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Date"
+    },
+    "state": {
+      "type": "string",
+      "title": "State"
+    },
+    "data_interval_start": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Data Interval Start"
+    },
+    "data_interval_end": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Data Interval End"
+    },
+    "partition_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Partition Key"
+    }
+  },
+  "required": [
+    "run_id",
+    "dag_id",
+    "logical_date",
+    "start_date",
+    "end_date",
+    "state",
+    "data_interval_start",
+    "data_interval_end",
+    "partition_key"
+  ],
+  "additionalProperties": false
+}

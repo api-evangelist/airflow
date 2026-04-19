@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-trigger-response-structure.json",
+  "name": "TriggerResponse",
+  "description": "Trigger serializer for responses.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "title": "Id"
+    },
+    "classpath": {
+      "type": "string",
+      "title": "Classpath"
+    },
+    "kwargs": {
+      "type": "string",
+      "title": "Kwargs"
+    },
+    "created_date": {
+      "type": "datetime",
+      "title": "Created Date"
+    },
+    "queue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Queue"
+    },
+    "triggerer_id": {
+      "anyOf": [
+        {
+          "type": "int32"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Triggerer Id"
+    }
+  },
+  "required": [
+    "id",
+    "classpath",
+    "kwargs",
+    "created_date",
+    "queue",
+    "triggerer_id"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-stats-collection-response-schema.json",
+  "title": "DagStatsCollectionResponse",
+  "description": "DAG Stats Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "dags": {
+      "items": {
+        "$ref": "#/components/schemas/DagStatsResponse"
+      },
+      "type": "array",
+      "title": "Dags"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "dags",
+    "total_entries"
+  ]
+}

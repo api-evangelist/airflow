@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-bulk-delete-action_-variable-body_-structure.json",
+  "name": "BulkDeleteAction_VariableBody_",
+  "description": "BulkDeleteAction_VariableBody_ schema from Apache Airflow API",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "const": "delete",
+      "title": "Action",
+      "description": "The action to be performed on the entities."
+    },
+    "entities": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/components/schemas/VariableBody"
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Entities",
+      "description": "A list of entity id/key or entity objects to be deleted."
+    },
+    "action_on_non_existence": {
+      "$ref": "#/components/schemas/BulkActionNotOnExistence",
+      "default": "fail"
+    }
+  },
+  "required": [
+    "action",
+    "entities"
+  ],
+  "additionalProperties": false
+}

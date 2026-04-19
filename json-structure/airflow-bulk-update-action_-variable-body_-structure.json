@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-bulk-update-action_-variable-body_-structure.json",
+  "name": "BulkUpdateAction_VariableBody_",
+  "description": "BulkUpdateAction_VariableBody_ schema from Apache Airflow API",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "const": "update",
+      "title": "Action",
+      "description": "The action to be performed on the entities."
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/components/schemas/VariableBody"
+      },
+      "type": "array",
+      "title": "Entities",
+      "description": "A list of entities to be updated."
+    },
+    "update_mask": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Update Mask",
+      "description": "A list of field names to update for each entity.Only these fields will be applied from the request body to the database model.Any extra fields provided will be ignored."
+    },
+    "action_on_non_existence": {
+      "$ref": "#/components/schemas/BulkActionNotOnExistence",
+      "default": "fail"
+    }
+  },
+  "required": [
+    "action",
+    "entities"
+  ],
+  "additionalProperties": false
+}

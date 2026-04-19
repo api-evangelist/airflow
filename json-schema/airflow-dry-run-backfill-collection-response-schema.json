@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dry-run-backfill-collection-response-schema.json",
+  "title": "DryRunBackfillCollectionResponse",
+  "description": "Backfill collection serializer for responses in dry-run mode.",
+  "type": "object",
+  "properties": {
+    "backfills": {
+      "items": {
+        "$ref": "#/components/schemas/DryRunBackfillResponse"
+      },
+      "type": "array",
+      "title": "Backfills"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "backfills",
+    "total_entries"
+  ]
+}

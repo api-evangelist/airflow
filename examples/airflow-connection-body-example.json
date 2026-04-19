@@ -1,0 +1,12 @@
+{
+  "connection_id": "abc123",
+  "conn_type": "example-value",
+  "description": "example-value",
+  "host": "example-value",
+  "login": "example-value",
+  "schema": "example-value",
+  "port": "example-value",
+  "password": "example-value",
+  "extra": "example-value",
+  "team_name": "example-name"
+}

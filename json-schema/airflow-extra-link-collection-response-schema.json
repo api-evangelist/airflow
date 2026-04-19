@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-extra-link-collection-response-schema.json",
+  "title": "ExtraLinkCollectionResponse",
+  "description": "Extra Links Response.",
+  "type": "object",
+  "properties": {
+    "extra_links": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "type": "object",
+      "title": "Extra Links"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "extra_links",
+    "total_entries"
+  ]
+}

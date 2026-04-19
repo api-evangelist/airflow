@@ -1,0 +1,16 @@
+{
+  "name": "example-name",
+  "macros": [],
+  "flask_blueprints": [],
+  "fastapi_apps": [],
+  "fastapi_root_middlewares": "abc123",
+  "external_views": [],
+  "react_apps": [],
+  "appbuilder_views": [],
+  "appbuilder_menu_items": [],
+  "global_operator_extra_links": [],
+  "operator_extra_links": [],
+  "source": "example-value",
+  "listeners": [],
+  "timetables": []
+}

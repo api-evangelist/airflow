@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-backfill-post-body-schema.json",
+  "title": "BackfillPostBody",
+  "description": "Object used for create backfill request.",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "from_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "From Date"
+    },
+    "to_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "To Date"
+    },
+    "run_backwards": {
+      "type": "boolean",
+      "title": "Run Backwards",
+      "default": false
+    },
+    "dag_run_conf": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Dag Run Conf",
+      "default": {}
+    },
+    "reprocess_behavior": {
+      "$ref": "#/components/schemas/ReprocessBehavior",
+      "default": "none"
+    },
+    "max_active_runs": {
+      "type": "integer",
+      "title": "Max Active Runs",
+      "default": 10
+    },
+    "run_on_latest_version": {
+      "type": "boolean",
+      "title": "Run On Latest Version",
+      "default": true
+    }
+  },
+  "required": [
+    "dag_id",
+    "from_date",
+    "to_date"
+  ],
+  "additionalProperties": false
+}

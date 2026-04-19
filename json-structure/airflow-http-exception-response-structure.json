@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-http-exception-response-structure.json",
+  "name": "HTTPExceptionResponse",
+  "description": "HTTPException Model used for error response.",
+  "type": "object",
+  "properties": {
+    "detail": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      ],
+      "title": "Detail"
+    }
+  },
+  "required": [
+    "detail"
+  ]
+}

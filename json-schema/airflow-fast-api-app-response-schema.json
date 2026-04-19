@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-fast-api-app-response-schema.json",
+  "title": "FastAPIAppResponse",
+  "description": "Serializer for Plugin FastAPI App responses.",
+  "type": "object",
+  "properties": {
+    "app": {
+      "type": "string",
+      "title": "App"
+    },
+    "url_prefix": {
+      "type": "string",
+      "title": "Url Prefix"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    }
+  },
+  "required": [
+    "app",
+    "url_prefix",
+    "name"
+  ],
+  "additionalProperties": true
+}

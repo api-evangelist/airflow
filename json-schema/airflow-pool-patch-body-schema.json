@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-pool-patch-body-schema.json",
+  "title": "PoolPatchBody",
+  "description": "Pool serializer for patch bodies.",
+  "type": "object",
+  "properties": {
+    "pool": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pool"
+    },
+    "slots": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -1.0,
+          "description": "Number of slots. Use -1 for unlimited."
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Slots"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "include_deferred": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Include Deferred"
+    },
+    "team_name": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 50
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Name"
+    }
+  },
+  "additionalProperties": false
+}

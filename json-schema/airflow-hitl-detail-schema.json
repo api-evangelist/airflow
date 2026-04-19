@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-hitl-detail-schema.json",
+  "title": "HITLDetail",
+  "description": "Schema for Human-in-the-loop detail.",
+  "type": "object",
+  "properties": {
+    "options": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "minItems": 1,
+      "title": "Options"
+    },
+    "subject": {
+      "type": "string",
+      "title": "Subject"
+    },
+    "body": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Body"
+    },
+    "defaults": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Defaults"
+    },
+    "multiple": {
+      "type": "boolean",
+      "title": "Multiple",
+      "default": false
+    },
+    "params": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Params"
+    },
+    "assigned_users": {
+      "items": {
+        "$ref": "#/components/schemas/HITLUser"
+      },
+      "type": "array",
+      "title": "Assigned Users"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At"
+    },
+    "responded_by_user": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/HITLUser"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "responded_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Responded At"
+    },
+    "chosen_options": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Chosen Options"
+    },
+    "params_input": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Params Input"
+    },
+    "response_received": {
+      "type": "boolean",
+      "title": "Response Received",
+      "default": false
+    },
+    "task_instance": {
+      "$ref": "#/components/schemas/TaskInstanceResponse"
+    }
+  },
+  "required": [
+    "options",
+    "subject",
+    "created_at",
+    "task_instance"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "example-name",
+  "slots": 1,
+  "description": "example-value",
+  "include_deferred": true,
+  "team_name": "example-name"
+}

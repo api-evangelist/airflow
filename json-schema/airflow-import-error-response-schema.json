@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-import-error-response-schema.json",
+  "title": "ImportErrorResponse",
+  "description": "Import Error Response.",
+  "type": "object",
+  "properties": {
+    "import_error_id": {
+      "type": "integer",
+      "title": "Import Error Id"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Timestamp"
+    },
+    "filename": {
+      "type": "string",
+      "title": "Filename"
+    },
+    "bundle_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bundle Name"
+    },
+    "stack_trace": {
+      "type": "string",
+      "title": "Stack Trace"
+    }
+  },
+  "required": [
+    "import_error_id",
+    "timestamp",
+    "filename",
+    "bundle_name",
+    "stack_trace"
+  ]
+}

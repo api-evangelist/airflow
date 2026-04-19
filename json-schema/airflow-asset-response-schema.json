@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-asset-response-schema.json",
+  "title": "AssetResponse",
+  "description": "Asset serializer for responses.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "uri": {
+      "type": "string",
+      "title": "Uri"
+    },
+    "group": {
+      "type": "string",
+      "title": "Group"
+    },
+    "extra": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "$ref": "#/components/schemas/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Extra"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At"
+    },
+    "scheduled_dags": {
+      "items": {
+        "$ref": "#/components/schemas/DagScheduleAssetReference"
+      },
+      "type": "array",
+      "title": "Scheduled Dags"
+    },
+    "producing_tasks": {
+      "items": {
+        "$ref": "#/components/schemas/TaskOutletAssetReference"
+      },
+      "type": "array",
+      "title": "Producing Tasks"
+    },
+    "consuming_tasks": {
+      "items": {
+        "$ref": "#/components/schemas/TaskInletAssetReference"
+      },
+      "type": "array",
+      "title": "Consuming Tasks"
+    },
+    "aliases": {
+      "items": {
+        "$ref": "#/components/schemas/AssetAliasResponse"
+      },
+      "type": "array",
+      "title": "Aliases"
+    },
+    "watchers": {
+      "items": {
+        "$ref": "#/components/schemas/AssetWatcherResponse"
+      },
+      "type": "array",
+      "title": "Watchers"
+    },
+    "last_asset_event": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/LastAssetEventResponse"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "uri",
+    "group",
+    "created_at",
+    "updated_at",
+    "scheduled_dags",
+    "producing_tasks",
+    "consuming_tasks",
+    "aliases",
+    "watchers"
+  ]
+}

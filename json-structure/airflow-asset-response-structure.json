@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-asset-response-structure.json",
+  "name": "AssetResponse",
+  "description": "Asset serializer for responses.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "title": "Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "uri": {
+      "type": "string",
+      "title": "Uri"
+    },
+    "group": {
+      "type": "string",
+      "title": "Group"
+    },
+    "extra": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "$ref": "#/components/schemas/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Extra"
+    },
+    "created_at": {
+      "type": "datetime",
+      "title": "Created At"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "title": "Updated At"
+    },
+    "scheduled_dags": {
+      "items": {
+        "$ref": "#/components/schemas/DagScheduleAssetReference"
+      },
+      "type": "array",
+      "title": "Scheduled Dags"
+    },
+    "producing_tasks": {
+      "items": {
+        "$ref": "#/components/schemas/TaskOutletAssetReference"
+      },
+      "type": "array",
+      "title": "Producing Tasks"
+    },
+    "consuming_tasks": {
+      "items": {
+        "$ref": "#/components/schemas/TaskInletAssetReference"
+      },
+      "type": "array",
+      "title": "Consuming Tasks"
+    },
+    "aliases": {
+      "items": {
+        "$ref": "#/components/schemas/AssetAliasResponse"
+      },
+      "type": "array",
+      "title": "Aliases"
+    },
+    "watchers": {
+      "items": {
+        "$ref": "#/components/schemas/AssetWatcherResponse"
+      },
+      "type": "array",
+      "title": "Watchers"
+    },
+    "last_asset_event": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/LastAssetEventResponse"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "uri",
+    "group",
+    "created_at",
+    "updated_at",
+    "scheduled_dags",
+    "producing_tasks",
+    "consuming_tasks",
+    "aliases",
+    "watchers"
+  ]
+}

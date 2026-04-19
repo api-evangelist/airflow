@@ -1,0 +1,6 @@
+{
+  "content": "example-value",
+  "dag_id": "abc123",
+  "version_number": "example-value",
+  "dag_display_name": "example-name"
+}

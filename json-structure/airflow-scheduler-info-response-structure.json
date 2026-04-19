@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-scheduler-info-response-structure.json",
+  "name": "SchedulerInfoResponse",
+  "description": "Scheduler info serializer for responses.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status"
+    },
+    "latest_scheduler_heartbeat": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Latest Scheduler Heartbeat"
+    }
+  },
+  "required": [
+    "status",
+    "latest_scheduler_heartbeat"
+  ]
+}

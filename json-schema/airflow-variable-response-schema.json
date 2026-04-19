@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-variable-response-schema.json",
+  "title": "VariableResponse",
+  "description": "Variable serializer for responses.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "value": {
+      "type": "string",
+      "title": "Value"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "is_encrypted": {
+      "type": "boolean",
+      "title": "Is Encrypted"
+    },
+    "team_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Name"
+    }
+  },
+  "required": [
+    "key",
+    "value",
+    "description",
+    "is_encrypted",
+    "team_name"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-connection-test-response-structure.json",
+  "name": "ConnectionTestResponse",
+  "description": "Connection Test serializer for responses.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "boolean",
+      "title": "Status"
+    },
+    "message": {
+      "type": "string",
+      "title": "Message"
+    }
+  },
+  "required": [
+    "status",
+    "message"
+  ]
+}

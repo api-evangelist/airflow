@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-x-com-response-schema.json",
+  "title": "XComResponse",
+  "description": "Serializer for a xcom item.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Timestamp"
+    },
+    "logical_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logical Date"
+    },
+    "map_index": {
+      "type": "integer",
+      "title": "Map Index"
+    },
+    "task_id": {
+      "type": "string",
+      "title": "Task Id"
+    },
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "run_id": {
+      "type": "string",
+      "title": "Run Id"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    },
+    "task_display_name": {
+      "type": "string",
+      "title": "Task Display Name"
+    },
+    "run_after": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Run After"
+    }
+  },
+  "required": [
+    "key",
+    "timestamp",
+    "logical_date",
+    "map_index",
+    "task_id",
+    "dag_id",
+    "run_id",
+    "dag_display_name",
+    "task_display_name",
+    "run_after"
+  ]
+}

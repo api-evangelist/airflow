@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-external-view-response-schema.json",
+  "title": "ExternalViewResponse",
+  "description": "Serializer for External View Plugin responses.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "icon": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Icon"
+    },
+    "icon_dark_mode": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Icon Dark Mode"
+    },
+    "url_route": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Url Route"
+    },
+    "category": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Category"
+    },
+    "href": {
+      "type": "string",
+      "title": "Href"
+    },
+    "destination": {
+      "type": "string",
+      "enum": [
+        "nav",
+        "dag",
+        "dag_run",
+        "task",
+        "task_instance",
+        "base"
+      ],
+      "title": "Destination",
+      "default": "nav"
+    }
+  },
+  "required": [
+    "name",
+    "href"
+  ],
+  "additionalProperties": true
+}

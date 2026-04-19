@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-queued-event-response-schema.json",
+  "title": "QueuedEventResponse",
+  "description": "Queued Event serializer for responses..",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "asset_id": {
+      "type": "integer",
+      "title": "Asset Id"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    }
+  },
+  "required": [
+    "dag_id",
+    "asset_id",
+    "created_at",
+    "dag_display_name"
+  ]
+}

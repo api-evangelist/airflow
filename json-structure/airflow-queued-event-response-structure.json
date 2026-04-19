@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-queued-event-response-structure.json",
+  "name": "QueuedEventResponse",
+  "description": "Queued Event serializer for responses..",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "asset_id": {
+      "type": "int32",
+      "title": "Asset Id"
+    },
+    "created_at": {
+      "type": "datetime",
+      "title": "Created At"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    }
+  },
+  "required": [
+    "dag_id",
+    "asset_id",
+    "created_at",
+    "dag_display_name"
+  ]
+}

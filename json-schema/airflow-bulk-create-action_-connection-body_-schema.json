@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-bulk-create-action_-connection-body_-schema.json",
+  "title": "BulkCreateAction_ConnectionBody_",
+  "description": "BulkCreateAction_ConnectionBody_ schema from Apache Airflow API",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "const": "create",
+      "title": "Action",
+      "description": "The action to be performed on the entities."
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/components/schemas/ConnectionBody"
+      },
+      "type": "array",
+      "title": "Entities",
+      "description": "A list of entities to be created."
+    },
+    "action_on_existence": {
+      "$ref": "#/components/schemas/BulkActionOnExistence",
+      "default": "fail"
+    }
+  },
+  "required": [
+    "action",
+    "entities"
+  ],
+  "additionalProperties": false
+}

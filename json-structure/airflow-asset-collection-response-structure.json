@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-asset-collection-response-structure.json",
+  "name": "AssetCollectionResponse",
+  "description": "Asset collection response.",
+  "type": "object",
+  "properties": {
+    "assets": {
+      "items": {
+        "$ref": "#/components/schemas/AssetResponse"
+      },
+      "type": "array",
+      "title": "Assets"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "assets",
+    "total_entries"
+  ]
+}

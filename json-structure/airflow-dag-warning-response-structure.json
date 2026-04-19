@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-warning-response-structure.json",
+  "name": "DAGWarningResponse",
+  "description": "DAG Warning serializer for responses.",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "warning_type": {
+      "$ref": "#/components/schemas/DagWarningType"
+    },
+    "message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "timestamp": {
+      "type": "datetime",
+      "title": "Timestamp"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    }
+  },
+  "required": [
+    "dag_id",
+    "warning_type",
+    "message",
+    "timestamp",
+    "dag_display_name"
+  ]
+}

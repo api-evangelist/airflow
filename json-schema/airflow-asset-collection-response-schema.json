@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-asset-collection-response-schema.json",
+  "title": "AssetCollectionResponse",
+  "description": "Asset collection response.",
+  "type": "object",
+  "properties": {
+    "assets": {
+      "items": {
+        "$ref": "#/components/schemas/AssetResponse"
+      },
+      "type": "array",
+      "title": "Assets"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "assets",
+    "total_entries"
+  ]
+}

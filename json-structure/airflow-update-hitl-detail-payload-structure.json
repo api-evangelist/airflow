@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-update-hitl-detail-payload-structure.json",
+  "name": "UpdateHITLDetailPayload",
+  "description": "Schema for updating the content of a Human-in-the-loop detail.",
+  "type": "object",
+  "properties": {
+    "chosen_options": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "minItems": 1,
+      "title": "Chosen Options"
+    },
+    "params_input": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Params Input"
+    }
+  },
+  "required": [
+    "chosen_options"
+  ]
+}

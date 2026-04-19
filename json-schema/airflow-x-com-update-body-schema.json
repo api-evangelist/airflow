@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-x-com-update-body-schema.json",
+  "title": "XComUpdateBody",
+  "description": "Payload serializer for updating an XCom entry.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "title": "Value"
+    },
+    "map_index": {
+      "type": "integer",
+      "title": "Map Index",
+      "default": -1
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-connection-collection-response-schema.json",
+  "title": "ConnectionCollectionResponse",
+  "description": "Connection Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "connections": {
+      "items": {
+        "$ref": "#/components/schemas/ConnectionResponse"
+      },
+      "type": "array",
+      "title": "Connections"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "connections",
+    "total_entries"
+  ]
+}

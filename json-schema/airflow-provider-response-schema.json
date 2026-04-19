@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-provider-response-schema.json",
+  "title": "ProviderResponse",
+  "description": "Provider serializer for responses.",
+  "type": "object",
+  "properties": {
+    "package_name": {
+      "type": "string",
+      "title": "Package Name"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "version": {
+      "type": "string",
+      "title": "Version"
+    },
+    "documentation_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Documentation Url"
+    }
+  },
+  "required": [
+    "package_name",
+    "description",
+    "version",
+    "documentation_url"
+  ]
+}

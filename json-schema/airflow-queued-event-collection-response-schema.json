@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-queued-event-collection-response-schema.json",
+  "title": "QueuedEventCollectionResponse",
+  "description": "Queued Event Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "queued_events": {
+      "items": {
+        "$ref": "#/components/schemas/QueuedEventResponse"
+      },
+      "type": "array",
+      "title": "Queued Events"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "queued_events",
+    "total_entries"
+  ]
+}

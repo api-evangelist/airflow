@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-pool-response-schema.json",
+  "title": "PoolResponse",
+  "description": "Pool serializer for responses.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "slots": {
+      "type": "integer",
+      "minimum": -1.0,
+      "title": "Slots",
+      "description": "Number of slots. Use -1 for unlimited."
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "include_deferred": {
+      "type": "boolean",
+      "title": "Include Deferred"
+    },
+    "occupied_slots": {
+      "type": "integer",
+      "title": "Occupied Slots"
+    },
+    "running_slots": {
+      "type": "integer",
+      "title": "Running Slots"
+    },
+    "queued_slots": {
+      "type": "integer",
+      "title": "Queued Slots"
+    },
+    "scheduled_slots": {
+      "type": "integer",
+      "title": "Scheduled Slots"
+    },
+    "open_slots": {
+      "type": "integer",
+      "title": "Open Slots"
+    },
+    "deferred_slots": {
+      "type": "integer",
+      "title": "Deferred Slots"
+    },
+    "team_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Name"
+    }
+  },
+  "required": [
+    "name",
+    "slots",
+    "include_deferred",
+    "occupied_slots",
+    "running_slots",
+    "queued_slots",
+    "scheduled_slots",
+    "open_slots",
+    "deferred_slots",
+    "team_name"
+  ]
+}

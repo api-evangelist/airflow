@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-variable-collection-response-structure.json",
+  "name": "VariableCollectionResponse",
+  "description": "Variable Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "variables": {
+      "items": {
+        "$ref": "#/components/schemas/VariableResponse"
+      },
+      "type": "array",
+      "title": "Variables"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "variables",
+    "total_entries"
+  ]
+}

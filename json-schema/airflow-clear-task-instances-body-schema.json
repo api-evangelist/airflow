@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-clear-task-instances-body-schema.json",
+  "title": "ClearTaskInstancesBody",
+  "description": "Request body for Clear Task Instances endpoint.",
+  "type": "object",
+  "properties": {
+    "dry_run": {
+      "type": "boolean",
+      "title": "Dry Run",
+      "default": true
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start Date"
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Date"
+    },
+    "only_failed": {
+      "type": "boolean",
+      "title": "Only Failed",
+      "default": true
+    },
+    "only_running": {
+      "type": "boolean",
+      "title": "Only Running",
+      "default": false
+    },
+    "reset_dag_runs": {
+      "type": "boolean",
+      "title": "Reset Dag Runs",
+      "default": true
+    },
+    "task_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "prefixItems": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Ids",
+      "description": "A list of `task_id` or [`task_id`, `map_index`]. If only the `task_id` is provided for a mapped task, all of its map indices will be targeted."
+    },
+    "dag_run_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dag Run Id"
+    },
+    "include_upstream": {
+      "type": "boolean",
+      "title": "Include Upstream",
+      "default": false
+    },
+    "include_downstream": {
+      "type": "boolean",
+      "title": "Include Downstream",
+      "default": false
+    },
+    "include_future": {
+      "type": "boolean",
+      "title": "Include Future",
+      "default": false
+    },
+    "include_past": {
+      "type": "boolean",
+      "title": "Include Past",
+      "default": false
+    },
+    "run_on_latest_version": {
+      "type": "boolean",
+      "title": "Run On Latest Version",
+      "description": "(Experimental) Run on the latest bundle version of the dag after clearing the task instances.",
+      "default": false
+    },
+    "prevent_running_task": {
+      "type": "boolean",
+      "title": "Prevent Running Task",
+      "default": false
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 1000
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    }
+  },
+  "additionalProperties": false
+}

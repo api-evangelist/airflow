@@ -1,0 +1,8 @@
+{
+  "id": "abc123",
+  "classpath": "example-value",
+  "kwargs": "example-value",
+  "created_date": "2026-01-15T10:30:00Z",
+  "queue": "example-value",
+  "triggerer_id": "abc123"
+}

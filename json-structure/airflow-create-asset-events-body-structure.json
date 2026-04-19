@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-create-asset-events-body-structure.json",
+  "name": "CreateAssetEventsBody",
+  "description": "Create asset events request.",
+  "type": "object",
+  "properties": {
+    "asset_id": {
+      "type": "int32",
+      "title": "Asset Id"
+    },
+    "partition_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Partition Key"
+    },
+    "extra": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Extra"
+    }
+  },
+  "required": [
+    "asset_id"
+  ],
+  "additionalProperties": false
+}

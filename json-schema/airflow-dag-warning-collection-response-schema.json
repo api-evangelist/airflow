@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-warning-collection-response-schema.json",
+  "title": "DAGWarningCollectionResponse",
+  "description": "DAG warning collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "dag_warnings": {
+      "items": {
+        "$ref": "#/components/schemas/DAGWarningResponse"
+      },
+      "type": "array",
+      "title": "Dag Warnings"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "dag_warnings",
+    "total_entries"
+  ]
+}

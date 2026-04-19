@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-event-log-collection-response-schema.json",
+  "title": "EventLogCollectionResponse",
+  "description": "Event Log Collection Response.",
+  "type": "object",
+  "properties": {
+    "event_logs": {
+      "items": {
+        "$ref": "#/components/schemas/EventLogResponse"
+      },
+      "type": "array",
+      "title": "Event Logs"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "event_logs",
+    "total_entries"
+  ]
+}

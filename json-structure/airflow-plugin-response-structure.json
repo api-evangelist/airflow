@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-plugin-response-structure.json",
+  "name": "PluginResponse",
+  "description": "Plugin serializer.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "macros": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Macros"
+    },
+    "flask_blueprints": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Flask Blueprints"
+    },
+    "fastapi_apps": {
+      "items": {
+        "$ref": "#/components/schemas/FastAPIAppResponse"
+      },
+      "type": "array",
+      "title": "Fastapi Apps"
+    },
+    "fastapi_root_middlewares": {
+      "items": {
+        "$ref": "#/components/schemas/FastAPIRootMiddlewareResponse"
+      },
+      "type": "array",
+      "title": "Fastapi Root Middlewares"
+    },
+    "external_views": {
+      "items": {
+        "$ref": "#/components/schemas/ExternalViewResponse"
+      },
+      "type": "array",
+      "title": "External Views",
+      "description": "Aggregate all external views. Both 'external_views' and 'appbuilder_menu_items' are included here."
+    },
+    "react_apps": {
+      "items": {
+        "$ref": "#/components/schemas/ReactAppResponse"
+      },
+      "type": "array",
+      "title": "React Apps"
+    },
+    "appbuilder_views": {
+      "items": {
+        "$ref": "#/components/schemas/AppBuilderViewResponse"
+      },
+      "type": "array",
+      "title": "Appbuilder Views"
+    },
+    "appbuilder_menu_items": {
+      "items": {
+        "$ref": "#/components/schemas/AppBuilderMenuItemResponse"
+      },
+      "type": "array",
+      "title": "Appbuilder Menu Items",
+      "deprecated": true
+    },
+    "global_operator_extra_links": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Global Operator Extra Links"
+    },
+    "operator_extra_links": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Operator Extra Links"
+    },
+    "source": {
+      "type": "string",
+      "title": "Source"
+    },
+    "listeners": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Listeners"
+    },
+    "timetables": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Timetables"
+    }
+  },
+  "required": [
+    "name",
+    "macros",
+    "flask_blueprints",
+    "fastapi_apps",
+    "fastapi_root_middlewares",
+    "external_views",
+    "react_apps",
+    "appbuilder_views",
+    "appbuilder_menu_items",
+    "global_operator_extra_links",
+    "operator_extra_links",
+    "source",
+    "listeners",
+    "timetables"
+  ]
+}

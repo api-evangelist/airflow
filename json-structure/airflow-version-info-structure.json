@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-version-info-structure.json",
+  "name": "VersionInfo",
+  "description": "Version information serializer for responses.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "title": "Version"
+    },
+    "git_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Git Version"
+    }
+  },
+  "required": [
+    "version",
+    "git_version"
+  ]
+}

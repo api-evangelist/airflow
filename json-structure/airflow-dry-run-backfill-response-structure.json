@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dry-run-backfill-response-structure.json",
+  "name": "DryRunBackfillResponse",
+  "description": "Backfill serializer for responses in dry-run mode.",
+  "type": "object",
+  "properties": {
+    "logical_date": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logical Date"
+    },
+    "partition_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Partition Key"
+    },
+    "partition_date": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Partition Date"
+    }
+  },
+  "required": [
+    "logical_date",
+    "partition_key",
+    "partition_date"
+  ]
+}

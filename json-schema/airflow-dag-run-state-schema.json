@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-run-state-schema.json",
+  "title": "DagRunState",
+  "description": "All possible states that a DagRun can be in.\n\nThese are \"shared\" with TaskInstanceState in some parts of the code,\nso please ensure that their values always match the ones with the\nsame name in TaskInstanceState.",
+  "type": "string",
+  "enum": [
+    "queued",
+    "running",
+    "success",
+    "failed"
+  ]
+}

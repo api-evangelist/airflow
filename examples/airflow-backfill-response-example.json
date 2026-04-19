@@ -1,0 +1,14 @@
+{
+  "id": "abc123",
+  "dag_id": "abc123",
+  "from_date": "2026-01-15T10:30:00Z",
+  "to_date": "2026-01-15T10:30:00Z",
+  "dag_run_conf": "example-value",
+  "is_paused": true,
+  "reprocess_behavior": "example-value",
+  "max_active_runs": 1,
+  "created_at": "2026-01-15T10:30:00Z",
+  "completed_at": "example-value",
+  "updated_at": "2026-01-15T10:30:00Z",
+  "dag_display_name": "example-name"
+}

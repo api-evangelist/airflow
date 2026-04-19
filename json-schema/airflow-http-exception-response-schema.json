@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-http-exception-response-schema.json",
+  "title": "HTTPExceptionResponse",
+  "description": "HTTPException Model used for error response.",
+  "type": "object",
+  "properties": {
+    "detail": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      ],
+      "title": "Detail"
+    }
+  },
+  "required": [
+    "detail"
+  ]
+}

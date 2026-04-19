@@ -1,0 +1,9 @@
+{
+  "name": "example-name",
+  "icon": "example-value",
+  "icon_dark_mode": "example-value",
+  "url_route": "example-value",
+  "category": "example-value",
+  "bundle_url": "example-value",
+  "destination": "nav"
+}

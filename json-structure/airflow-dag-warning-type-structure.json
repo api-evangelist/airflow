@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-warning-type-structure.json",
+  "name": "DagWarningType",
+  "description": "Enum for DAG warning types.\n\nThis is the set of allowable values for the ``warning_type`` field\nin the DagWarning model.",
+  "type": "string",
+  "enum": [
+    "asset conflict",
+    "non-existent pool",
+    "runtime varying value"
+  ]
+}

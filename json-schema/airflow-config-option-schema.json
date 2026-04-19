@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-config-option-schema.json",
+  "title": "ConfigOption",
+  "description": "Config option.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "prefixItems": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "type": "array",
+          "maxItems": 2,
+          "minItems": 2
+        }
+      ],
+      "title": "Value"
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ],
+  "additionalProperties": false
+}

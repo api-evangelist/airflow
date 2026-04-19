@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-version-collection-response-schema.json",
+  "title": "DAGVersionCollectionResponse",
+  "description": "DAG Version Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "dag_versions": {
+      "items": {
+        "$ref": "#/components/schemas/DagVersionResponse"
+      },
+      "type": "array",
+      "title": "Dag Versions"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "dag_versions",
+    "total_entries"
+  ]
+}

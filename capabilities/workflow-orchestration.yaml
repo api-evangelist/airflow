@@ -1,0 +1,185 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Apache Airflow Workflow Orchestration"
+  description: "Unified workflow capability for managing Apache Airflow pipelines — DAGs, DAG runs, task monitoring, variables, and connections. Used by data engineers and platform teams for orchestrating data pipelines."
+  tags:
+    - Airflow
+    - Workflow Orchestration
+    - Data Pipeline
+    - ETL
+    - Data Engineering
+    - Apache
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AIRFLOW_BASE_URL: AIRFLOW_BASE_URL
+      AIRFLOW_USERNAME: AIRFLOW_USERNAME
+      AIRFLOW_PASSWORD: AIRFLOW_PASSWORD
+
+capability:
+  consumes:
+    - import: airflow
+      location: ./shared/airflow-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: airflow-orchestration-api
+      description: "Unified REST API for Airflow workflow orchestration."
+      resources:
+        - path: /v1/dags
+          name: dags
+          description: "Apache Airflow DAG management."
+          operations:
+            - method: GET
+              name: list-dags
+              description: "List all DAGs."
+              call: "airflow.list-dags"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/dag-runs
+          name: dag-runs
+          description: "Trigger and monitor DAG runs."
+          operations:
+            - method: GET
+              name: list-dag-runs
+              description: "List DAG runs."
+              call: "airflow.list-dag-runs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: trigger-dag-run
+              description: "Trigger a new DAG run."
+              call: "airflow.trigger-dag-run"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/task-instances
+          name: task-instances
+          description: "Monitor task instances."
+          operations:
+            - method: GET
+              name: list-task-instances
+              description: "List task instances for a DAG run."
+              call: "airflow.list-task-instances"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/variables
+          name: variables
+          description: "Airflow Variables."
+          operations:
+            - method: GET
+              name: list-variables
+              description: "List all variables."
+              call: "airflow.list-variables"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/connections
+          name: connections
+          description: "Airflow Connections."
+          operations:
+            - method: GET
+              name: list-connections
+              description: "List all connections."
+              call: "airflow.list-connections"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: airflow-orchestration-mcp
+      transport: http
+      description: "MCP server for AI-assisted Airflow workflow management."
+      tools:
+        - name: list-dags
+          description: "List all Apache Airflow DAGs."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "airflow.list-dags"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-dag
+          description: "Get details of an Apache Airflow DAG by ID."
+          hints:
+            readOnly: true
+          call: "airflow.get-dag"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: trigger-dag-run
+          description: "Trigger an Apache Airflow DAG run with optional configuration."
+          hints:
+            readOnly: false
+          call: "airflow.trigger-dag-run"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-dag-runs
+          description: "List Airflow DAG run history with optional state filtering."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "airflow.list-dag-runs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-dag-run-status
+          description: "Get the current status of an Airflow DAG run."
+          hints:
+            readOnly: true
+          call: "airflow.get-dag-run"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-task-instances
+          description: "List task instances and their status for a DAG run."
+          hints:
+            readOnly: true
+          call: "airflow.list-task-instances"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: pause-dag
+          description: "Pause an Airflow DAG to prevent scheduled runs."
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "airflow.patch-dag"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-variables
+          description: "List Airflow Variables for pipeline configuration."
+          hints:
+            readOnly: true
+          call: "airflow.list-variables"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-variable
+          description: "Get a specific Airflow Variable by key."
+          hints:
+            readOnly: true
+          call: "airflow.get-variable"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-connections
+          description: "List Airflow Connections for external service integrations."
+          hints:
+            readOnly: true
+          call: "airflow.list-connections"
+          outputParameters:
+            - type: object
+              mapping: "$."

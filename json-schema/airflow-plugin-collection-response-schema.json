@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-plugin-collection-response-schema.json",
+  "title": "PluginCollectionResponse",
+  "description": "Plugin Collection serializer.",
+  "type": "object",
+  "properties": {
+    "plugins": {
+      "items": {
+        "$ref": "#/components/schemas/PluginResponse"
+      },
+      "type": "array",
+      "title": "Plugins"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "plugins",
+    "total_entries"
+  ]
+}

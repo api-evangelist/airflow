@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-json-value-structure.json",
+  "name": "JsonValue",
+  "description": "JsonValue schema from Apache Airflow API"
+}

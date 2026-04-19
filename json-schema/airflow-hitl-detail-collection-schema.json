@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-hitl-detail-collection-schema.json",
+  "title": "HITLDetailCollection",
+  "description": "Schema for a collection of Human-in-the-loop details.",
+  "type": "object",
+  "properties": {
+    "hitl_details": {
+      "items": {
+        "$ref": "#/components/schemas/HITLDetail"
+      },
+      "type": "array",
+      "title": "Hitl Details"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "hitl_details",
+    "total_entries"
+  ]
+}

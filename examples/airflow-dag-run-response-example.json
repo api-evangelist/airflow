@@ -1,0 +1,23 @@
+{
+  "dag_run_id": "abc123",
+  "dag_id": "abc123",
+  "logical_date": "example-value",
+  "queued_at": "example-value",
+  "start_date": "example-value",
+  "end_date": "example-value",
+  "duration": "example-value",
+  "data_interval_start": "example-value",
+  "data_interval_end": "example-value",
+  "run_after": "2026-01-15T10:30:00Z",
+  "last_scheduling_decision": "example-value",
+  "run_type": "example-value",
+  "state": "success",
+  "triggered_by": "example-value",
+  "triggering_user_name": "example-name",
+  "conf": "example-value",
+  "note": "example-value",
+  "dag_versions": [],
+  "bundle_version": "example-value",
+  "dag_display_name": "example-name",
+  "partition_key": "example-value"
+}

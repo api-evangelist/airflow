@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-x-com-collection-response-schema.json",
+  "title": "XComCollectionResponse",
+  "description": "XCom Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "xcom_entries": {
+      "items": {
+        "$ref": "#/components/schemas/XComResponse"
+      },
+      "type": "array",
+      "title": "Xcom Entries"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "xcom_entries",
+    "total_entries"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-run-clear-body-schema.json",
+  "title": "DAGRunClearBody",
+  "description": "DAG Run serializer for clear endpoint body.",
+  "type": "object",
+  "properties": {
+    "dry_run": {
+      "type": "boolean",
+      "title": "Dry Run",
+      "default": true
+    },
+    "only_failed": {
+      "type": "boolean",
+      "title": "Only Failed",
+      "default": false
+    },
+    "run_on_latest_version": {
+      "type": "boolean",
+      "title": "Run On Latest Version",
+      "description": "(Experimental) Run on the latest bundle version of the Dag after clearing the Dag Run.",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

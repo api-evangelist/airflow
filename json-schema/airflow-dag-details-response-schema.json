@@ -1,0 +1,482 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-details-response-schema.json",
+  "title": "DAGDetailsResponse",
+  "description": "Specific serializer for DAG Details responses.",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    },
+    "is_paused": {
+      "type": "boolean",
+      "title": "Is Paused"
+    },
+    "is_stale": {
+      "type": "boolean",
+      "title": "Is Stale"
+    },
+    "last_parsed_time": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Parsed Time"
+    },
+    "last_parse_duration": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Parse Duration"
+    },
+    "last_expired": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Expired"
+    },
+    "bundle_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bundle Name"
+    },
+    "bundle_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bundle Version"
+    },
+    "relative_fileloc": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Relative Fileloc"
+    },
+    "fileloc": {
+      "type": "string",
+      "title": "Fileloc"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "timetable_summary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Timetable Summary"
+    },
+    "timetable_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Timetable Description"
+    },
+    "timetable_partitioned": {
+      "type": "boolean",
+      "title": "Timetable Partitioned"
+    },
+    "timetable_periodic": {
+      "type": "boolean",
+      "title": "Timetable Periodic"
+    },
+    "tags": {
+      "items": {
+        "$ref": "#/components/schemas/DagTagResponse"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "max_active_tasks": {
+      "type": "integer",
+      "title": "Max Active Tasks"
+    },
+    "max_active_runs": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Max Active Runs"
+    },
+    "max_consecutive_failed_dag_runs": {
+      "type": "integer",
+      "title": "Max Consecutive Failed Dag Runs"
+    },
+    "has_task_concurrency_limits": {
+      "type": "boolean",
+      "title": "Has Task Concurrency Limits"
+    },
+    "has_import_errors": {
+      "type": "boolean",
+      "title": "Has Import Errors"
+    },
+    "next_dagrun_logical_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Next Dagrun Logical Date"
+    },
+    "next_dagrun_data_interval_start": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Next Dagrun Data Interval Start"
+    },
+    "next_dagrun_data_interval_end": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Next Dagrun Data Interval End"
+    },
+    "next_dagrun_run_after": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Next Dagrun Run After"
+    },
+    "allowed_run_types": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/DagRunType"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Allowed Run Types"
+    },
+    "owners": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Owners"
+    },
+    "catchup": {
+      "type": "boolean",
+      "title": "Catchup"
+    },
+    "dag_run_timeout": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "duration"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dag Run Timeout"
+    },
+    "asset_expression": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Asset Expression"
+    },
+    "doc_md": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Doc Md"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start Date"
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Date"
+    },
+    "is_paused_upon_creation": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Is Paused Upon Creation"
+    },
+    "params": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Params"
+    },
+    "render_template_as_native_obj": {
+      "type": "boolean",
+      "title": "Render Template As Native Obj"
+    },
+    "template_search_path": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Template Search Path"
+    },
+    "timezone": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Timezone"
+    },
+    "last_parsed": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Parsed"
+    },
+    "default_args": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Default Args"
+    },
+    "owner_links": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Owner Links"
+    },
+    "is_favorite": {
+      "type": "boolean",
+      "title": "Is Favorite",
+      "default": false
+    },
+    "active_runs_count": {
+      "type": "integer",
+      "title": "Active Runs Count",
+      "default": 0
+    },
+    "is_backfillable": {
+      "type": "boolean",
+      "title": "Is Backfillable",
+      "description": "Whether this DAG's schedule supports backfilling.",
+      "readOnly": true
+    },
+    "file_token": {
+      "type": "string",
+      "title": "File Token",
+      "description": "Return file token.",
+      "readOnly": true
+    },
+    "concurrency": {
+      "type": "integer",
+      "title": "Concurrency",
+      "description": "Return max_active_tasks as concurrency.\n\nDeprecated: Use max_active_tasks instead.",
+      "deprecated": true,
+      "readOnly": true
+    },
+    "latest_dag_version": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/DagVersionResponse"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Return the latest DagVersion.",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "dag_id",
+    "dag_display_name",
+    "is_paused",
+    "is_stale",
+    "last_parsed_time",
+    "last_parse_duration",
+    "last_expired",
+    "bundle_name",
+    "bundle_version",
+    "relative_fileloc",
+    "fileloc",
+    "description",
+    "timetable_summary",
+    "timetable_description",
+    "timetable_partitioned",
+    "timetable_periodic",
+    "tags",
+    "max_active_tasks",
+    "max_active_runs",
+    "max_consecutive_failed_dag_runs",
+    "has_task_concurrency_limits",
+    "has_import_errors",
+    "next_dagrun_logical_date",
+    "next_dagrun_data_interval_start",
+    "next_dagrun_data_interval_end",
+    "next_dagrun_run_after",
+    "allowed_run_types",
+    "owners",
+    "catchup",
+    "dag_run_timeout",
+    "asset_expression",
+    "doc_md",
+    "start_date",
+    "end_date",
+    "is_paused_upon_creation",
+    "params",
+    "render_template_as_native_obj",
+    "template_search_path",
+    "timezone",
+    "last_parsed",
+    "default_args",
+    "is_backfillable",
+    "file_token",
+    "concurrency",
+    "latest_dag_version"
+  ]
+}

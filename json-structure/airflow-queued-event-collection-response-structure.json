@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-queued-event-collection-response-structure.json",
+  "name": "QueuedEventCollectionResponse",
+  "description": "Queued Event Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "queued_events": {
+      "items": {
+        "$ref": "#/components/schemas/QueuedEventResponse"
+      },
+      "type": "array",
+      "title": "Queued Events"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "queued_events",
+    "total_entries"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-tag-collection-response-schema.json",
+  "title": "DAGTagCollectionResponse",
+  "description": "DAG Tags Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "tags",
+    "total_entries"
+  ]
+}

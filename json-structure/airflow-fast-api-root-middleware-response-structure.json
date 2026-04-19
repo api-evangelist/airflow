@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-fast-api-root-middleware-response-structure.json",
+  "name": "FastAPIRootMiddlewareResponse",
+  "description": "Serializer for Plugin FastAPI root middleware responses.",
+  "type": "object",
+  "properties": {
+    "middleware": {
+      "type": "string",
+      "title": "Middleware"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    }
+  },
+  "required": [
+    "middleware",
+    "name"
+  ],
+  "additionalProperties": true
+}

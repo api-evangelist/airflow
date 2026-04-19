@@ -1,0 +1,12 @@
+{
+  "new_state": "success",
+  "note": "example-value",
+  "include_upstream": true,
+  "include_downstream": true,
+  "include_future": true,
+  "include_past": true,
+  "task_id": "abc123",
+  "map_index": "example-value",
+  "dag_id": "abc123",
+  "dag_run_id": "abc123"
+}

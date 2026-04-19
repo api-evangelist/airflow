@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-hitl-user-structure.json",
+  "name": "HITLUser",
+  "description": "Schema for a Human-in-the-loop users.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

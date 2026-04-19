@@ -1,0 +1,10 @@
+{
+  "dag_id": "abc123",
+  "from_date": "2026-01-15T10:30:00Z",
+  "to_date": "2026-01-15T10:30:00Z",
+  "run_backwards": true,
+  "dag_run_conf": {},
+  "reprocess_behavior": "example-value",
+  "max_active_runs": 1,
+  "run_on_latest_version": true
+}

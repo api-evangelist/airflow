@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-version-response-structure.json",
+  "name": "DagVersionResponse",
+  "description": "Dag Version serializer for responses.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "uuid",
+      "title": "Id"
+    },
+    "version_number": {
+      "type": "int32",
+      "title": "Version Number"
+    },
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "bundle_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bundle Name"
+    },
+    "bundle_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bundle Version"
+    },
+    "created_at": {
+      "type": "datetime",
+      "title": "Created At"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    },
+    "bundle_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bundle Url"
+    }
+  },
+  "required": [
+    "id",
+    "version_number",
+    "dag_id",
+    "bundle_name",
+    "bundle_version",
+    "created_at",
+    "dag_display_name",
+    "bundle_url"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-task-collection-response-schema.json",
+  "title": "TaskCollectionResponse",
+  "description": "Task collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "tasks": {
+      "items": {
+        "$ref": "#/components/schemas/TaskResponse"
+      },
+      "type": "array",
+      "title": "Tasks"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "tasks",
+    "total_entries"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "asset_id": "abc123",
+  "partition_key": "example-value",
+  "extra": {}
+}

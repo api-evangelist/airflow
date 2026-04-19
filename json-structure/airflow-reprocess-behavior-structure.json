@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-reprocess-behavior-structure.json",
+  "name": "ReprocessBehavior",
+  "description": "Internal enum for setting reprocess behavior in a backfill.\n\n:meta private:",
+  "type": "string",
+  "enum": [
+    "failed",
+    "completed",
+    "none"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "abc123",
+  "name": "example-name",
+  "uri": "example-value",
+  "group": "example-value",
+  "extra": "example-value",
+  "created_at": "2026-01-15T10:30:00Z",
+  "updated_at": "2026-01-15T10:30:00Z",
+  "scheduled_dags": [],
+  "producing_tasks": [],
+  "consuming_tasks": [],
+  "aliases": [],
+  "watchers": [],
+  "last_asset_event": "example-value"
+}

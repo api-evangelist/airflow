@@ -1,0 +1,13 @@
+{
+  "key": "example-value",
+  "timestamp": "2026-01-15T10:30:00Z",
+  "logical_date": "example-value",
+  "map_index": 1,
+  "task_id": "abc123",
+  "dag_id": "abc123",
+  "run_id": "abc123",
+  "dag_display_name": "example-name",
+  "task_display_name": "example-name",
+  "run_after": "2026-01-15T10:30:00Z",
+  "value": "example-value"
+}

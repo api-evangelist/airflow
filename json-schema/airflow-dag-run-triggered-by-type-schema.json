@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-run-triggered-by-type-schema.json",
+  "title": "DagRunTriggeredByType",
+  "description": "Class with TriggeredBy types for DagRun.",
+  "type": "string",
+  "enum": [
+    "cli",
+    "operator",
+    "rest_api",
+    "ui",
+    "test",
+    "timetable",
+    "asset",
+    "backfill"
+  ]
+}

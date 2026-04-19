@@ -1,0 +1,13 @@
+{
+  "id": "abc123",
+  "dag_id": "abc123",
+  "state": "success",
+  "job_type": "example-value",
+  "start_date": "example-value",
+  "end_date": "example-value",
+  "latest_heartbeat": "example-value",
+  "executor_class": "example-value",
+  "hostname": "example-name",
+  "unixname": "example-name",
+  "dag_display_name": "example-name"
+}

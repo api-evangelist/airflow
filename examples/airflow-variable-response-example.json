@@ -1,0 +1,7 @@
+{
+  "key": "example-value",
+  "value": "example-value",
+  "description": "example-value",
+  "is_encrypted": true,
+  "team_name": "example-name"
+}

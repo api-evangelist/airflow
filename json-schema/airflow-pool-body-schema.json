@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-pool-body-schema.json",
+  "title": "PoolBody",
+  "description": "Pool serializer for post bodies.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 256,
+      "title": "Name"
+    },
+    "slots": {
+      "type": "integer",
+      "minimum": -1.0,
+      "title": "Slots",
+      "description": "Number of slots. Use -1 for unlimited."
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "include_deferred": {
+      "type": "boolean",
+      "title": "Include Deferred",
+      "default": false
+    },
+    "team_name": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 50
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Name"
+    }
+  },
+  "required": [
+    "name",
+    "slots"
+  ],
+  "additionalProperties": false
+}

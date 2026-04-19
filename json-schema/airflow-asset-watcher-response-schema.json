@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-asset-watcher-response-schema.json",
+  "title": "AssetWatcherResponse",
+  "description": "Asset watcher serializer for responses.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "trigger_id": {
+      "type": "integer",
+      "title": "Trigger Id"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created Date"
+    }
+  },
+  "required": [
+    "name",
+    "trigger_id",
+    "created_date"
+  ]
+}

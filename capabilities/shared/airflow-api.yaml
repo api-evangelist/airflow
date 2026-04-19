@@ -1,0 +1,330 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Apache Airflow API"
+  description: "Programmatic access to Apache Airflow for managing DAGs, DAG runs, tasks, connections, variables, and pools."
+  tags:
+    - Airflow
+    - Workflow Orchestration
+    - Data Pipeline
+    - Open Source
+    - Apache
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AIRFLOW_BASE_URL: AIRFLOW_BASE_URL
+      AIRFLOW_USERNAME: AIRFLOW_USERNAME
+      AIRFLOW_PASSWORD: AIRFLOW_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: airflow
+      baseUri: "{{AIRFLOW_BASE_URL}}/api/v2"
+      description: "Apache Airflow REST API v2."
+      authentication:
+        type: basic
+        username: "{{AIRFLOW_USERNAME}}"
+        password: "{{AIRFLOW_PASSWORD}}"
+      resources:
+        - name: dags
+          path: /dags
+          description: "Manage Directed Acyclic Graphs (DAGs)."
+          operations:
+            - name: list-dags
+              method: GET
+              description: "List all DAGs."
+              inputParameters:
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of DAGs to return."
+                - name: only_active
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "Filter to active DAGs only."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-dag
+              method: GET
+              description: "Get a DAG by ID."
+              inputParameters:
+                - name: dag_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: patch-dag
+              method: PATCH
+              description: "Update a DAG (e.g., pause/unpause)."
+              inputParameters:
+                - name: dag_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  is_paused: "{{tools.is_paused}}"
+
+        - name: dag-runs
+          path: /dags/{dag_id}/dagRuns
+          description: "Manage DAG run executions."
+          operations:
+            - name: list-dag-runs
+              method: GET
+              description: "List DAG runs for a specific DAG."
+              inputParameters:
+                - name: dag_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG identifier."
+                - name: state
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by state (running, success, failed)."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: trigger-dag-run
+              method: POST
+              description: "Trigger a new DAG run."
+              inputParameters:
+                - name: dag_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  logical_date: "{{tools.logical_date}}"
+                  conf: "{{tools.conf}}"
+            - name: get-dag-run
+              method: GET
+              description: "Get a specific DAG run."
+              inputParameters:
+                - name: dag_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG identifier."
+                - name: dag_run_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG run identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: task-instances
+          path: /dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances
+          description: "Monitor and manage task instances within DAG runs."
+          operations:
+            - name: list-task-instances
+              method: GET
+              description: "List task instances for a DAG run."
+              inputParameters:
+                - name: dag_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG identifier."
+                - name: dag_run_id
+                  in: path
+                  type: string
+                  required: true
+                  description: "DAG run identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: variables
+          path: /variables
+          description: "Manage Airflow Variables."
+          operations:
+            - name: list-variables
+              method: GET
+              description: "List all variables."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-variable
+              method: GET
+              description: "Get a variable by key."
+              inputParameters:
+                - name: variable_key
+                  in: path
+                  type: string
+                  required: true
+                  description: "Variable key."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: connections
+          path: /connections
+          description: "Manage Airflow Connections."
+          operations:
+            - name: list-connections
+              method: GET
+              description: "List all connections."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: airflow-rest-api
+      resources:
+        - path: /v1/dags
+          name: dags
+          description: "Airflow DAGs."
+          operations:
+            - method: GET
+              name: list-dags
+              description: "List all DAGs."
+              call: "airflow.list-dags"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/dag-runs
+          name: dag-runs
+          description: "Airflow DAG runs."
+          operations:
+            - method: POST
+              name: trigger-dag-run
+              description: "Trigger a DAG run."
+              call: "airflow.trigger-dag-run"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/variables
+          name: variables
+          description: "Airflow Variables."
+          operations:
+            - method: GET
+              name: list-variables
+              description: "List variables."
+              call: "airflow.list-variables"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: airflow-mcp
+      transport: http
+      tools:
+        - name: list-dags
+          description: "List Apache Airflow DAGs."
+          hints:
+            readOnly: true
+          call: "airflow.list-dags"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-dag
+          description: "Get details of a specific Airflow DAG."
+          hints:
+            readOnly: true
+          call: "airflow.get-dag"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: trigger-dag-run
+          description: "Trigger an Airflow DAG run."
+          hints:
+            readOnly: false
+          call: "airflow.trigger-dag-run"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-dag-runs
+          description: "List Airflow DAG run executions."
+          hints:
+            readOnly: true
+          call: "airflow.list-dag-runs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-dag-run
+          description: "Get the status of an Airflow DAG run."
+          hints:
+            readOnly: true
+          call: "airflow.get-dag-run"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-task-instances
+          description: "List task instances for an Airflow DAG run."
+          hints:
+            readOnly: true
+          call: "airflow.list-task-instances"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-variables
+          description: "List Airflow Variables."
+          hints:
+            readOnly: true
+          call: "airflow.list-variables"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-connections
+          description: "List Airflow Connections."
+          hints:
+            readOnly: true
+          call: "airflow.list-connections"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: pause-dag
+          description: "Pause an Airflow DAG to stop scheduled runs."
+          hints:
+            readOnly: false
+          call: "airflow.patch-dag"
+          outputParameters:
+            - type: object
+              mapping: "$."

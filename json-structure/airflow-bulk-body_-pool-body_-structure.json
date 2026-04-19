@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-bulk-body_-pool-body_-structure.json",
+  "name": "BulkBody_PoolBody_",
+  "description": "BulkBody_PoolBody_ schema from Apache Airflow API",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BulkCreateAction_PoolBody_"
+          },
+          {
+            "$ref": "#/components/schemas/BulkUpdateAction_PoolBody_"
+          },
+          {
+            "$ref": "#/components/schemas/BulkDeleteAction_PoolBody_"
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Actions"
+    }
+  },
+  "required": [
+    "actions"
+  ],
+  "additionalProperties": false
+}

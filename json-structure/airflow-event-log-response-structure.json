@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-event-log-response-structure.json",
+  "name": "EventLogResponse",
+  "description": "Event Log Response.",
+  "type": "object",
+  "properties": {
+    "event_log_id": {
+      "type": "int32",
+      "title": "Event Log Id"
+    },
+    "when": {
+      "type": "datetime",
+      "title": "When"
+    },
+    "dag_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dag Id"
+    },
+    "task_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Id"
+    },
+    "run_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Run Id"
+    },
+    "map_index": {
+      "anyOf": [
+        {
+          "type": "int32"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Map Index"
+    },
+    "try_number": {
+      "anyOf": [
+        {
+          "type": "int32"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Try Number"
+    },
+    "event": {
+      "type": "string",
+      "title": "Event"
+    },
+    "logical_date": {
+      "anyOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logical Date"
+    },
+    "owner": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Owner"
+    },
+    "extra": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Extra"
+    },
+    "dag_display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dag Display Name"
+    },
+    "task_display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Display Name"
+    }
+  },
+  "required": [
+    "event_log_id",
+    "when",
+    "dag_id",
+    "task_id",
+    "run_id",
+    "map_index",
+    "try_number",
+    "event",
+    "logical_date",
+    "owner",
+    "extra"
+  ]
+}

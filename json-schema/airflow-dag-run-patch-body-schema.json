@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-run-patch-body-schema.json",
+  "title": "DAGRunPatchBody",
+  "description": "DAG Run Serializer for PATCH requests.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/DAGRunPatchStates"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 1000
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    }
+  },
+  "additionalProperties": false
+}

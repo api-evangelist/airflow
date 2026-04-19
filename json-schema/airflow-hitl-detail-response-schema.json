@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-hitl-detail-response-schema.json",
+  "title": "HITLDetailResponse",
+  "description": "Response of updating a Human-in-the-loop detail.",
+  "type": "object",
+  "properties": {
+    "responded_by": {
+      "$ref": "#/components/schemas/HITLUser"
+    },
+    "responded_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Responded At"
+    },
+    "chosen_options": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "minItems": 1,
+      "title": "Chosen Options"
+    },
+    "params_input": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Params Input"
+    }
+  },
+  "required": [
+    "responded_by",
+    "responded_at",
+    "chosen_options"
+  ]
+}

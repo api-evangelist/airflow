@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-task-instances-log-response-structure.json",
+  "name": "TaskInstancesLogResponse",
+  "description": "Log serializer for responses.",
+  "type": "object",
+  "properties": {
+    "content": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/StructuredLogMessage"
+          },
+          "type": "array"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      ],
+      "title": "Content"
+    },
+    "continuation_token": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Continuation Token"
+    }
+  },
+  "required": [
+    "content",
+    "continuation_token"
+  ]
+}

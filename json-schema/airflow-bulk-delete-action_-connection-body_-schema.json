@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-bulk-delete-action_-connection-body_-schema.json",
+  "title": "BulkDeleteAction_ConnectionBody_",
+  "description": "BulkDeleteAction_ConnectionBody_ schema from Apache Airflow API",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "const": "delete",
+      "title": "Action",
+      "description": "The action to be performed on the entities."
+    },
+    "entities": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/components/schemas/ConnectionBody"
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Entities",
+      "description": "A list of entity id/key or entity objects to be deleted."
+    },
+    "action_on_non_existence": {
+      "$ref": "#/components/schemas/BulkActionNotOnExistence",
+      "default": "fail"
+    }
+  },
+  "required": [
+    "action",
+    "entities"
+  ],
+  "additionalProperties": false
+}

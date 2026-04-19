@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-stats-state-response-structure.json",
+  "name": "DagStatsStateResponse",
+  "description": "DagStatsState serializer for responses.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "$ref": "#/components/schemas/DagRunState"
+    },
+    "count": {
+      "type": "int32",
+      "title": "Count"
+    }
+  },
+  "required": [
+    "state",
+    "count"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "abc123",
+  "asset_id": "abc123",
+  "uri": "example-value",
+  "name": "example-name",
+  "group": "example-value",
+  "extra": "example-value",
+  "source_task_id": "abc123",
+  "source_dag_id": "abc123",
+  "source_run_id": "abc123",
+  "source_map_index": 1,
+  "created_dagruns": [],
+  "timestamp": "2026-01-15T10:30:00Z",
+  "partition_key": "example-value"
+}

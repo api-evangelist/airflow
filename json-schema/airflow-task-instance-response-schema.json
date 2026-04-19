@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-task-instance-response-schema.json",
+  "title": "TaskInstanceResponse",
+  "description": "TaskInstance serializer for responses.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Id"
+    },
+    "task_id": {
+      "type": "string",
+      "title": "Task Id"
+    },
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "dag_run_id": {
+      "type": "string",
+      "title": "Dag Run Id"
+    },
+    "map_index": {
+      "type": "integer",
+      "title": "Map Index"
+    },
+    "logical_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logical Date"
+    },
+    "run_after": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Run After"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start Date"
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Date"
+    },
+    "duration": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Duration"
+    },
+    "state": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TaskInstanceState"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "try_number": {
+      "type": "integer",
+      "title": "Try Number"
+    },
+    "max_tries": {
+      "type": "integer",
+      "title": "Max Tries"
+    },
+    "task_display_name": {
+      "type": "string",
+      "title": "Task Display Name"
+    },
+    "dag_display_name": {
+      "type": "string",
+      "title": "Dag Display Name"
+    },
+    "hostname": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Hostname"
+    },
+    "unixname": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Unixname"
+    },
+    "pool": {
+      "type": "string",
+      "title": "Pool"
+    },
+    "pool_slots": {
+      "type": "integer",
+      "title": "Pool Slots"
+    },
+    "queue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Queue"
+    },
+    "priority_weight": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Priority Weight"
+    },
+    "operator": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Operator"
+    },
+    "operator_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Operator Name"
+    },
+    "queued_when": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Queued When"
+    },
+    "scheduled_when": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Scheduled When"
+    },
+    "pid": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pid"
+    },
+    "executor": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Executor"
+    },
+    "executor_config": {
+      "type": "string",
+      "title": "Executor Config"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    },
+    "rendered_map_index": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rendered Map Index"
+    },
+    "rendered_fields": {
+      "additionalProperties": true,
+      "type": "object",
+      "title": "Rendered Fields"
+    },
+    "trigger": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TriggerResponse"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "triggerer_job": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/JobResponse"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dag_version": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/DagVersionResponse"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "task_id",
+    "dag_id",
+    "dag_run_id",
+    "map_index",
+    "logical_date",
+    "run_after",
+    "start_date",
+    "end_date",
+    "duration",
+    "state",
+    "try_number",
+    "max_tries",
+    "task_display_name",
+    "dag_display_name",
+    "hostname",
+    "unixname",
+    "pool",
+    "pool_slots",
+    "queue",
+    "priority_weight",
+    "operator",
+    "operator_name",
+    "queued_when",
+    "scheduled_when",
+    "pid",
+    "executor",
+    "executor_config",
+    "note",
+    "rendered_map_index",
+    "trigger",
+    "triggerer_job",
+    "dag_version"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-bulk-action-response-schema.json",
+  "title": "BulkActionResponse",
+  "description": "Serializer for individual bulk action responses.\n\nRepresents the outcome of a single bulk operation (create, update, or delete).\nThe response includes a list of successful keys and any errors encountered during the operation.\nThis structure helps users understand which key actions succeeded and which failed.",
+  "type": "object",
+  "properties": {
+    "success": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Success",
+      "description": "A list of unique id/key representing successful operations.",
+      "default": []
+    },
+    "errors": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Errors",
+      "description": "A list of errors encountered during the operation, each containing details about the issue.",
+      "default": []
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-job-collection-response-structure.json",
+  "name": "JobCollectionResponse",
+  "description": "Job Collection Response.",
+  "type": "object",
+  "properties": {
+    "jobs": {
+      "items": {
+        "$ref": "#/components/schemas/JobResponse"
+      },
+      "type": "array",
+      "title": "Jobs"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "jobs",
+    "total_entries"
+  ]
+}

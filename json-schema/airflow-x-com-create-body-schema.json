@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-x-com-create-body-schema.json",
+  "title": "XComCreateBody",
+  "description": "Payload serializer for creating an XCom entry.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "value": {
+      "title": "Value"
+    },
+    "map_index": {
+      "type": "integer",
+      "title": "Map Index",
+      "default": -1
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,5 @@
+{
+  "action": "example-value",
+  "entities": [],
+  "action_on_non_existence": "example-value"
+}

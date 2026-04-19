@@ -1,0 +1,5 @@
+{
+  "dag_id": "abc123",
+  "dag_display_name": "example-name",
+  "stats": []
+}

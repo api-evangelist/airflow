@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-task-dependency-response-schema.json",
+  "title": "TaskDependencyResponse",
+  "description": "Task Dependency serializer for responses.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "reason": {
+      "type": "string",
+      "title": "Reason"
+    }
+  },
+  "required": [
+    "name",
+    "reason"
+  ]
+}

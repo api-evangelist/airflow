@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-structured-log-message-schema.json",
+  "title": "StructuredLogMessage",
+  "description": "An individual log message.",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Timestamp"
+    },
+    "event": {
+      "type": "string",
+      "title": "Event"
+    }
+  },
+  "required": [
+    "event"
+  ],
+  "additionalProperties": true
+}

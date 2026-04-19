@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-backfill-collection-response-structure.json",
+  "name": "BackfillCollectionResponse",
+  "description": "Backfill Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "backfills": {
+      "items": {
+        "$ref": "#/components/schemas/BackfillResponse"
+      },
+      "type": "array",
+      "title": "Backfills"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "backfills",
+    "total_entries"
+  ]
+}

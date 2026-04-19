@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-plugin-import-error-response-structure.json",
+  "name": "PluginImportErrorResponse",
+  "description": "Plugin Import Error serializer for responses.",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "title": "Source"
+    },
+    "error": {
+      "type": "string",
+      "title": "Error"
+    }
+  },
+  "required": [
+    "source",
+    "error"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "dag_run_id": "abc123",
+  "data_interval_start": "example-value",
+  "data_interval_end": "example-value",
+  "logical_date": "example-value",
+  "run_after": "example-value",
+  "conf": "example-value",
+  "note": "example-value",
+  "partition_key": "example-value"
+}

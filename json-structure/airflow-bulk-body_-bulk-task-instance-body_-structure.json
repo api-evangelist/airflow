@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-bulk-body_-bulk-task-instance-body_-structure.json",
+  "name": "BulkBody_BulkTaskInstanceBody_",
+  "description": "BulkBody_BulkTaskInstanceBody_ schema from Apache Airflow API",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BulkCreateAction_BulkTaskInstanceBody_"
+          },
+          {
+            "$ref": "#/components/schemas/BulkUpdateAction_BulkTaskInstanceBody_"
+          },
+          {
+            "$ref": "#/components/schemas/BulkDeleteAction_BulkTaskInstanceBody_"
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Actions"
+    }
+  },
+  "required": [
+    "actions"
+  ],
+  "additionalProperties": false
+}

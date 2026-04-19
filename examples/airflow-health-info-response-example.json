@@ -1,0 +1,6 @@
+{
+  "metadatabase": "example-value",
+  "scheduler": "example-value",
+  "triggerer": "example-value",
+  "dag_processor": "example-value"
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-health-info-response-structure.json",
+  "name": "HealthInfoResponse",
+  "description": "Health serializer for responses.",
+  "type": "object",
+  "properties": {
+    "metadatabase": {
+      "$ref": "#/components/schemas/BaseInfoResponse"
+    },
+    "scheduler": {
+      "$ref": "#/components/schemas/SchedulerInfoResponse"
+    },
+    "triggerer": {
+      "$ref": "#/components/schemas/TriggererInfoResponse"
+    },
+    "dag_processor": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/DagProcessorInfoResponse"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "metadatabase",
+    "scheduler",
+    "triggerer"
+  ]
+}

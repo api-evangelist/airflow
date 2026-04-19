@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-extra-link-collection-response-structure.json",
+  "name": "ExtraLinkCollectionResponse",
+  "description": "Extra Links Response.",
+  "type": "object",
+  "properties": {
+    "extra_links": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "type": "object",
+      "title": "Extra Links"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "extra_links",
+    "total_entries"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "run_id": "abc123",
+  "dag_id": "abc123",
+  "logical_date": "example-value",
+  "start_date": "2026-01-15T10:30:00Z",
+  "end_date": "example-value",
+  "state": "success",
+  "data_interval_start": "example-value",
+  "data_interval_end": "example-value",
+  "partition_key": "example-value"
+}

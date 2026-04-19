@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-event-log-collection-response-structure.json",
+  "name": "EventLogCollectionResponse",
+  "description": "Event Log Collection Response.",
+  "type": "object",
+  "properties": {
+    "event_logs": {
+      "items": {
+        "$ref": "#/components/schemas/EventLogResponse"
+      },
+      "type": "array",
+      "title": "Event Logs"
+    },
+    "total_entries": {
+      "type": "int32",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "event_logs",
+    "total_entries"
+  ]
+}

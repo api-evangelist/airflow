@@ -1,0 +1,217 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Apache Airflow"
+  description: "Unified taxonomy of Apache Airflow, covering the REST API surface (DAGs, DAG runs, tasks, connections, variables) and capability workflows for data engineering and pipeline orchestration."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Apache Airflow API
+      namespace: airflow
+      version: "2"
+      baseUrl: http://localhost:8080/api/v2
+      status: active
+      description: "Stable REST API for programmatic management of Airflow workflows."
+
+  resources:
+    - name: dags
+      api: airflow
+      description: "Directed Acyclic Graphs — the core workflow definition in Airflow."
+      actions: [list, get, update, delete]
+    - name: dag-runs
+      api: airflow
+      description: "Individual execution instances of a DAG."
+      actions: [list, create, get, delete]
+    - name: task-instances
+      api: airflow
+      description: "Individual task executions within a DAG run."
+      actions: [list, get, update]
+    - name: variables
+      api: airflow
+      description: "Key-value configuration variables for pipelines."
+      actions: [list, create, get, update, delete]
+    - name: connections
+      api: airflow
+      description: "External service connection configurations."
+      actions: [list, create, get, update, delete]
+    - name: pools
+      api: airflow
+      description: "Resource pools for limiting task concurrency."
+      actions: [list, create, get, update, delete]
+    - name: plugins
+      api: airflow
+      description: "Installed Airflow plugins."
+      actions: [list]
+    - name: providers
+      api: airflow
+      description: "Installed provider packages."
+      actions: [list]
+    - name: assets
+      api: airflow
+      description: "Data assets tracked by Airflow for asset-based scheduling."
+      actions: [list, get]
+
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read
+    - name: get
+      methods: [GET]
+      pattern: read
+    - name: create
+      methods: [POST]
+      pattern: write
+    - name: update
+      methods: [PATCH]
+      pattern: write
+    - name: delete
+      methods: [DELETE]
+      pattern: destructive
+    - name: trigger
+      methods: [POST]
+      pattern: write
+      description: "Trigger a DAG run."
+    - name: clear
+      methods: [POST]
+      pattern: write
+      description: "Clear task instances to re-run them."
+
+  schemas:
+    core:
+      - name: DAGResponse
+        description: "DAG configuration and metadata."
+      - name: DAGRunResponse
+        description: "DAG run execution details."
+      - name: TaskInstanceResponse
+        description: "Task instance execution details."
+      - name: ConnectionResponse
+        description: "External connection configuration."
+      - name: VariableResponse
+        description: "Airflow variable key-value pair."
+
+  parameters:
+    pagination:
+      - name: limit
+        type: integer
+      - name: offset
+        type: integer
+    identifiers:
+      - name: dag_id
+        type: string
+      - name: dag_run_id
+        type: string
+      - name: task_id
+        type: string
+    filters:
+      - name: state
+        type: string
+        description: "Filter by execution state."
+      - name: only_active
+        type: boolean
+
+  enums:
+    dag_run_state:
+      - queued
+      - running
+      - success
+      - failed
+    task_state:
+      - none
+      - scheduled
+      - queued
+      - running
+      - success
+      - failed
+      - upstream_failed
+      - skipped
+    dag_schedule_type:
+      - cron
+      - timedelta
+      - timetable
+      - asset
+
+  authentication:
+    schemes:
+      - type: basic
+        description: "HTTP Basic auth with Airflow username and password."
+        apis: [airflow]
+      - type: bearer
+        description: "JWT bearer token via /api/v2/auth/token."
+        apis: [airflow]
+
+capability:
+  workflows:
+    - name: Workflow Orchestration
+      file: capabilities/workflow-orchestration.yaml
+      description: "Manage Airflow DAGs, trigger runs, monitor task execution, and manage variables and connections."
+      apis: [airflow]
+      tools: 10
+      personas: [Data Engineer, Platform Admin]
+      domains: [Workflow Orchestration, Pipeline Operations]
+
+  personas:
+    - id: data-engineer
+      name: Data Engineer
+      description: "Builds and triggers data pipelines using Airflow DAGs."
+      workflows: [Workflow Orchestration]
+    - id: platform-admin
+      name: Platform Admin
+      description: "Manages Airflow connections, variables, pools, and infrastructure."
+      workflows: [Workflow Orchestration]
+
+  domains:
+    - name: Workflow Orchestration
+      description: "Defining, scheduling, and executing data workflows."
+      resources: [dags, dag-runs]
+    - name: Pipeline Operations
+      description: "Monitoring and operating running pipelines."
+      resources: [task-instances, pools]
+    - name: Configuration
+      description: "Managing pipeline configuration and integrations."
+      resources: [variables, connections]
+
+  namespaces:
+    - name: airflow
+      type: consumed
+      baseUri: http://localhost:8080/api/v2
+    - name: airflow-orchestration-api
+      type: rest
+      port: 8080
+    - name: airflow-orchestration-mcp
+      type: mcp
+      port: 9090
+
+  binds:
+    - name: AIRFLOW_BASE_URL
+      description: "Base URL of the Airflow deployment."
+      workflows: [Workflow Orchestration]
+    - name: AIRFLOW_USERNAME
+      description: "Airflow user for basic auth."
+      workflows: [Workflow Orchestration]
+    - name: AIRFLOW_PASSWORD
+      description: "Airflow password for basic auth."
+      workflows: [Workflow Orchestration]
+
+crossReference:
+  - resource: dags
+    operations: [listDags, getDag, patchDag, deleteDag]
+    workflows: [Workflow Orchestration]
+    personas: [Data Engineer, Platform Admin]
+  - resource: dag-runs
+    operations: [listDagRuns, triggerDagRun, getDagRun, deleteDagRun]
+    workflows: [Workflow Orchestration]
+    personas: [Data Engineer]
+  - resource: task-instances
+    operations: [listTaskInstances, getTaskInstance, clearTaskInstances]
+    workflows: [Workflow Orchestration]
+    personas: [Data Engineer]
+  - resource: variables
+    operations: [listVariables, getVariable, createVariable, updateVariable, deleteVariable]
+    workflows: [Workflow Orchestration]
+    personas: [Platform Admin]
+  - resource: connections
+    operations: [listConnections, getConnection, createConnection, updateConnection, deleteConnection]
+    workflows: [Workflow Orchestration]
+    personas: [Platform Admin]

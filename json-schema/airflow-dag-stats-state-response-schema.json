@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-stats-state-response-schema.json",
+  "title": "DagStatsStateResponse",
+  "description": "DagStatsState serializer for responses.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "$ref": "#/components/schemas/DagRunState"
+    },
+    "count": {
+      "type": "integer",
+      "title": "Count"
+    }
+  },
+  "required": [
+    "state",
+    "count"
+  ]
+}

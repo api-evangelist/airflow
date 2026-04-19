@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-time-delta-structure.json",
+  "name": "TimeDelta",
+  "description": "TimeDelta can be used to interact with datetime.timedelta objects.",
+  "type": "object",
+  "properties": {
+    "__type": {
+      "type": "string",
+      "title": "Type",
+      "default": "TimeDelta"
+    },
+    "days": {
+      "type": "int32",
+      "title": "Days"
+    },
+    "seconds": {
+      "type": "int32",
+      "title": "Seconds"
+    },
+    "microseconds": {
+      "type": "int32",
+      "title": "Microseconds"
+    }
+  },
+  "required": [
+    "days",
+    "seconds",
+    "microseconds"
+  ]
+}

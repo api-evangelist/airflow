@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-variable-collection-response-schema.json",
+  "title": "VariableCollectionResponse",
+  "description": "Variable Collection serializer for responses.",
+  "type": "object",
+  "properties": {
+    "variables": {
+      "items": {
+        "$ref": "#/components/schemas/VariableResponse"
+      },
+      "type": "array",
+      "title": "Variables"
+    },
+    "total_entries": {
+      "type": "integer",
+      "title": "Total Entries"
+    }
+  },
+  "required": [
+    "variables",
+    "total_entries"
+  ]
+}

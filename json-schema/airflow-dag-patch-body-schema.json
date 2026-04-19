@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-patch-body-schema.json",
+  "title": "DAGPatchBody",
+  "description": "Dag Serializer for updatable bodies.",
+  "type": "object",
+  "properties": {
+    "is_paused": {
+      "type": "boolean",
+      "title": "Is Paused"
+    }
+  },
+  "required": [
+    "is_paused"
+  ],
+  "additionalProperties": false
+}

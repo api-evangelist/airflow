@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-task-instance-collection-response-structure.json",
+  "name": "TaskInstanceCollectionResponse",
+  "description": "Task instance collection response supporting both offset and cursor pagination.\n\nA single flat model is used instead of a discriminated union\n(``Annotated[Offset | Cursor, Field(discriminator=...)]``) because\nthe OpenAPI ``oneOf`` + ``discriminator`` construct is not handled\ncorrectly by ``@hey-api/openapi-ts`` / ``@7nohe/openapi-react-query-codegen``:\nreturn types degrade to ``unknown`` in JSDoc and can produce\nincorrect TypeScript types (see hey-api/openapi-ts#1613, #3270).",
+  "type": "object",
+  "properties": {
+    "task_instances": {
+      "items": {
+        "$ref": "#/components/schemas/TaskInstanceResponse"
+      },
+      "type": "array",
+      "title": "Task Instances"
+    },
+    "total_entries": {
+      "anyOf": [
+        {
+          "type": "int32"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Total Entries",
+      "description": "Total number of matching items. Populated for offset pagination, ``null`` when using cursor pagination."
+    },
+    "next_cursor": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Next Cursor",
+      "description": "Token pointing to the next page. Populated for cursor pagination, ``null`` when using offset pagination or when there is no next page."
+    },
+    "previous_cursor": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Previous Cursor",
+      "description": "Token pointing to the previous page. Populated for cursor pagination, ``null`` when using offset pagination or when on the first page."
+    }
+  },
+  "required": [
+    "task_instances"
+  ]
+}

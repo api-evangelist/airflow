@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-dag-processor-info-response-schema.json",
+  "title": "DagProcessorInfoResponse",
+  "description": "DagProcessor info serializer for responses.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status"
+    },
+    "latest_dag_processor_heartbeat": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Latest Dag Processor Heartbeat"
+    }
+  },
+  "required": [
+    "status",
+    "latest_dag_processor_heartbeat"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-variable-body-schema.json",
+  "title": "VariableBody",
+  "description": "Variable serializer for bodies.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "maxLength": 250,
+      "title": "Key"
+    },
+    "value": {
+      "$ref": "#/components/schemas/JsonValue"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "team_name": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 50
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Name"
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,1110 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "airflow": "https://airflow.apache.org/schema/",
+    "schema": {
+      "@id": "airflow:schema"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DagStatsCollectionResponse": "airflow:DagStatsCollectionResponse",
+    "ExternalLogUrlResponse": "airflow:ExternalLogUrlResponse",
+    "ConfigOption": "airflow:ConfigOption",
+    "BackfillPostBody": "airflow:BackfillPostBody",
+    "TaskDependencyCollectionResponse": "airflow:TaskDependencyCollectionResponse",
+    "XComResponseString": "airflow:XComResponseString",
+    "DAGWarningResponse": "airflow:DAGWarningResponse",
+    "LastAssetEventResponse": "airflow:LastAssetEventResponse",
+    "DAGWarningCollectionResponse": "airflow:DAGWarningCollectionResponse",
+    "MaterializeAssetBody": "airflow:MaterializeAssetBody",
+    "HITLDetailHistory": "airflow:HITLDetailHistory",
+    "DagTagResponse": "airflow:DagTagResponse",
+    "ProviderResponse": "airflow:ProviderResponse",
+    "EventLogCollectionResponse": "airflow:EventLogCollectionResponse",
+    "EventLogResponse": "airflow:EventLogResponse",
+    "BulkDeleteAction_BulkTaskInstanceBody_": "airflow:BulkDeleteAction_BulkTaskInstanceBody_",
+    "BulkActionResponse": "airflow:BulkActionResponse",
+    "TriggerResponse": "airflow:TriggerResponse",
+    "DagRunAssetReference": "airflow:DagRunAssetReference",
+    "ConfigSection": "airflow:ConfigSection",
+    "DAGRunCollectionResponse": "airflow:DAGRunCollectionResponse",
+    "BulkBody_PoolBody_": "airflow:BulkBody_PoolBody_",
+    "CreateAssetEventsBody": "airflow:CreateAssetEventsBody",
+    "HITLDetailResponse": "airflow:HITLDetailResponse",
+    "BulkBody_BulkTaskInstanceBody_": "airflow:BulkBody_BulkTaskInstanceBody_",
+    "StructuredLogMessage": "airflow:StructuredLogMessage",
+    "ImportErrorCollectionResponse": "airflow:ImportErrorCollectionResponse",
+    "ExternalViewResponse": "airflow:ExternalViewResponse",
+    "DagStatsStateResponse": "airflow:DagStatsStateResponse",
+    "BulkBody_VariableBody_": "airflow:BulkBody_VariableBody_",
+    "ConnectionCollectionResponse": "airflow:ConnectionCollectionResponse",
+    "BulkResponse": "airflow:BulkResponse",
+    "JobCollectionResponse": "airflow:JobCollectionResponse",
+    "Config": "airflow:Config",
+    "ConnectionBody": "airflow:ConnectionBody",
+    "VariableResponse": "airflow:VariableResponse",
+    "DAGTagCollectionResponse": "airflow:DAGTagCollectionResponse",
+    "BulkCreateAction_VariableBody_": "airflow:BulkCreateAction_VariableBody_",
+    "TriggerDAGRunPostBody": "airflow:TriggerDAGRunPostBody",
+    "TaskInstancesBatchBody": "airflow:TaskInstancesBatchBody",
+    "ExtraLinkCollectionResponse": "airflow:ExtraLinkCollectionResponse",
+    "TaskCollectionResponse": "airflow:TaskCollectionResponse",
+    "DAGRunResponse": "airflow:DAGRunResponse",
+    "BulkDeleteAction_VariableBody_": "airflow:BulkDeleteAction_VariableBody_",
+    "ReactAppResponse": "airflow:ReactAppResponse",
+    "QueuedEventCollectionResponse": "airflow:QueuedEventCollectionResponse",
+    "TriggererInfoResponse": "airflow:TriggererInfoResponse",
+    "VersionInfo": "airflow:VersionInfo",
+    "DryRunBackfillResponse": "airflow:DryRunBackfillResponse",
+    "PoolCollectionResponse": "airflow:PoolCollectionResponse",
+    "TaskInletAssetReference": "airflow:TaskInletAssetReference",
+    "TaskInstanceCollectionResponse": "airflow:TaskInstanceCollectionResponse",
+    "DagScheduleAssetReference": "airflow:DagScheduleAssetReference",
+    "UpdateHITLDetailPayload": "airflow:UpdateHITLDetailPayload",
+    "VariableBody": "airflow:VariableBody",
+    "DAGSourceResponse": "airflow:DAGSourceResponse",
+    "BackfillCollectionResponse": "airflow:BackfillCollectionResponse",
+    "DAGRunPatchBody": "airflow:DAGRunPatchBody",
+    "TaskInstanceResponse": "airflow:TaskInstanceResponse",
+    "HITLDetail": "airflow:HITLDetail",
+    "XComResponseNative": "airflow:XComResponseNative",
+    "XComResponse": "airflow:XComResponse",
+    "XComUpdateBody": "airflow:XComUpdateBody",
+    "QueuedEventResponse": "airflow:QueuedEventResponse",
+    "AssetWatcherResponse": "airflow:AssetWatcherResponse",
+    "BulkUpdateAction_PoolBody_": "airflow:BulkUpdateAction_PoolBody_",
+    "ConnectionTestResponse": "airflow:ConnectionTestResponse",
+    "TaskOutletAssetReference": "airflow:TaskOutletAssetReference",
+    "PoolBody": "airflow:PoolBody",
+    "DagProcessorInfoResponse": "airflow:DagProcessorInfoResponse",
+    "XComCollectionResponse": "airflow:XComCollectionResponse",
+    "DagStatsResponse": "airflow:DagStatsResponse",
+    "FastAPIRootMiddlewareResponse": "airflow:FastAPIRootMiddlewareResponse",
+    "DAGVersionCollectionResponse": "airflow:DAGVersionCollectionResponse",
+    "AppBuilderViewResponse": "airflow:AppBuilderViewResponse",
+    "DAGPatchBody": "airflow:DAGPatchBody",
+    "BulkCreateAction_PoolBody_": "airflow:BulkCreateAction_PoolBody_",
+    "PluginResponse": "airflow:PluginResponse",
+    "TaskResponse": "airflow:TaskResponse",
+    "SchedulerInfoResponse": "airflow:SchedulerInfoResponse",
+    "ImportErrorResponse": "airflow:ImportErrorResponse",
+    "TaskInstancesLogResponse": "airflow:TaskInstancesLogResponse",
+    "HITLUser": "airflow:HITLUser",
+    "VariableCollectionResponse": "airflow:VariableCollectionResponse",
+    "TaskInstanceHistoryResponse": "airflow:TaskInstanceHistoryResponse",
+    "TimeDelta": "airflow:TimeDelta",
+    "PoolPatchBody": "airflow:PoolPatchBody",
+    "ClearTaskInstancesBody": "airflow:ClearTaskInstancesBody",
+    "BaseInfoResponse": "airflow:BaseInfoResponse",
+    "DAGCollectionResponse": "airflow:DAGCollectionResponse",
+    "ProviderCollectionResponse": "airflow:ProviderCollectionResponse",
+    "JobResponse": "airflow:JobResponse",
+    "HTTPExceptionResponse": "airflow:HTTPExceptionResponse",
+    "BulkCreateAction_BulkTaskInstanceBody_": "airflow:BulkCreateAction_BulkTaskInstanceBody_",
+    "BulkBody_ConnectionBody_": "airflow:BulkBody_ConnectionBody_",
+    "XComCreateBody": "airflow:XComCreateBody",
+    "BulkUpdateAction_ConnectionBody_": "airflow:BulkUpdateAction_ConnectionBody_",
+    "PatchTaskInstanceBody": "airflow:PatchTaskInstanceBody",
+    "PluginCollectionResponse": "airflow:PluginCollectionResponse",
+    "HITLDetailCollection": "airflow:HITLDetailCollection",
+    "AssetAliasResponse": "airflow:AssetAliasResponse",
+    "AssetEventCollectionResponse": "airflow:AssetEventCollectionResponse",
+    "TaskDependencyResponse": "airflow:TaskDependencyResponse",
+    "PoolResponse": "airflow:PoolResponse",
+    "DAGDetailsResponse": "airflow:DAGDetailsResponse",
+    "BulkTaskInstanceBody": "airflow:BulkTaskInstanceBody",
+    "AssetEventResponse": "airflow:AssetEventResponse",
+    "DAGRunClearBody": "airflow:DAGRunClearBody",
+    "AssetCollectionResponse": "airflow:AssetCollectionResponse",
+    "BulkUpdateAction_VariableBody_": "airflow:BulkUpdateAction_VariableBody_",
+    "DAGRunsBatchBody": "airflow:DAGRunsBatchBody",
+    "AssetResponse": "airflow:AssetResponse",
+    "BackfillResponse": "airflow:BackfillResponse",
+    "BulkDeleteAction_PoolBody_": "airflow:BulkDeleteAction_PoolBody_",
+    "AppBuilderMenuItemResponse": "airflow:AppBuilderMenuItemResponse",
+    "BulkDeleteAction_ConnectionBody_": "airflow:BulkDeleteAction_ConnectionBody_",
+    "BulkUpdateAction_BulkTaskInstanceBody_": "airflow:BulkUpdateAction_BulkTaskInstanceBody_",
+    "FastAPIAppResponse": "airflow:FastAPIAppResponse",
+    "TaskInstanceHistoryCollectionResponse": "airflow:TaskInstanceHistoryCollectionResponse",
+    "PluginImportErrorCollectionResponse": "airflow:PluginImportErrorCollectionResponse",
+    "AssetAliasCollectionResponse": "airflow:AssetAliasCollectionResponse",
+    "BulkCreateAction_ConnectionBody_": "airflow:BulkCreateAction_ConnectionBody_",
+    "DAGResponse": "airflow:DAGResponse",
+    "PluginImportErrorResponse": "airflow:PluginImportErrorResponse",
+    "ConnectionResponse": "airflow:ConnectionResponse",
+    "DryRunBackfillCollectionResponse": "airflow:DryRunBackfillCollectionResponse",
+    "DagVersionResponse": "airflow:DagVersionResponse",
+    "HealthInfoResponse": "airflow:HealthInfoResponse",
+    "dags": {
+      "@id": "airflow:dags"
+    },
+    "totalEntries": {
+      "@id": "airflow:total_entries",
+      "@type": "xsd:integer"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "key": {
+      "@id": "airflow:key"
+    },
+    "value": {
+      "@id": "airflow:value"
+    },
+    "dagId": {
+      "@id": "airflow:dag_id"
+    },
+    "fromDate": {
+      "@id": "airflow:from_date",
+      "@type": "xsd:dateTime"
+    },
+    "toDate": {
+      "@id": "airflow:to_date",
+      "@type": "xsd:dateTime"
+    },
+    "runBackwards": {
+      "@id": "airflow:run_backwards",
+      "@type": "xsd:boolean"
+    },
+    "dagRunConf": {
+      "@id": "airflow:dag_run_conf"
+    },
+    "reprocessBehavior": {
+      "@id": "airflow:reprocess_behavior"
+    },
+    "maxActiveRuns": {
+      "@id": "airflow:max_active_runs"
+    },
+    "runOnLatestVersion": {
+      "@id": "airflow:run_on_latest_version",
+      "@type": "xsd:boolean"
+    },
+    "dependencies": {
+      "@id": "airflow:dependencies"
+    },
+    "timestamp": {
+      "@id": "airflow:timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "logicalDate": {
+      "@id": "airflow:logical_date"
+    },
+    "mapIndex": {
+      "@id": "airflow:map_index"
+    },
+    "taskId": {
+      "@id": "airflow:task_id"
+    },
+    "runId": {
+      "@id": "airflow:run_id"
+    },
+    "dagDisplayName": {
+      "@id": "airflow:dag_display_name"
+    },
+    "taskDisplayName": {
+      "@id": "airflow:task_display_name"
+    },
+    "runAfter": {
+      "@id": "airflow:run_after",
+      "@type": "xsd:dateTime"
+    },
+    "warningType": {
+      "@id": "airflow:warning_type"
+    },
+    "message": {
+      "@id": "airflow:message"
+    },
+    "id": {
+      "@id": "airflow:id"
+    },
+    "dagWarnings": {
+      "@id": "airflow:dag_warnings"
+    },
+    "dagRunId": {
+      "@id": "airflow:dag_run_id"
+    },
+    "dataIntervalStart": {
+      "@id": "airflow:data_interval_start"
+    },
+    "dataIntervalEnd": {
+      "@id": "airflow:data_interval_end"
+    },
+    "conf": {
+      "@id": "airflow:conf"
+    },
+    "note": {
+      "@id": "airflow:note"
+    },
+    "partitionKey": {
+      "@id": "airflow:partition_key"
+    },
+    "options": {
+      "@id": "airflow:options"
+    },
+    "subject": {
+      "@id": "airflow:subject"
+    },
+    "body": {
+      "@id": "airflow:body"
+    },
+    "defaults": {
+      "@id": "airflow:defaults"
+    },
+    "multiple": {
+      "@id": "airflow:multiple",
+      "@type": "xsd:boolean"
+    },
+    "params": {
+      "@id": "airflow:params"
+    },
+    "assignedUsers": {
+      "@id": "airflow:assigned_users"
+    },
+    "createdAt": {
+      "@id": "airflow:created_at",
+      "@type": "xsd:dateTime"
+    },
+    "respondedByUser": {
+      "@id": "airflow:responded_by_user"
+    },
+    "respondedAt": {
+      "@id": "airflow:responded_at"
+    },
+    "chosenOptions": {
+      "@id": "airflow:chosen_options"
+    },
+    "paramsInput": {
+      "@id": "airflow:params_input"
+    },
+    "responseReceived": {
+      "@id": "airflow:response_received",
+      "@type": "xsd:boolean"
+    },
+    "taskInstance": {
+      "@id": "airflow:task_instance"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "packageName": {
+      "@id": "airflow:package_name"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "version": {
+      "@id": "airflow:version"
+    },
+    "documentationUrl": {
+      "@id": "airflow:documentation_url"
+    },
+    "eventLogs": {
+      "@id": "airflow:event_logs"
+    },
+    "eventLogId": {
+      "@id": "airflow:event_log_id",
+      "@type": "xsd:integer"
+    },
+    "when": {
+      "@id": "airflow:when",
+      "@type": "xsd:dateTime"
+    },
+    "tryNumber": {
+      "@id": "airflow:try_number",
+      "@type": "xsd:integer"
+    },
+    "event": {
+      "@id": "airflow:event"
+    },
+    "owner": {
+      "@id": "airflow:owner"
+    },
+    "extra": {
+      "@id": "airflow:extra"
+    },
+    "action": {
+      "@id": "airflow:action"
+    },
+    "entities": {
+      "@id": "airflow:entities"
+    },
+    "actionOnNonExistence": {
+      "@id": "airflow:action_on_non_existence"
+    },
+    "success": {
+      "@id": "airflow:success"
+    },
+    "errors": {
+      "@id": "airflow:errors"
+    },
+    "classpath": {
+      "@id": "airflow:classpath"
+    },
+    "kwargs": {
+      "@id": "airflow:kwargs"
+    },
+    "createdDate": {
+      "@id": "airflow:created_date",
+      "@type": "xsd:dateTime"
+    },
+    "queue": {
+      "@id": "airflow:queue"
+    },
+    "triggererId": {
+      "@id": "airflow:triggerer_id"
+    },
+    "startDate": {
+      "@id": "airflow:start_date"
+    },
+    "endDate": {
+      "@id": "airflow:end_date"
+    },
+    "state": {
+      "@id": "airflow:state"
+    },
+    "dagRuns": {
+      "@id": "airflow:dag_runs"
+    },
+    "actions": {
+      "@id": "airflow:actions"
+    },
+    "assetId": {
+      "@id": "airflow:asset_id",
+      "@type": "xsd:integer"
+    },
+    "respondedBy": {
+      "@id": "airflow:responded_by"
+    },
+    "importErrors": {
+      "@id": "airflow:import_errors"
+    },
+    "icon": {
+      "@id": "airflow:icon"
+    },
+    "iconDarkMode": {
+      "@id": "airflow:icon_dark_mode"
+    },
+    "urlRoute": {
+      "@id": "airflow:url_route"
+    },
+    "category": {
+      "@id": "airflow:category"
+    },
+    "href": {
+      "@id": "airflow:href"
+    },
+    "destination": {
+      "@id": "airflow:destination"
+    },
+    "count": {
+      "@id": "airflow:count",
+      "@type": "xsd:integer"
+    },
+    "connections": {
+      "@id": "airflow:connections"
+    },
+    "create": {
+      "@id": "airflow:create"
+    },
+    "update": {
+      "@id": "airflow:update"
+    },
+    "delete": {
+      "@id": "airflow:delete"
+    },
+    "jobs": {
+      "@id": "airflow:jobs"
+    },
+    "sections": {
+      "@id": "airflow:sections"
+    },
+    "connectionId": {
+      "@id": "airflow:connection_id"
+    },
+    "connType": {
+      "@id": "airflow:conn_type"
+    },
+    "host": {
+      "@id": "airflow:host"
+    },
+    "login": {
+      "@id": "airflow:login"
+    },
+    "port": {
+      "@id": "airflow:port"
+    },
+    "password": {
+      "@id": "airflow:password"
+    },
+    "teamName": {
+      "@id": "airflow:team_name"
+    },
+    "isEncrypted": {
+      "@id": "airflow:is_encrypted",
+      "@type": "xsd:boolean"
+    },
+    "tags": {
+      "@id": "airflow:tags"
+    },
+    "actionOnExistence": {
+      "@id": "airflow:action_on_existence"
+    },
+    "dagIds": {
+      "@id": "airflow:dag_ids"
+    },
+    "dagRunIds": {
+      "@id": "airflow:dag_run_ids"
+    },
+    "taskIds": {
+      "@id": "airflow:task_ids"
+    },
+    "runAfterGte": {
+      "@id": "airflow:run_after_gte"
+    },
+    "runAfterGt": {
+      "@id": "airflow:run_after_gt"
+    },
+    "runAfterLte": {
+      "@id": "airflow:run_after_lte"
+    },
+    "runAfterLt": {
+      "@id": "airflow:run_after_lt"
+    },
+    "logicalDateGte": {
+      "@id": "airflow:logical_date_gte"
+    },
+    "logicalDateGt": {
+      "@id": "airflow:logical_date_gt"
+    },
+    "logicalDateLte": {
+      "@id": "airflow:logical_date_lte"
+    },
+    "logicalDateLt": {
+      "@id": "airflow:logical_date_lt"
+    },
+    "startDateGte": {
+      "@id": "airflow:start_date_gte"
+    },
+    "startDateGt": {
+      "@id": "airflow:start_date_gt"
+    },
+    "startDateLte": {
+      "@id": "airflow:start_date_lte"
+    },
+    "startDateLt": {
+      "@id": "airflow:start_date_lt"
+    },
+    "endDateGte": {
+      "@id": "airflow:end_date_gte"
+    },
+    "endDateGt": {
+      "@id": "airflow:end_date_gt"
+    },
+    "endDateLte": {
+      "@id": "airflow:end_date_lte"
+    },
+    "endDateLt": {
+      "@id": "airflow:end_date_lt"
+    },
+    "durationGte": {
+      "@id": "airflow:duration_gte"
+    },
+    "durationGt": {
+      "@id": "airflow:duration_gt"
+    },
+    "durationLte": {
+      "@id": "airflow:duration_lte"
+    },
+    "durationLt": {
+      "@id": "airflow:duration_lt"
+    },
+    "pool": {
+      "@id": "airflow:pool"
+    },
+    "executor": {
+      "@id": "airflow:executor"
+    },
+    "pageOffset": {
+      "@id": "airflow:page_offset",
+      "@type": "xsd:integer"
+    },
+    "pageLimit": {
+      "@id": "airflow:page_limit",
+      "@type": "xsd:integer"
+    },
+    "orderBy": {
+      "@id": "airflow:order_by"
+    },
+    "extraLinks": {
+      "@id": "airflow:extra_links"
+    },
+    "tasks": {
+      "@id": "airflow:tasks"
+    },
+    "queuedAt": {
+      "@id": "airflow:queued_at"
+    },
+    "duration": {
+      "@id": "airflow:duration"
+    },
+    "lastSchedulingDecision": {
+      "@id": "airflow:last_scheduling_decision"
+    },
+    "runType": {
+      "@id": "airflow:run_type"
+    },
+    "triggeredBy": {
+      "@id": "airflow:triggered_by"
+    },
+    "triggeringUserName": {
+      "@id": "airflow:triggering_user_name"
+    },
+    "dagVersions": {
+      "@id": "airflow:dag_versions"
+    },
+    "bundleVersion": {
+      "@id": "airflow:bundle_version"
+    },
+    "bundleUrl": {
+      "@id": "airflow:bundle_url"
+    },
+    "queuedEvents": {
+      "@id": "airflow:queued_events"
+    },
+    "status": {
+      "@id": "airflow:status"
+    },
+    "latestTriggererHeartbeat": {
+      "@id": "airflow:latest_triggerer_heartbeat"
+    },
+    "gitVersion": {
+      "@id": "airflow:git_version"
+    },
+    "partitionDate": {
+      "@id": "airflow:partition_date"
+    },
+    "pools": {
+      "@id": "airflow:pools"
+    },
+    "updatedAt": {
+      "@id": "airflow:updated_at",
+      "@type": "xsd:dateTime"
+    },
+    "taskInstances": {
+      "@id": "airflow:task_instances"
+    },
+    "nextCursor": {
+      "@id": "airflow:next_cursor"
+    },
+    "previousCursor": {
+      "@id": "airflow:previous_cursor"
+    },
+    "content": {
+      "@id": "airflow:content"
+    },
+    "versionNumber": {
+      "@id": "airflow:version_number",
+      "@type": "xsd:integer"
+    },
+    "backfills": {
+      "@id": "airflow:backfills"
+    },
+    "maxTries": {
+      "@id": "airflow:max_tries",
+      "@type": "xsd:integer"
+    },
+    "hostname": {
+      "@id": "airflow:hostname"
+    },
+    "unixname": {
+      "@id": "airflow:unixname"
+    },
+    "poolSlots": {
+      "@id": "airflow:pool_slots",
+      "@type": "xsd:integer"
+    },
+    "priorityWeight": {
+      "@id": "airflow:priority_weight"
+    },
+    "operator": {
+      "@id": "airflow:operator"
+    },
+    "operatorName": {
+      "@id": "airflow:operator_name"
+    },
+    "queuedWhen": {
+      "@id": "airflow:queued_when"
+    },
+    "scheduledWhen": {
+      "@id": "airflow:scheduled_when"
+    },
+    "pid": {
+      "@id": "airflow:pid"
+    },
+    "executorConfig": {
+      "@id": "airflow:executor_config"
+    },
+    "renderedMapIndex": {
+      "@id": "airflow:rendered_map_index"
+    },
+    "renderedFields": {
+      "@id": "airflow:rendered_fields"
+    },
+    "trigger": {
+      "@id": "airflow:trigger"
+    },
+    "triggererJob": {
+      "@id": "airflow:triggerer_job"
+    },
+    "dagVersion": {
+      "@id": "airflow:dag_version"
+    },
+    "triggerId": {
+      "@id": "airflow:trigger_id",
+      "@type": "xsd:integer"
+    },
+    "updateMask": {
+      "@id": "airflow:update_mask"
+    },
+    "slots": {
+      "@id": "airflow:slots",
+      "@type": "xsd:integer"
+    },
+    "includeDeferred": {
+      "@id": "airflow:include_deferred",
+      "@type": "xsd:boolean"
+    },
+    "latestDagProcessorHeartbeat": {
+      "@id": "airflow:latest_dag_processor_heartbeat"
+    },
+    "xcomEntries": {
+      "@id": "airflow:xcom_entries"
+    },
+    "stats": {
+      "@id": "airflow:stats"
+    },
+    "middleware": {
+      "@id": "airflow:middleware"
+    },
+    "view": {
+      "@id": "airflow:view"
+    },
+    "label": {
+      "@id": "airflow:label"
+    },
+    "isPaused": {
+      "@id": "airflow:is_paused",
+      "@type": "xsd:boolean"
+    },
+    "macros": {
+      "@id": "airflow:macros"
+    },
+    "flaskBlueprints": {
+      "@id": "airflow:flask_blueprints"
+    },
+    "fastapiApps": {
+      "@id": "airflow:fastapi_apps"
+    },
+    "fastapiRootMiddlewares": {
+      "@id": "airflow:fastapi_root_middlewares"
+    },
+    "externalViews": {
+      "@id": "airflow:external_views"
+    },
+    "reactApps": {
+      "@id": "airflow:react_apps"
+    },
+    "appbuilderViews": {
+      "@id": "airflow:appbuilder_views"
+    },
+    "appbuilderMenuItems": {
+      "@id": "airflow:appbuilder_menu_items"
+    },
+    "globalOperatorExtraLinks": {
+      "@id": "airflow:global_operator_extra_links"
+    },
+    "operatorExtraLinks": {
+      "@id": "airflow:operator_extra_links"
+    },
+    "source": {
+      "@id": "airflow:source"
+    },
+    "listeners": {
+      "@id": "airflow:listeners"
+    },
+    "timetables": {
+      "@id": "airflow:timetables"
+    },
+    "triggerRule": {
+      "@id": "airflow:trigger_rule"
+    },
+    "dependsOnPast": {
+      "@id": "airflow:depends_on_past",
+      "@type": "xsd:boolean"
+    },
+    "waitForDownstream": {
+      "@id": "airflow:wait_for_downstream",
+      "@type": "xsd:boolean"
+    },
+    "retries": {
+      "@id": "airflow:retries"
+    },
+    "executionTimeout": {
+      "@id": "airflow:execution_timeout"
+    },
+    "retryDelay": {
+      "@id": "airflow:retry_delay"
+    },
+    "retryExponentialBackoff": {
+      "@id": "airflow:retry_exponential_backoff",
+      "@type": "xsd:decimal"
+    },
+    "weightRule": {
+      "@id": "airflow:weight_rule"
+    },
+    "uiColor": {
+      "@id": "airflow:ui_color"
+    },
+    "uiFgcolor": {
+      "@id": "airflow:ui_fgcolor"
+    },
+    "templateFields": {
+      "@id": "airflow:template_fields"
+    },
+    "downstreamTaskIds": {
+      "@id": "airflow:downstream_task_ids"
+    },
+    "docMd": {
+      "@id": "airflow:doc_md"
+    },
+    "classRef": {
+      "@id": "airflow:class_ref"
+    },
+    "isMapped": {
+      "@id": "airflow:is_mapped"
+    },
+    "latestSchedulerHeartbeat": {
+      "@id": "airflow:latest_scheduler_heartbeat"
+    },
+    "importErrorId": {
+      "@id": "airflow:import_error_id",
+      "@type": "xsd:integer"
+    },
+    "filename": {
+      "@id": "airflow:filename"
+    },
+    "bundleName": {
+      "@id": "airflow:bundle_name"
+    },
+    "stackTrace": {
+      "@id": "airflow:stack_trace"
+    },
+    "continuationToken": {
+      "@id": "airflow:continuation_token"
+    },
+    "variables": {
+      "@id": "airflow:variables"
+    },
+    "Type": {
+      "@id": "airflow:__type"
+    },
+    "days": {
+      "@id": "airflow:days",
+      "@type": "xsd:integer"
+    },
+    "seconds": {
+      "@id": "airflow:seconds",
+      "@type": "xsd:integer"
+    },
+    "microseconds": {
+      "@id": "airflow:microseconds",
+      "@type": "xsd:integer"
+    },
+    "dryRun": {
+      "@id": "airflow:dry_run",
+      "@type": "xsd:boolean"
+    },
+    "onlyFailed": {
+      "@id": "airflow:only_failed",
+      "@type": "xsd:boolean"
+    },
+    "onlyRunning": {
+      "@id": "airflow:only_running",
+      "@type": "xsd:boolean"
+    },
+    "resetDagRuns": {
+      "@id": "airflow:reset_dag_runs",
+      "@type": "xsd:boolean"
+    },
+    "includeUpstream": {
+      "@id": "airflow:include_upstream",
+      "@type": "xsd:boolean"
+    },
+    "includeDownstream": {
+      "@id": "airflow:include_downstream",
+      "@type": "xsd:boolean"
+    },
+    "includeFuture": {
+      "@id": "airflow:include_future",
+      "@type": "xsd:boolean"
+    },
+    "includePast": {
+      "@id": "airflow:include_past",
+      "@type": "xsd:boolean"
+    },
+    "preventRunningTask": {
+      "@id": "airflow:prevent_running_task",
+      "@type": "xsd:boolean"
+    },
+    "providers": {
+      "@id": "airflow:providers"
+    },
+    "jobType": {
+      "@id": "airflow:job_type"
+    },
+    "latestHeartbeat": {
+      "@id": "airflow:latest_heartbeat"
+    },
+    "executorClass": {
+      "@id": "airflow:executor_class"
+    },
+    "detail": {
+      "@id": "airflow:detail"
+    },
+    "newState": {
+      "@id": "airflow:new_state"
+    },
+    "plugins": {
+      "@id": "airflow:plugins"
+    },
+    "hitlDetails": {
+      "@id": "airflow:hitl_details"
+    },
+    "group": {
+      "@id": "airflow:group"
+    },
+    "assetEvents": {
+      "@id": "airflow:asset_events"
+    },
+    "reason": {
+      "@id": "airflow:reason"
+    },
+    "occupiedSlots": {
+      "@id": "airflow:occupied_slots",
+      "@type": "xsd:integer"
+    },
+    "runningSlots": {
+      "@id": "airflow:running_slots",
+      "@type": "xsd:integer"
+    },
+    "queuedSlots": {
+      "@id": "airflow:queued_slots",
+      "@type": "xsd:integer"
+    },
+    "scheduledSlots": {
+      "@id": "airflow:scheduled_slots",
+      "@type": "xsd:integer"
+    },
+    "openSlots": {
+      "@id": "airflow:open_slots",
+      "@type": "xsd:integer"
+    },
+    "deferredSlots": {
+      "@id": "airflow:deferred_slots",
+      "@type": "xsd:integer"
+    },
+    "isStale": {
+      "@id": "airflow:is_stale",
+      "@type": "xsd:boolean"
+    },
+    "lastParsedTime": {
+      "@id": "airflow:last_parsed_time"
+    },
+    "lastParseDuration": {
+      "@id": "airflow:last_parse_duration"
+    },
+    "lastExpired": {
+      "@id": "airflow:last_expired"
+    },
+    "relativeFileloc": {
+      "@id": "airflow:relative_fileloc"
+    },
+    "fileloc": {
+      "@id": "airflow:fileloc"
+    },
+    "timetableSummary": {
+      "@id": "airflow:timetable_summary"
+    },
+    "timetableDescription": {
+      "@id": "airflow:timetable_description"
+    },
+    "timetablePartitioned": {
+      "@id": "airflow:timetable_partitioned",
+      "@type": "xsd:boolean"
+    },
+    "timetablePeriodic": {
+      "@id": "airflow:timetable_periodic",
+      "@type": "xsd:boolean"
+    },
+    "maxActiveTasks": {
+      "@id": "airflow:max_active_tasks",
+      "@type": "xsd:integer"
+    },
+    "maxConsecutiveFailedDagRuns": {
+      "@id": "airflow:max_consecutive_failed_dag_runs",
+      "@type": "xsd:integer"
+    },
+    "hasTaskConcurrencyLimits": {
+      "@id": "airflow:has_task_concurrency_limits",
+      "@type": "xsd:boolean"
+    },
+    "hasImportErrors": {
+      "@id": "airflow:has_import_errors",
+      "@type": "xsd:boolean"
+    },
+    "nextDagrunLogicalDate": {
+      "@id": "airflow:next_dagrun_logical_date"
+    },
+    "nextDagrunDataIntervalStart": {
+      "@id": "airflow:next_dagrun_data_interval_start"
+    },
+    "nextDagrunDataIntervalEnd": {
+      "@id": "airflow:next_dagrun_data_interval_end"
+    },
+    "nextDagrunRunAfter": {
+      "@id": "airflow:next_dagrun_run_after"
+    },
+    "allowedRunTypes": {
+      "@id": "airflow:allowed_run_types"
+    },
+    "owners": {
+      "@id": "airflow:owners"
+    },
+    "catchup": {
+      "@id": "airflow:catchup",
+      "@type": "xsd:boolean"
+    },
+    "dagRunTimeout": {
+      "@id": "airflow:dag_run_timeout"
+    },
+    "assetExpression": {
+      "@id": "airflow:asset_expression"
+    },
+    "isPausedUponCreation": {
+      "@id": "airflow:is_paused_upon_creation"
+    },
+    "renderTemplateAsNativeObj": {
+      "@id": "airflow:render_template_as_native_obj",
+      "@type": "xsd:boolean"
+    },
+    "templateSearchPath": {
+      "@id": "airflow:template_search_path"
+    },
+    "timezone": {
+      "@id": "airflow:timezone"
+    },
+    "lastParsed": {
+      "@id": "airflow:last_parsed"
+    },
+    "defaultArgs": {
+      "@id": "airflow:default_args"
+    },
+    "ownerLinks": {
+      "@id": "airflow:owner_links"
+    },
+    "isFavorite": {
+      "@id": "airflow:is_favorite",
+      "@type": "xsd:boolean"
+    },
+    "activeRunsCount": {
+      "@id": "airflow:active_runs_count",
+      "@type": "xsd:integer"
+    },
+    "isBackfillable": {
+      "@id": "airflow:is_backfillable",
+      "@type": "xsd:boolean"
+    },
+    "fileToken": {
+      "@id": "airflow:file_token"
+    },
+    "concurrency": {
+      "@id": "airflow:concurrency",
+      "@type": "xsd:integer"
+    },
+    "latestDagVersion": {
+      "@id": "airflow:latest_dag_version"
+    },
+    "uri": {
+      "@id": "airflow:uri"
+    },
+    "sourceTaskId": {
+      "@id": "airflow:source_task_id"
+    },
+    "sourceDagId": {
+      "@id": "airflow:source_dag_id"
+    },
+    "sourceRunId": {
+      "@id": "airflow:source_run_id"
+    },
+    "sourceMapIndex": {
+      "@id": "airflow:source_map_index",
+      "@type": "xsd:integer"
+    },
+    "createdDagruns": {
+      "@id": "airflow:created_dagruns"
+    },
+    "assets": {
+      "@id": "airflow:assets"
+    },
+    "states": {
+      "@id": "airflow:states"
+    },
+    "confContains": {
+      "@id": "airflow:conf_contains"
+    },
+    "scheduledDags": {
+      "@id": "airflow:scheduled_dags"
+    },
+    "producingTasks": {
+      "@id": "airflow:producing_tasks"
+    },
+    "consumingTasks": {
+      "@id": "airflow:consuming_tasks"
+    },
+    "aliases": {
+      "@id": "airflow:aliases"
+    },
+    "watchers": {
+      "@id": "airflow:watchers"
+    },
+    "lastAssetEvent": {
+      "@id": "airflow:last_asset_event"
+    },
+    "completedAt": {
+      "@id": "airflow:completed_at"
+    },
+    "app": {
+      "@id": "airflow:app"
+    },
+    "urlPrefix": {
+      "@id": "airflow:url_prefix"
+    },
+    "assetAliases": {
+      "@id": "airflow:asset_aliases"
+    },
+    "error": {
+      "@id": "airflow:error"
+    },
+    "metadatabase": {
+      "@id": "airflow:metadatabase"
+    },
+    "scheduler": {
+      "@id": "airflow:scheduler"
+    },
+    "triggerer": {
+      "@id": "airflow:triggerer"
+    },
+    "dagProcessor": {
+      "@id": "airflow:dag_processor"
+    }
+  }
+}

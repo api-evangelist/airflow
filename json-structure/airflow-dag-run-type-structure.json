@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-structure/airflow-dag-run-type-structure.json",
+  "name": "DagRunType",
+  "description": "Class with DagRun types.",
+  "type": "string",
+  "enum": [
+    "backfill",
+    "scheduled",
+    "manual",
+    "operator_triggered",
+    "asset_triggered",
+    "asset_materialization"
+  ]
+}

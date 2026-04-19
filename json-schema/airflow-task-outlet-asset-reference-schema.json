@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/json-schema/airflow-task-outlet-asset-reference-schema.json",
+  "title": "TaskOutletAssetReference",
+  "description": "Task outlet reference serializer for assets.",
+  "type": "object",
+  "properties": {
+    "dag_id": {
+      "type": "string",
+      "title": "Dag Id"
+    },
+    "task_id": {
+      "type": "string",
+      "title": "Task Id"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At"
+    }
+  },
+  "required": [
+    "dag_id",
+    "task_id",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false
+}
