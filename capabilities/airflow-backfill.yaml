@@ -1,0 +1,337 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — Backfill
+  description: 'Airflow API — Backfill. 7 operations. Lead operation: Airflow List Backfills. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - Backfill
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-backfill
+    baseUri: ''
+    description: Airflow API — Backfill business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-backfills
+      path: /api/v2/backfills
+      operations:
+      - name: listbackfills
+        method: GET
+        description: Airflow List Backfills
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: query
+          type: string
+          required: true
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `id`'
+      - name: createbackfill
+        method: POST
+        description: Airflow Create Backfill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-backfills-dry_run
+      path: /api/v2/backfills/dry_run
+      operations:
+      - name: createbackfilldryrun
+        method: POST
+        description: Airflow Create Backfill Dry Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-backfills-backfill_id
+      path: /api/v2/backfills/{backfill_id}
+      operations:
+      - name: getbackfill
+        method: GET
+        description: Airflow Get Backfill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: backfill_id
+          in: path
+          type: integer
+          required: true
+    - name: api-v2-backfills-backfill_id-cancel
+      path: /api/v2/backfills/{backfill_id}/cancel
+      operations:
+      - name: cancelbackfill
+        method: PUT
+        description: Airflow Cancel Backfill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: backfill_id
+          in: path
+          type: integer
+          required: true
+    - name: api-v2-backfills-backfill_id-pause
+      path: /api/v2/backfills/{backfill_id}/pause
+      operations:
+      - name: pausebackfill
+        method: PUT
+        description: Airflow Pause Backfill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: backfill_id
+          in: path
+          type: integer
+          required: true
+    - name: api-v2-backfills-backfill_id-unpause
+      path: /api/v2/backfills/{backfill_id}/unpause
+      operations:
+      - name: unpausebackfill
+        method: PUT
+        description: Airflow Unpause Backfill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: backfill_id
+          in: path
+          type: integer
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-backfill-rest
+    port: 8080
+    description: REST adapter for Airflow API — Backfill. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/backfills
+      name: api-v2-backfills
+      description: REST surface for api-v2-backfills.
+      operations:
+      - method: GET
+        name: listbackfills
+        description: Airflow List Backfills
+        call: airflow-backfill.listbackfills
+        with:
+          dag_id: rest.dag_id
+          limit: rest.limit
+          offset: rest.offset
+          order_by: rest.order_by
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbackfill
+        description: Airflow Create Backfill
+        call: airflow-backfill.createbackfill
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/backfills/dry-run
+      name: api-v2-backfills-dry-run
+      description: REST surface for api-v2-backfills-dry_run.
+      operations:
+      - method: POST
+        name: createbackfilldryrun
+        description: Airflow Create Backfill Dry Run
+        call: airflow-backfill.createbackfilldryrun
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/backfills/{backfill-id}
+      name: api-v2-backfills-backfill-id
+      description: REST surface for api-v2-backfills-backfill_id.
+      operations:
+      - method: GET
+        name: getbackfill
+        description: Airflow Get Backfill
+        call: airflow-backfill.getbackfill
+        with:
+          backfill_id: rest.backfill_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/backfills/{backfill-id}/cancel
+      name: api-v2-backfills-backfill-id-cancel
+      description: REST surface for api-v2-backfills-backfill_id-cancel.
+      operations:
+      - method: PUT
+        name: cancelbackfill
+        description: Airflow Cancel Backfill
+        call: airflow-backfill.cancelbackfill
+        with:
+          backfill_id: rest.backfill_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/backfills/{backfill-id}/pause
+      name: api-v2-backfills-backfill-id-pause
+      description: REST surface for api-v2-backfills-backfill_id-pause.
+      operations:
+      - method: PUT
+        name: pausebackfill
+        description: Airflow Pause Backfill
+        call: airflow-backfill.pausebackfill
+        with:
+          backfill_id: rest.backfill_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/backfills/{backfill-id}/unpause
+      name: api-v2-backfills-backfill-id-unpause
+      description: REST surface for api-v2-backfills-backfill_id-unpause.
+      operations:
+      - method: PUT
+        name: unpausebackfill
+        description: Airflow Unpause Backfill
+        call: airflow-backfill.unpausebackfill
+        with:
+          backfill_id: rest.backfill_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-backfill-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — Backfill. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-list-backfills
+      description: Airflow List Backfills
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-backfill.listbackfills
+      with:
+        dag_id: tools.dag_id
+        limit: tools.limit
+        offset: tools.offset
+        order_by: tools.order_by
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-create-backfill
+      description: Airflow Create Backfill
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-backfill.createbackfill
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-create-backfill-dry-run
+      description: Airflow Create Backfill Dry Run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-backfill.createbackfilldryrun
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-backfill
+      description: Airflow Get Backfill
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-backfill.getbackfill
+      with:
+        backfill_id: tools.backfill_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-cancel-backfill
+      description: Airflow Cancel Backfill
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-backfill.cancelbackfill
+      with:
+        backfill_id: tools.backfill_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-pause-backfill
+      description: Airflow Pause Backfill
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-backfill.pausebackfill
+      with:
+        backfill_id: tools.backfill_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-unpause-backfill
+      description: Airflow Unpause Backfill
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-backfill.unpausebackfill
+      with:
+        backfill_id: tools.backfill_id
+      outputParameters:
+      - type: object
+        mapping: $.

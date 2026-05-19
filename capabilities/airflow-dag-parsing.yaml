@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — DAG Parsing
+  description: 'Airflow API — DAG Parsing. 1 operations. Lead operation: Airflow Reparse Dag File. Self-contained Naftiko
+    capability covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - DAG Parsing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-dag-parsing
+    baseUri: ''
+    description: Airflow API — DAG Parsing business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-parseDagFile-file_token
+      path: /api/v2/parseDagFile/{file_token}
+      operations:
+      - name: reparsedagfile
+        method: PUT
+        description: Airflow Reparse Dag File
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: file_token
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-dag-parsing-rest
+    port: 8080
+    description: REST adapter for Airflow API — DAG Parsing. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/parsedagfile/{file-token}
+      name: api-v2-parsedagfile-file-token
+      description: REST surface for api-v2-parseDagFile-file_token.
+      operations:
+      - method: PUT
+        name: reparsedagfile
+        description: Airflow Reparse Dag File
+        call: airflow-dag-parsing.reparsedagfile
+        with:
+          file_token: rest.file_token
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-dag-parsing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — DAG Parsing. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-reparse-dag-file
+      description: Airflow Reparse Dag File
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-dag-parsing.reparsedagfile
+      with:
+        file_token: tools.file_token
+      outputParameters:
+      - type: object
+        mapping: $.

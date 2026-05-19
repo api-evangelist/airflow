@@ -1,0 +1,96 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — Extra Links
+  description: 'Airflow API — Extra Links. 1 operations. Lead operation: Airflow Get Extra Links. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - Extra Links
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-extra-links
+    baseUri: ''
+    description: Airflow API — Extra Links business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-dags-dag_id-dagRuns-dag_run_id-taskInstances-task_id-links
+      path: /api/v2/dags/{dag_id}/dagRuns/{dag_run_id}/taskInstances/{task_id}/links
+      operations:
+      - name: getextralinks
+        method: GET
+        description: Airflow Get Extra Links
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+        - name: task_id
+          in: path
+          type: string
+          required: true
+        - name: map_index
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-extra-links-rest
+    port: 8080
+    description: REST adapter for Airflow API — Extra Links. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/{dag-run-id}/taskinstances/{task-id}/links
+      name: api-v2-dags-dag-id-dagruns-dag-run-id-taskinstances-task-id-links
+      description: REST surface for api-v2-dags-dag_id-dagRuns-dag_run_id-taskInstances-task_id-links.
+      operations:
+      - method: GET
+        name: getextralinks
+        description: Airflow Get Extra Links
+        call: airflow-extra-links.getextralinks
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+          task_id: rest.task_id
+          map_index: rest.map_index
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-extra-links-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — Extra Links. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-extra-links
+      description: Airflow Get Extra Links
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-extra-links.getextralinks
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+        task_id: tools.task_id
+        map_index: tools.map_index
+      outputParameters:
+      - type: object
+        mapping: $.

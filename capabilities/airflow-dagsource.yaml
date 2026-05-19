@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — DagSource
+  description: 'Airflow API — DagSource. 1 operations. Lead operation: Airflow Get Dag Source. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - DagSource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-dagsource
+    baseUri: ''
+    description: Airflow API — DagSource business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-dagSources-dag_id
+      path: /api/v2/dagSources/{dag_id}
+      operations:
+      - name: getdagsource
+        method: GET
+        description: Airflow Get Dag Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: version_number
+          in: query
+          type: string
+        - name: accept
+          in: header
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-dagsource-rest
+    port: 8080
+    description: REST adapter for Airflow API — DagSource. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/dagsources/{dag-id}
+      name: api-v2-dagsources-dag-id
+      description: REST surface for api-v2-dagSources-dag_id.
+      operations:
+      - method: GET
+        name: getdagsource
+        description: Airflow Get Dag Source
+        call: airflow-dagsource.getdagsource
+        with:
+          dag_id: rest.dag_id
+          version_number: rest.version_number
+          accept: rest.accept
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-dagsource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — DagSource. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-dag-source
+      description: Airflow Get Dag Source
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dagsource.getdagsource
+      with:
+        dag_id: tools.dag_id
+        version_number: tools.version_number
+        accept: tools.accept
+      outputParameters:
+      - type: object
+        mapping: $.

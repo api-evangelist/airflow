@@ -1,0 +1,602 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — DAG
+  description: 'Airflow API — DAG. 9 operations. Lead operation: Airflow Get Dag Tags. Self-contained Naftiko capability covering
+    one Airflow business surface.'
+  tags:
+  - Airflow
+  - DAG
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-dag
+    baseUri: ''
+    description: Airflow API — DAG business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-dagTags
+      path: /api/v2/dagTags
+      operations:
+      - name: getdagtags
+        method: GET
+        description: Airflow Get Dag Tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `name`'
+        - name: tag_name_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+    - name: api-v2-dags
+      path: /api/v2/dags
+      operations:
+      - name: getdags
+        method: GET
+        description: Airflow Get Dags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: tags
+          in: query
+          type: array
+        - name: tags_match_mode
+          in: query
+          type: string
+        - name: owners
+          in: query
+          type: array
+        - name: dag_id_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: dag_display_name_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: exclude_stale
+          in: query
+          type: boolean
+        - name: paused
+          in: query
+          type: string
+        - name: has_import_errors
+          in: query
+          type: string
+          description: Filter Dags by having import errors. Only Dags that have been successfully loaded before will be returned.
+        - name: last_dag_run_state
+          in: query
+          type: string
+        - name: bundle_name
+          in: query
+          type: string
+        - name: bundle_version
+          in: query
+          type: string
+        - name: has_asset_schedule
+          in: query
+          type: string
+          description: Filter Dags with asset-based scheduling
+        - name: asset_dependency
+          in: query
+          type: string
+          description: Filter Dags by asset dependency (name or URI)
+        - name: dag_run_start_date_gte
+          in: query
+          type: string
+        - name: dag_run_start_date_gt
+          in: query
+          type: string
+        - name: dag_run_start_date_lte
+          in: query
+          type: string
+        - name: dag_run_start_date_lt
+          in: query
+          type: string
+        - name: dag_run_end_date_gte
+          in: query
+          type: string
+        - name: dag_run_end_date_gt
+          in: query
+          type: string
+        - name: dag_run_end_date_lte
+          in: query
+          type: string
+        - name: dag_run_end_date_lt
+          in: query
+          type: string
+        - name: dag_run_state
+          in: query
+          type: array
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `dag_id, dag_display_name, next_dagrun, st'
+        - name: is_favorite
+          in: query
+          type: string
+        - name: timetable_type
+          in: query
+          type: array
+      - name: patchdags
+        method: PATCH
+        description: Airflow Patch Dags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: update_mask
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: tags
+          in: query
+          type: array
+        - name: tags_match_mode
+          in: query
+          type: string
+        - name: owners
+          in: query
+          type: array
+        - name: dag_id_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: exclude_stale
+          in: query
+          type: boolean
+        - name: paused
+          in: query
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-dags-dag_id
+      path: /api/v2/dags/{dag_id}
+      operations:
+      - name: getdag
+        method: GET
+        description: Airflow Get Dag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+      - name: patchdag
+        method: PATCH
+        description: Airflow Patch Dag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: update_mask
+          in: query
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedag
+        method: DELETE
+        description: Airflow Delete Dag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-dags-dag_id-details
+      path: /api/v2/dags/{dag_id}/details
+      operations:
+      - name: getdagdetails
+        method: GET
+        description: Airflow Get Dag Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-dags-dag_id-favorite
+      path: /api/v2/dags/{dag_id}/favorite
+      operations:
+      - name: favoritedag
+        method: POST
+        description: Airflow Favorite Dag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-dags-dag_id-unfavorite
+      path: /api/v2/dags/{dag_id}/unfavorite
+      operations:
+      - name: unfavoritedag
+        method: POST
+        description: Airflow Unfavorite Dag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-dag-rest
+    port: 8080
+    description: REST adapter for Airflow API — DAG. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v2/dagtags
+      name: api-v2-dagtags
+      description: REST surface for api-v2-dagTags.
+      operations:
+      - method: GET
+        name: getdagtags
+        description: Airflow Get Dag Tags
+        call: airflow-dag.getdagtags
+        with:
+          limit: rest.limit
+          offset: rest.offset
+          order_by: rest.order_by
+          tag_name_pattern: rest.tag_name_pattern
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags
+      name: api-v2-dags
+      description: REST surface for api-v2-dags.
+      operations:
+      - method: GET
+        name: getdags
+        description: Airflow Get Dags
+        call: airflow-dag.getdags
+        with:
+          limit: rest.limit
+          offset: rest.offset
+          tags: rest.tags
+          tags_match_mode: rest.tags_match_mode
+          owners: rest.owners
+          dag_id_pattern: rest.dag_id_pattern
+          dag_display_name_pattern: rest.dag_display_name_pattern
+          exclude_stale: rest.exclude_stale
+          paused: rest.paused
+          has_import_errors: rest.has_import_errors
+          last_dag_run_state: rest.last_dag_run_state
+          bundle_name: rest.bundle_name
+          bundle_version: rest.bundle_version
+          has_asset_schedule: rest.has_asset_schedule
+          asset_dependency: rest.asset_dependency
+          dag_run_start_date_gte: rest.dag_run_start_date_gte
+          dag_run_start_date_gt: rest.dag_run_start_date_gt
+          dag_run_start_date_lte: rest.dag_run_start_date_lte
+          dag_run_start_date_lt: rest.dag_run_start_date_lt
+          dag_run_end_date_gte: rest.dag_run_end_date_gte
+          dag_run_end_date_gt: rest.dag_run_end_date_gt
+          dag_run_end_date_lte: rest.dag_run_end_date_lte
+          dag_run_end_date_lt: rest.dag_run_end_date_lt
+          dag_run_state: rest.dag_run_state
+          order_by: rest.order_by
+          is_favorite: rest.is_favorite
+          timetable_type: rest.timetable_type
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchdags
+        description: Airflow Patch Dags
+        call: airflow-dag.patchdags
+        with:
+          update_mask: rest.update_mask
+          limit: rest.limit
+          offset: rest.offset
+          tags: rest.tags
+          tags_match_mode: rest.tags_match_mode
+          owners: rest.owners
+          dag_id_pattern: rest.dag_id_pattern
+          exclude_stale: rest.exclude_stale
+          paused: rest.paused
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}
+      name: api-v2-dags-dag-id
+      description: REST surface for api-v2-dags-dag_id.
+      operations:
+      - method: GET
+        name: getdag
+        description: Airflow Get Dag
+        call: airflow-dag.getdag
+        with:
+          dag_id: rest.dag_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchdag
+        description: Airflow Patch Dag
+        call: airflow-dag.patchdag
+        with:
+          dag_id: rest.dag_id
+          update_mask: rest.update_mask
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedag
+        description: Airflow Delete Dag
+        call: airflow-dag.deletedag
+        with:
+          dag_id: rest.dag_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/details
+      name: api-v2-dags-dag-id-details
+      description: REST surface for api-v2-dags-dag_id-details.
+      operations:
+      - method: GET
+        name: getdagdetails
+        description: Airflow Get Dag Details
+        call: airflow-dag.getdagdetails
+        with:
+          dag_id: rest.dag_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/favorite
+      name: api-v2-dags-dag-id-favorite
+      description: REST surface for api-v2-dags-dag_id-favorite.
+      operations:
+      - method: POST
+        name: favoritedag
+        description: Airflow Favorite Dag
+        call: airflow-dag.favoritedag
+        with:
+          dag_id: rest.dag_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/unfavorite
+      name: api-v2-dags-dag-id-unfavorite
+      description: REST surface for api-v2-dags-dag_id-unfavorite.
+      operations:
+      - method: POST
+        name: unfavoritedag
+        description: Airflow Unfavorite Dag
+        call: airflow-dag.unfavoritedag
+        with:
+          dag_id: rest.dag_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-dag-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — DAG. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-dag-tags
+      description: Airflow Get Dag Tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dag.getdagtags
+      with:
+        limit: tools.limit
+        offset: tools.offset
+        order_by: tools.order_by
+        tag_name_pattern: tools.tag_name_pattern
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-dags
+      description: Airflow Get Dags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dag.getdags
+      with:
+        limit: tools.limit
+        offset: tools.offset
+        tags: tools.tags
+        tags_match_mode: tools.tags_match_mode
+        owners: tools.owners
+        dag_id_pattern: tools.dag_id_pattern
+        dag_display_name_pattern: tools.dag_display_name_pattern
+        exclude_stale: tools.exclude_stale
+        paused: tools.paused
+        has_import_errors: tools.has_import_errors
+        last_dag_run_state: tools.last_dag_run_state
+        bundle_name: tools.bundle_name
+        bundle_version: tools.bundle_version
+        has_asset_schedule: tools.has_asset_schedule
+        asset_dependency: tools.asset_dependency
+        dag_run_start_date_gte: tools.dag_run_start_date_gte
+        dag_run_start_date_gt: tools.dag_run_start_date_gt
+        dag_run_start_date_lte: tools.dag_run_start_date_lte
+        dag_run_start_date_lt: tools.dag_run_start_date_lt
+        dag_run_end_date_gte: tools.dag_run_end_date_gte
+        dag_run_end_date_gt: tools.dag_run_end_date_gt
+        dag_run_end_date_lte: tools.dag_run_end_date_lte
+        dag_run_end_date_lt: tools.dag_run_end_date_lt
+        dag_run_state: tools.dag_run_state
+        order_by: tools.order_by
+        is_favorite: tools.is_favorite
+        timetable_type: tools.timetable_type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-patch-dags
+      description: Airflow Patch Dags
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-dag.patchdags
+      with:
+        update_mask: tools.update_mask
+        limit: tools.limit
+        offset: tools.offset
+        tags: tools.tags
+        tags_match_mode: tools.tags_match_mode
+        owners: tools.owners
+        dag_id_pattern: tools.dag_id_pattern
+        exclude_stale: tools.exclude_stale
+        paused: tools.paused
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-dag
+      description: Airflow Get Dag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dag.getdag
+      with:
+        dag_id: tools.dag_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-patch-dag
+      description: Airflow Patch Dag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-dag.patchdag
+      with:
+        dag_id: tools.dag_id
+        update_mask: tools.update_mask
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-delete-dag
+      description: Airflow Delete Dag
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airflow-dag.deletedag
+      with:
+        dag_id: tools.dag_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-dag-details
+      description: Airflow Get Dag Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dag.getdagdetails
+      with:
+        dag_id: tools.dag_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-favorite-dag
+      description: Airflow Favorite Dag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-dag.favoritedag
+      with:
+        dag_id: tools.dag_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-unfavorite-dag
+      description: Airflow Unfavorite Dag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-dag.unfavoritedag
+      with:
+        dag_id: tools.dag_id
+      outputParameters:
+      - type: object
+        mapping: $.

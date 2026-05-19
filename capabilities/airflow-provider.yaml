@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — Provider
+  description: 'Airflow API — Provider. 1 operations. Lead operation: Airflow Get Providers. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - Provider
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-provider
+    baseUri: ''
+    description: Airflow API — Provider business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-providers
+      path: /api/v2/providers
+      operations:
+      - name: getproviders
+        method: GET
+        description: Airflow Get Providers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-provider-rest
+    port: 8080
+    description: REST adapter for Airflow API — Provider. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/providers
+      name: api-v2-providers
+      description: REST surface for api-v2-providers.
+      operations:
+      - method: GET
+        name: getproviders
+        description: Airflow Get Providers
+        call: airflow-provider.getproviders
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-provider-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — Provider. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-providers
+      description: Airflow Get Providers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-provider.getproviders
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.

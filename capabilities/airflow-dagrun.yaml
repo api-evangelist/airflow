@@ -1,0 +1,664 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — DagRun
+  description: 'Airflow API — DagRun. 9 operations. Lead operation: Airflow Get Dag Runs. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - DagRun
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-dagrun
+    baseUri: ''
+    description: Airflow API — DagRun business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-dags-dag_id-dagRuns
+      path: /api/v2/dags/{dag_id}/dagRuns
+      operations:
+      - name: getdagruns
+        method: GET
+        description: Airflow Get Dag Runs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: run_after_gte
+          in: query
+          type: string
+        - name: run_after_gt
+          in: query
+          type: string
+        - name: run_after_lte
+          in: query
+          type: string
+        - name: run_after_lt
+          in: query
+          type: string
+        - name: logical_date_gte
+          in: query
+          type: string
+        - name: logical_date_gt
+          in: query
+          type: string
+        - name: logical_date_lte
+          in: query
+          type: string
+        - name: logical_date_lt
+          in: query
+          type: string
+        - name: start_date_gte
+          in: query
+          type: string
+        - name: start_date_gt
+          in: query
+          type: string
+        - name: start_date_lte
+          in: query
+          type: string
+        - name: start_date_lt
+          in: query
+          type: string
+        - name: end_date_gte
+          in: query
+          type: string
+        - name: end_date_gt
+          in: query
+          type: string
+        - name: end_date_lte
+          in: query
+          type: string
+        - name: end_date_lt
+          in: query
+          type: string
+        - name: duration_gte
+          in: query
+          type: string
+        - name: duration_gt
+          in: query
+          type: string
+        - name: duration_lte
+          in: query
+          type: string
+        - name: duration_lt
+          in: query
+          type: string
+        - name: updated_at_gte
+          in: query
+          type: string
+        - name: updated_at_gt
+          in: query
+          type: string
+        - name: updated_at_lte
+          in: query
+          type: string
+        - name: updated_at_lt
+          in: query
+          type: string
+        - name: conf_contains
+          in: query
+          type: string
+        - name: run_type
+          in: query
+          type: array
+        - name: state
+          in: query
+          type: array
+        - name: dag_version
+          in: query
+          type: array
+        - name: bundle_version
+          in: query
+          type: string
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `id, state, dag_id, run_id, logical_date, '
+        - name: run_id_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: triggering_user_name_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: dag_id_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: partition_key_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: consuming_asset_pattern
+          in: query
+          type: string
+          description: Filter by consuming asset name or URI using pattern matching
+      - name: triggerdagrun
+        method: POST
+        description: Airflow Trigger Dag Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-dags-dag_id-dagRuns-list
+      path: /api/v2/dags/{dag_id}/dagRuns/list
+      operations:
+      - name: getlistdagrunsbatch
+        method: POST
+        description: Airflow Get List Dag Runs Batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-dags-dag_id-dagRuns-dag_run_id
+      path: /api/v2/dags/{dag_id}/dagRuns/{dag_run_id}
+      operations:
+      - name: getdagrun
+        method: GET
+        description: Airflow Get Dag Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+      - name: deletedagrun
+        method: DELETE
+        description: Airflow Delete Dag Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+      - name: patchdagrun
+        method: PATCH
+        description: Airflow Patch Dag Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+        - name: update_mask
+          in: query
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-dags-dag_id-dagRuns-dag_run_id-clear
+      path: /api/v2/dags/{dag_id}/dagRuns/{dag_run_id}/clear
+      operations:
+      - name: cleardagrun
+        method: POST
+        description: Airflow Clear Dag Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-dags-dag_id-dagRuns-dag_run_id-upstreamAssetEvents
+      path: /api/v2/dags/{dag_id}/dagRuns/{dag_run_id}/upstreamAssetEvents
+      operations:
+      - name: getupstreamassetevents
+        method: GET
+        description: Airflow Get Upstream Asset Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-dags-dag_id-dagRuns-dag_run_id-wait
+      path: /api/v2/dags/{dag_id}/dagRuns/{dag_run_id}/wait
+      operations:
+      - name: waitdagrununtilfinished
+        method: GET
+        description: 'Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+        - name: interval
+          in: query
+          type: number
+          description: Seconds to wait between dag run state checks
+          required: true
+        - name: result
+          in: query
+          type: string
+          description: Collect result XCom from task. Can be set multiple times.
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-dagrun-rest
+    port: 8080
+    description: REST adapter for Airflow API — DagRun. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v2/dags/{dag-id}/dagruns
+      name: api-v2-dags-dag-id-dagruns
+      description: REST surface for api-v2-dags-dag_id-dagRuns.
+      operations:
+      - method: GET
+        name: getdagruns
+        description: Airflow Get Dag Runs
+        call: airflow-dagrun.getdagruns
+        with:
+          dag_id: rest.dag_id
+          limit: rest.limit
+          offset: rest.offset
+          run_after_gte: rest.run_after_gte
+          run_after_gt: rest.run_after_gt
+          run_after_lte: rest.run_after_lte
+          run_after_lt: rest.run_after_lt
+          logical_date_gte: rest.logical_date_gte
+          logical_date_gt: rest.logical_date_gt
+          logical_date_lte: rest.logical_date_lte
+          logical_date_lt: rest.logical_date_lt
+          start_date_gte: rest.start_date_gte
+          start_date_gt: rest.start_date_gt
+          start_date_lte: rest.start_date_lte
+          start_date_lt: rest.start_date_lt
+          end_date_gte: rest.end_date_gte
+          end_date_gt: rest.end_date_gt
+          end_date_lte: rest.end_date_lte
+          end_date_lt: rest.end_date_lt
+          duration_gte: rest.duration_gte
+          duration_gt: rest.duration_gt
+          duration_lte: rest.duration_lte
+          duration_lt: rest.duration_lt
+          updated_at_gte: rest.updated_at_gte
+          updated_at_gt: rest.updated_at_gt
+          updated_at_lte: rest.updated_at_lte
+          updated_at_lt: rest.updated_at_lt
+          conf_contains: rest.conf_contains
+          run_type: rest.run_type
+          state: rest.state
+          dag_version: rest.dag_version
+          bundle_version: rest.bundle_version
+          order_by: rest.order_by
+          run_id_pattern: rest.run_id_pattern
+          triggering_user_name_pattern: rest.triggering_user_name_pattern
+          dag_id_pattern: rest.dag_id_pattern
+          partition_key_pattern: rest.partition_key_pattern
+          consuming_asset_pattern: rest.consuming_asset_pattern
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: triggerdagrun
+        description: Airflow Trigger Dag Run
+        call: airflow-dagrun.triggerdagrun
+        with:
+          dag_id: rest.dag_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/list
+      name: api-v2-dags-dag-id-dagruns-list
+      description: REST surface for api-v2-dags-dag_id-dagRuns-list.
+      operations:
+      - method: POST
+        name: getlistdagrunsbatch
+        description: Airflow Get List Dag Runs Batch
+        call: airflow-dagrun.getlistdagrunsbatch
+        with:
+          dag_id: rest.dag_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/{dag-run-id}
+      name: api-v2-dags-dag-id-dagruns-dag-run-id
+      description: REST surface for api-v2-dags-dag_id-dagRuns-dag_run_id.
+      operations:
+      - method: GET
+        name: getdagrun
+        description: Airflow Get Dag Run
+        call: airflow-dagrun.getdagrun
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedagrun
+        description: Airflow Delete Dag Run
+        call: airflow-dagrun.deletedagrun
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchdagrun
+        description: Airflow Patch Dag Run
+        call: airflow-dagrun.patchdagrun
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+          update_mask: rest.update_mask
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/{dag-run-id}/clear
+      name: api-v2-dags-dag-id-dagruns-dag-run-id-clear
+      description: REST surface for api-v2-dags-dag_id-dagRuns-dag_run_id-clear.
+      operations:
+      - method: POST
+        name: cleardagrun
+        description: Airflow Clear Dag Run
+        call: airflow-dagrun.cleardagrun
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/{dag-run-id}/upstreamassetevents
+      name: api-v2-dags-dag-id-dagruns-dag-run-id-upstreamassetevents
+      description: REST surface for api-v2-dags-dag_id-dagRuns-dag_run_id-upstreamAssetEvents.
+      operations:
+      - method: GET
+        name: getupstreamassetevents
+        description: Airflow Get Upstream Asset Events
+        call: airflow-dagrun.getupstreamassetevents
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/{dag-run-id}/wait
+      name: api-v2-dags-dag-id-dagruns-dag-run-id-wait
+      description: REST surface for api-v2-dags-dag_id-dagRuns-dag_run_id-wait.
+      operations:
+      - method: GET
+        name: waitdagrununtilfinished
+        description: 'Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.'
+        call: airflow-dagrun.waitdagrununtilfinished
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+          interval: rest.interval
+          result: rest.result
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-dagrun-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — DagRun. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-dag-runs
+      description: Airflow Get Dag Runs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dagrun.getdagruns
+      with:
+        dag_id: tools.dag_id
+        limit: tools.limit
+        offset: tools.offset
+        run_after_gte: tools.run_after_gte
+        run_after_gt: tools.run_after_gt
+        run_after_lte: tools.run_after_lte
+        run_after_lt: tools.run_after_lt
+        logical_date_gte: tools.logical_date_gte
+        logical_date_gt: tools.logical_date_gt
+        logical_date_lte: tools.logical_date_lte
+        logical_date_lt: tools.logical_date_lt
+        start_date_gte: tools.start_date_gte
+        start_date_gt: tools.start_date_gt
+        start_date_lte: tools.start_date_lte
+        start_date_lt: tools.start_date_lt
+        end_date_gte: tools.end_date_gte
+        end_date_gt: tools.end_date_gt
+        end_date_lte: tools.end_date_lte
+        end_date_lt: tools.end_date_lt
+        duration_gte: tools.duration_gte
+        duration_gt: tools.duration_gt
+        duration_lte: tools.duration_lte
+        duration_lt: tools.duration_lt
+        updated_at_gte: tools.updated_at_gte
+        updated_at_gt: tools.updated_at_gt
+        updated_at_lte: tools.updated_at_lte
+        updated_at_lt: tools.updated_at_lt
+        conf_contains: tools.conf_contains
+        run_type: tools.run_type
+        state: tools.state
+        dag_version: tools.dag_version
+        bundle_version: tools.bundle_version
+        order_by: tools.order_by
+        run_id_pattern: tools.run_id_pattern
+        triggering_user_name_pattern: tools.triggering_user_name_pattern
+        dag_id_pattern: tools.dag_id_pattern
+        partition_key_pattern: tools.partition_key_pattern
+        consuming_asset_pattern: tools.consuming_asset_pattern
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-trigger-dag-run
+      description: Airflow Trigger Dag Run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-dagrun.triggerdagrun
+      with:
+        dag_id: tools.dag_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-list-dag-runs
+      description: Airflow Get List Dag Runs Batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: airflow-dagrun.getlistdagrunsbatch
+      with:
+        dag_id: tools.dag_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-dag-run
+      description: Airflow Get Dag Run
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dagrun.getdagrun
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-delete-dag-run
+      description: Airflow Delete Dag Run
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airflow-dagrun.deletedagrun
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-patch-dag-run
+      description: Airflow Patch Dag Run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airflow-dagrun.patchdagrun
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+        update_mask: tools.update_mask
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-clear-dag-run
+      description: Airflow Clear Dag Run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-dagrun.cleardagrun
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-upstream-asset-events
+      description: Airflow Get Upstream Asset Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dagrun.getupstreamassetevents
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-experimental-wait-dag-run
+      description: 'Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.'
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-dagrun.waitdagrununtilfinished
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+        interval: tools.interval
+        result: tools.result
+      outputParameters:
+      - type: object
+        mapping: $.

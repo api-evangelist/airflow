@@ -1,0 +1,115 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — Plugin
+  description: 'Airflow API — Plugin. 2 operations. Lead operation: Airflow Get Plugins. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - Plugin
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-plugin
+    baseUri: ''
+    description: Airflow API — Plugin business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-plugins
+      path: /api/v2/plugins
+      operations:
+      - name: getplugins
+        method: GET
+        description: Airflow Get Plugins
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+    - name: api-v2-plugins-importErrors
+      path: /api/v2/plugins/importErrors
+      operations:
+      - name: importerrors
+        method: GET
+        description: Airflow Import Errors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-plugin-rest
+    port: 8080
+    description: REST adapter for Airflow API — Plugin. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v2/plugins
+      name: api-v2-plugins
+      description: REST surface for api-v2-plugins.
+      operations:
+      - method: GET
+        name: getplugins
+        description: Airflow Get Plugins
+        call: airflow-plugin.getplugins
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/plugins/importerrors
+      name: api-v2-plugins-importerrors
+      description: REST surface for api-v2-plugins-importErrors.
+      operations:
+      - method: GET
+        name: importerrors
+        description: Airflow Import Errors
+        call: airflow-plugin.importerrors
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-plugin-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — Plugin. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-plugins
+      description: Airflow Get Plugins
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-plugin.getplugins
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-import-errors
+      description: Airflow Import Errors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-plugin.importerrors
+      outputParameters:
+      - type: object
+        mapping: $.

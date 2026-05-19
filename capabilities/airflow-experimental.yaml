@@ -1,0 +1,98 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — experimental
+  description: 'Airflow API — experimental. 1 operations. Lead operation: Airflow Experimental: Wait for a Dag Run to Complete,
+    and Return Task Results if Requested.. Self-contained Naftiko capability covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - experimental
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-experimental
+    baseUri: ''
+    description: Airflow API — experimental business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-dags-dag_id-dagRuns-dag_run_id-wait
+      path: /api/v2/dags/{dag_id}/dagRuns/{dag_run_id}/wait
+      operations:
+      - name: waitdagrununtilfinished
+        method: GET
+        description: 'Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: dag_run_id
+          in: path
+          type: string
+          required: true
+        - name: interval
+          in: query
+          type: number
+          description: Seconds to wait between dag run state checks
+          required: true
+        - name: result
+          in: query
+          type: string
+          description: Collect result XCom from task. Can be set multiple times.
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-experimental-rest
+    port: 8080
+    description: REST adapter for Airflow API — experimental. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/dags/{dag-id}/dagruns/{dag-run-id}/wait
+      name: api-v2-dags-dag-id-dagruns-dag-run-id-wait
+      description: REST surface for api-v2-dags-dag_id-dagRuns-dag_run_id-wait.
+      operations:
+      - method: GET
+        name: waitdagrununtilfinished
+        description: 'Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.'
+        call: airflow-experimental.waitdagrununtilfinished
+        with:
+          dag_id: rest.dag_id
+          dag_run_id: rest.dag_run_id
+          interval: rest.interval
+          result: rest.result
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-experimental-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — experimental. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-experimental-wait-dag-run
+      description: 'Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.'
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-experimental.waitdagrununtilfinished
+      with:
+        dag_id: tools.dag_id
+        dag_run_id: tools.dag_run_id
+        interval: tools.interval
+        result: tools.result
+      outputParameters:
+      - type: object
+        mapping: $.

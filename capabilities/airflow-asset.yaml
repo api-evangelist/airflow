@@ -1,0 +1,709 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Airflow API — Asset
+  description: 'Airflow API — Asset. 13 operations. Lead operation: Airflow Get Assets. Self-contained Naftiko capability
+    covering one Airflow business surface.'
+  tags:
+  - Airflow
+  - Asset
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRFLOW_API_KEY: AIRFLOW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airflow-asset
+    baseUri: ''
+    description: Airflow API — Asset business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-assets
+      path: /api/v2/assets
+      operations:
+      - name: getassets
+        method: GET
+        description: Airflow Get Assets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: name_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: uri_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: dag_ids
+          in: query
+          type: array
+        - name: only_active
+          in: query
+          type: boolean
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `id, name, uri, created_at, updated_at`'
+    - name: api-v2-assets-aliases
+      path: /api/v2/assets/aliases
+      operations:
+      - name: getassetaliases
+        method: GET
+        description: Airflow Get Asset Aliases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: name_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `id, name`'
+    - name: api-v2-assets-aliases-asset_alias_id
+      path: /api/v2/assets/aliases/{asset_alias_id}
+      operations:
+      - name: getassetalias
+        method: GET
+        description: Airflow Get Asset Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: asset_alias_id
+          in: path
+          type: integer
+          required: true
+    - name: api-v2-assets-events
+      path: /api/v2/assets/events
+      operations:
+      - name: getassetevents
+        method: GET
+        description: Airflow Get Asset Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: order_by
+          in: query
+          type: array
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported
+            attributes: `source_task_id, source_dag_id, source_run'
+        - name: asset_id
+          in: query
+          type: string
+        - name: source_dag_id
+          in: query
+          type: string
+        - name: source_task_id
+          in: query
+          type: string
+        - name: source_run_id
+          in: query
+          type: string
+        - name: source_map_index
+          in: query
+          type: string
+        - name: name_pattern
+          in: query
+          type: string
+          description: 'SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR
+            logic (e.g. `dag1 | dag2`). Regular expressions are **not** '
+        - name: timestamp_gte
+          in: query
+          type: string
+        - name: timestamp_gt
+          in: query
+          type: string
+        - name: timestamp_lte
+          in: query
+          type: string
+        - name: timestamp_lt
+          in: query
+          type: string
+      - name: createassetevent
+        method: POST
+        description: Airflow Create Asset Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v2-assets-asset_id
+      path: /api/v2/assets/{asset_id}
+      operations:
+      - name: getasset
+        method: GET
+        description: Airflow Get Asset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: asset_id
+          in: path
+          type: integer
+          required: true
+    - name: api-v2-assets-asset_id-materialize
+      path: /api/v2/assets/{asset_id}/materialize
+      operations:
+      - name: materializeasset
+        method: POST
+        description: Airflow Materialize Asset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: asset_id
+          in: path
+          type: integer
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-assets-asset_id-queuedEvents
+      path: /api/v2/assets/{asset_id}/queuedEvents
+      operations:
+      - name: getassetqueuedevents
+        method: GET
+        description: Airflow Get Asset Queued Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: asset_id
+          in: path
+          type: integer
+          required: true
+        - name: before
+          in: query
+          type: string
+      - name: deleteassetqueuedevents
+        method: DELETE
+        description: Airflow Delete Asset Queued Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: asset_id
+          in: path
+          type: integer
+          required: true
+        - name: before
+          in: query
+          type: string
+    - name: api-v2-dags-dag_id-assets-queuedEvents
+      path: /api/v2/dags/{dag_id}/assets/queuedEvents
+      operations:
+      - name: getdagassetqueuedevents
+        method: GET
+        description: Airflow Get Dag Asset Queued Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: before
+          in: query
+          type: string
+      - name: deletedagassetqueuedevents
+        method: DELETE
+        description: Airflow Delete Dag Asset Queued Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: before
+          in: query
+          type: string
+    - name: api-v2-dags-dag_id-assets-asset_id-queuedEvents
+      path: /api/v2/dags/{dag_id}/assets/{asset_id}/queuedEvents
+      operations:
+      - name: getdagassetqueuedevent
+        method: GET
+        description: Airflow Get Dag Asset Queued Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: asset_id
+          in: path
+          type: integer
+          required: true
+        - name: before
+          in: query
+          type: string
+      - name: deletedagassetqueuedevent
+        method: DELETE
+        description: Airflow Delete Dag Asset Queued Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dag_id
+          in: path
+          type: string
+          required: true
+        - name: asset_id
+          in: path
+          type: integer
+          required: true
+        - name: before
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.AIRFLOW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: airflow-asset-rest
+    port: 8080
+    description: REST adapter for Airflow API — Asset. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v2/assets
+      name: api-v2-assets
+      description: REST surface for api-v2-assets.
+      operations:
+      - method: GET
+        name: getassets
+        description: Airflow Get Assets
+        call: airflow-asset.getassets
+        with:
+          limit: rest.limit
+          offset: rest.offset
+          name_pattern: rest.name_pattern
+          uri_pattern: rest.uri_pattern
+          dag_ids: rest.dag_ids
+          only_active: rest.only_active
+          order_by: rest.order_by
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/assets/aliases
+      name: api-v2-assets-aliases
+      description: REST surface for api-v2-assets-aliases.
+      operations:
+      - method: GET
+        name: getassetaliases
+        description: Airflow Get Asset Aliases
+        call: airflow-asset.getassetaliases
+        with:
+          limit: rest.limit
+          offset: rest.offset
+          name_pattern: rest.name_pattern
+          order_by: rest.order_by
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/assets/aliases/{asset-alias-id}
+      name: api-v2-assets-aliases-asset-alias-id
+      description: REST surface for api-v2-assets-aliases-asset_alias_id.
+      operations:
+      - method: GET
+        name: getassetalias
+        description: Airflow Get Asset Alias
+        call: airflow-asset.getassetalias
+        with:
+          asset_alias_id: rest.asset_alias_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/assets/events
+      name: api-v2-assets-events
+      description: REST surface for api-v2-assets-events.
+      operations:
+      - method: GET
+        name: getassetevents
+        description: Airflow Get Asset Events
+        call: airflow-asset.getassetevents
+        with:
+          limit: rest.limit
+          offset: rest.offset
+          order_by: rest.order_by
+          asset_id: rest.asset_id
+          source_dag_id: rest.source_dag_id
+          source_task_id: rest.source_task_id
+          source_run_id: rest.source_run_id
+          source_map_index: rest.source_map_index
+          name_pattern: rest.name_pattern
+          timestamp_gte: rest.timestamp_gte
+          timestamp_gt: rest.timestamp_gt
+          timestamp_lte: rest.timestamp_lte
+          timestamp_lt: rest.timestamp_lt
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createassetevent
+        description: Airflow Create Asset Event
+        call: airflow-asset.createassetevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/assets/{asset-id}
+      name: api-v2-assets-asset-id
+      description: REST surface for api-v2-assets-asset_id.
+      operations:
+      - method: GET
+        name: getasset
+        description: Airflow Get Asset
+        call: airflow-asset.getasset
+        with:
+          asset_id: rest.asset_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/assets/{asset-id}/materialize
+      name: api-v2-assets-asset-id-materialize
+      description: REST surface for api-v2-assets-asset_id-materialize.
+      operations:
+      - method: POST
+        name: materializeasset
+        description: Airflow Materialize Asset
+        call: airflow-asset.materializeasset
+        with:
+          asset_id: rest.asset_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/assets/{asset-id}/queuedevents
+      name: api-v2-assets-asset-id-queuedevents
+      description: REST surface for api-v2-assets-asset_id-queuedEvents.
+      operations:
+      - method: GET
+        name: getassetqueuedevents
+        description: Airflow Get Asset Queued Events
+        call: airflow-asset.getassetqueuedevents
+        with:
+          asset_id: rest.asset_id
+          before: rest.before
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteassetqueuedevents
+        description: Airflow Delete Asset Queued Events
+        call: airflow-asset.deleteassetqueuedevents
+        with:
+          asset_id: rest.asset_id
+          before: rest.before
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/assets/queuedevents
+      name: api-v2-dags-dag-id-assets-queuedevents
+      description: REST surface for api-v2-dags-dag_id-assets-queuedEvents.
+      operations:
+      - method: GET
+        name: getdagassetqueuedevents
+        description: Airflow Get Dag Asset Queued Events
+        call: airflow-asset.getdagassetqueuedevents
+        with:
+          dag_id: rest.dag_id
+          before: rest.before
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedagassetqueuedevents
+        description: Airflow Delete Dag Asset Queued Events
+        call: airflow-asset.deletedagassetqueuedevents
+        with:
+          dag_id: rest.dag_id
+          before: rest.before
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/dags/{dag-id}/assets/{asset-id}/queuedevents
+      name: api-v2-dags-dag-id-assets-asset-id-queuedevents
+      description: REST surface for api-v2-dags-dag_id-assets-asset_id-queuedEvents.
+      operations:
+      - method: GET
+        name: getdagassetqueuedevent
+        description: Airflow Get Dag Asset Queued Event
+        call: airflow-asset.getdagassetqueuedevent
+        with:
+          dag_id: rest.dag_id
+          asset_id: rest.asset_id
+          before: rest.before
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedagassetqueuedevent
+        description: Airflow Delete Dag Asset Queued Event
+        call: airflow-asset.deletedagassetqueuedevent
+        with:
+          dag_id: rest.dag_id
+          asset_id: rest.asset_id
+          before: rest.before
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airflow-asset-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Airflow API — Asset. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airflow-get-assets
+      description: Airflow Get Assets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getassets
+      with:
+        limit: tools.limit
+        offset: tools.offset
+        name_pattern: tools.name_pattern
+        uri_pattern: tools.uri_pattern
+        dag_ids: tools.dag_ids
+        only_active: tools.only_active
+        order_by: tools.order_by
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-asset-aliases
+      description: Airflow Get Asset Aliases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getassetaliases
+      with:
+        limit: tools.limit
+        offset: tools.offset
+        name_pattern: tools.name_pattern
+        order_by: tools.order_by
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-asset-alias
+      description: Airflow Get Asset Alias
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getassetalias
+      with:
+        asset_alias_id: tools.asset_alias_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-asset-events
+      description: Airflow Get Asset Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getassetevents
+      with:
+        limit: tools.limit
+        offset: tools.offset
+        order_by: tools.order_by
+        asset_id: tools.asset_id
+        source_dag_id: tools.source_dag_id
+        source_task_id: tools.source_task_id
+        source_run_id: tools.source_run_id
+        source_map_index: tools.source_map_index
+        name_pattern: tools.name_pattern
+        timestamp_gte: tools.timestamp_gte
+        timestamp_gt: tools.timestamp_gt
+        timestamp_lte: tools.timestamp_lte
+        timestamp_lt: tools.timestamp_lt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-create-asset-event
+      description: Airflow Create Asset Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-asset.createassetevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-asset
+      description: Airflow Get Asset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getasset
+      with:
+        asset_id: tools.asset_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-materialize-asset
+      description: Airflow Materialize Asset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airflow-asset.materializeasset
+      with:
+        asset_id: tools.asset_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-asset-queued-events
+      description: Airflow Get Asset Queued Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getassetqueuedevents
+      with:
+        asset_id: tools.asset_id
+        before: tools.before
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-delete-asset-queued-events
+      description: Airflow Delete Asset Queued Events
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airflow-asset.deleteassetqueuedevents
+      with:
+        asset_id: tools.asset_id
+        before: tools.before
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-dag-asset-queued
+      description: Airflow Get Dag Asset Queued Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getdagassetqueuedevents
+      with:
+        dag_id: tools.dag_id
+        before: tools.before
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-delete-dag-asset-queued
+      description: Airflow Delete Dag Asset Queued Events
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airflow-asset.deletedagassetqueuedevents
+      with:
+        dag_id: tools.dag_id
+        before: tools.before
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-get-dag-asset-queued-2
+      description: Airflow Get Dag Asset Queued Event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airflow-asset.getdagassetqueuedevent
+      with:
+        dag_id: tools.dag_id
+        asset_id: tools.asset_id
+        before: tools.before
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airflow-delete-dag-asset-queued-2
+      description: Airflow Delete Dag Asset Queued Event
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airflow-asset.deletedagassetqueuedevent
+      with:
+        dag_id: tools.dag_id
+        asset_id: tools.asset_id
+        before: tools.before
+      outputParameters:
+      - type: object
+        mapping: $.

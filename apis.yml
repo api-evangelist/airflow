@@ -57,6 +57,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/apache-airflow
 - url: https://airflow.apache.org
   type: Portal
 - url: https://airflow.apache.org/docs/
