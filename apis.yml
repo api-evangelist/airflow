@@ -17,7 +17,7 @@ tags:
   - ETL
   - Data Engineering
 created: '2026-01-02'
-modified: '2026-04-19'
+modified: '2026-05-30'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/apis.yml
 specificationVersion: '0.19'

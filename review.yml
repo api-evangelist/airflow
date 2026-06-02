@@ -1,0 +1,80 @@
+name: Apache Airflow
+description: >-
+  Apache Airflow webhook and streaming surface review. Determines whether
+  Airflow exposes a documented public webhook subscription API or a streaming
+  (SSE / WebSocket) HTTP surface suitable for AsyncAPI modeling.
+url: https://raw.githubusercontent.com/api-evangelist/airflow/refs/heads/main/review.yml
+created: '2026-05-30'
+modified: '2026-05-30'
+reviews:
+  - date: '2026-05-30'
+    rating: 1
+    summary: >-
+      Apache Airflow does not expose a documented public webhook surface or a
+      documented streaming (Server-Sent Events / WebSocket) HTTP surface on its
+      REST API (v2). The integration model is the opposite shape: Airflow is a
+      consumer of external events, not a producer of HTTP push events. Three
+      adjacent mechanisms exist but none is an outbound webhook or a streaming
+      HTTP endpoint: (1) Listeners are in-process Python plugins registered with
+      the ListenerManager and respond to DAG/Task lifecycle events inside the
+      Airflow process — they are not HTTP callbacks. (2) DAG / task callbacks
+      (on_success_callback, on_failure_callback, sla_miss_callback,
+      on_retry_callback) are Python callables invoked in-process and typically
+      fan out to chat platforms via provider operators (Slack, MS Teams,
+      PagerDuty, email) that the operator/user configures — there is no
+      first-party HTTP webhook subscription API. (3) Event-driven scheduling
+      (Airflow 3.x) is implemented via Asset watchers and triggers that inherit
+      from BaseEventTrigger and actively monitor external systems (message
+      queues, etc.); this is ingress, not egress, and is not an HTTP webhook.
+      The /api/v2 OpenAPI spec contains no path returning text/event-stream or
+      application/stream+json, no WebSocket upgrade endpoint, and no
+      webhook-subscription resource (no POST /webhooks, no /subscriptions). Per
+      the no-fabrication rule, no AsyncAPI document was authored — there is no
+      documented wire format to model. Re-evaluate if/when Airflow publishes a
+      first-party webhook subscription API or a streaming endpoint on the REST
+      API.
+    findings:
+      - area: REST API (/api/v2)
+        result: No webhook subscription resource; no SSE or WebSocket endpoints.
+        evidence: openapi/airflow-openapi.yml contains no webhook/sse/websocket/event-stream paths or media types.
+      - area: Listeners
+        result: In-process Python plugins, not HTTP webhooks.
+        evidence: >-
+          public-airflow-interface.html documents Listeners as ListenerManager
+          hooks implemented in Python plugins that respond to DAG/Task lifecycle
+          events inside the Airflow process.
+      - area: Callbacks (on_success_callback, on_failure_callback, sla_miss_callback)
+        result: Python callables invoked in-process; outbound notifications are user-configured via provider operators.
+        evidence: >-
+          callbacks.html documents Python-callable hooks; provider packages
+          (Slack, MS Teams, PagerDuty, SMTP/email) supply the actual outbound
+          channels and are configured per-DAG by the author.
+      - area: Event-driven scheduling
+        result: Ingress only — Asset watchers and BaseEventTrigger subclasses poll/listen to external sources.
+        evidence: >-
+          event-scheduling.html describes AssetWatcher monitoring external event
+          sources (e.g., message queues) to trigger asset updates. No HTTP
+          webhook ingress endpoint and no outbound streaming surface is
+          documented.
+    endpoints:
+      - url: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
+        status: 200
+        note: REST API v2 reference. No webhook or streaming endpoints documented.
+      - url: https://airflow.apache.org/docs/apache-airflow/stable/public-airflow-interface.html
+        status: 200
+        note: Public Interface page. Listeners are in-process Python plugins, not HTTP webhooks.
+      - url: https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/event-scheduling.html
+        status: 200
+        note: Event-driven scheduling. Asset watchers / BaseEventTrigger — ingress only, not a webhook/streaming surface.
+      - url: https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/listeners.html
+        status: 200
+        note: Listeners reference. In-process Python plugin model.
+      - url: https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/callbacks.html
+        status: 200
+        note: Callbacks reference. Python callables; outbound notifications via provider operators.
+    asyncapiAuthored: false
+    asyncapiRationale: >-
+      No documented HTTP webhook subscription API and no documented streaming
+      (SSE/WebSocket) endpoint exist on the Airflow REST API. There is no public
+      wire format to model. Per the no-fabrication rule, an AsyncAPI document
+      was not authored.
