@@ -4,18 +4,18 @@
     {
       "source": "https://airflow.apache.org/blog/index.xml",
       "feed_url": "https://airflow.apache.org/blog/index.xml",
-      "title": "",
+      "title": "Apache Airflow Blog",
       "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://airflow.apache.org/blog/",
       "feed_url": "https://airflow.apache.org/blog/index.xml",
-      "title": "",
+      "title": "Apache Airflow Blog",
       "saved": 0,
       "method": "discovered"
     }
   ],
   "post_count": 44,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-21T17:00:00Z"
 }
