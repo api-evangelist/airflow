@@ -59,6 +59,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: OAuthScopes
+    url: scopes/airflow-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/apache-airflow
   - url: https://airflow.apache.org
