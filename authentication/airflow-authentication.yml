@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/airflow-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - password
+schemes:
+- name: OAuth2PasswordBearer
+  type: oauth2
+  flows:
+  - flow: password
+    tokenUrl: /auth/token
+    scopes: 0
+  description: 'To authenticate Airflow API requests, clients must include a JWT (JSON Web Token)
+    in the Authorization header of each request. This token is used to verify the identity of
+    the client and ensure that they have the appropriate permissions to access the requested
+    resources. You can use the endpoint ``POST /auth/token`` in order to generate a JWT token.
+    Upon successful authentication, the server will '
+  sources:
+  - openapi/airflow-openapi.yml
+- name: HTTPBearer
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/airflow-openapi.yml

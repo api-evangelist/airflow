@@ -59,6 +59,12 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: VulnerabilityDisclosure
+    url: security/airflow-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/airflow-domain-security.yml
+  - type: Authentication
+    url: authentication/airflow-authentication.yml
   - type: OAuthScopes
     url: scopes/airflow-scopes.yml
   - type: LinkedIn
