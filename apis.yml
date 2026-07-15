@@ -59,6 +59,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/airflow-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/airflow-vulnerability-disclosure.yml
   - type: DomainSecurity
