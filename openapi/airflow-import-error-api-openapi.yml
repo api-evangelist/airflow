@@ -1,0 +1,242 @@
+openapi: 3.1.0
+info:
+  title: Airflow Asset Import Error API
+  description: Airflow API. All endpoints located under ``/api/v2`` can be used safely, are stable and backward compatible. Endpoints located under ``/ui`` are dedicated to the UI and are subject to breaking change depending on the need of the frontend. Users should not rely on those but use the public ones instead.
+  version: '2'
+tags:
+- name: Import Error
+paths:
+  /api/v2/importErrors/{import_error_id}:
+    get:
+      tags:
+      - Import Error
+      summary: Airflow Get Import Error
+      description: Get an import error.
+      operationId: get_import_error
+      security:
+      - OAuth2PasswordBearer: []
+      - HTTPBearer: []
+      parameters:
+      - name: import_error_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Import Error Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportErrorResponse'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPExceptionResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPExceptionResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPExceptionResponse'
+          description: Not Found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /api/v2/importErrors:
+    get:
+      tags:
+      - Import Error
+      summary: Airflow Get Import Errors
+      description: Get all import errors.
+      operationId: get_import_errors
+      security:
+      - OAuth2PasswordBearer: []
+      - HTTPBearer: []
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 50
+          title: Limit
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+          title: Offset
+      - name: order_by
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+          description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, timestamp, filename, bundle_name, stacktrace, import_error_id`'
+          default:
+          - id
+          title: Order By
+        description: 'Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, timestamp, filename, bundle_name, stacktrace, import_error_id`'
+      - name: filename_pattern
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.
+          title: Filename Pattern
+        description: SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportErrorCollectionResponse'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPExceptionResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPExceptionResponse'
+          description: Forbidden
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ImportErrorResponse:
+      properties:
+        import_error_id:
+          type: integer
+          title: Import Error Id
+        timestamp:
+          type: string
+          format: date-time
+          title: Timestamp
+        filename:
+          type: string
+          title: Filename
+        bundle_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Bundle Name
+        stack_trace:
+          type: string
+          title: Stack Trace
+      type: object
+      required:
+      - import_error_id
+      - timestamp
+      - filename
+      - bundle_name
+      - stack_trace
+      title: ImportErrorResponse
+      description: Import Error Response.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ImportErrorCollectionResponse:
+      properties:
+        import_errors:
+          items:
+            $ref: '#/components/schemas/ImportErrorResponse'
+          type: array
+          title: Import Errors
+        total_entries:
+          type: integer
+          title: Total Entries
+      type: object
+      required:
+      - import_errors
+      - total_entries
+      title: ImportErrorCollectionResponse
+      description: Import Error Collection Response.
+    HTTPExceptionResponse:
+      properties:
+        detail:
+          anyOf:
+          - type: string
+          - additionalProperties: true
+            type: object
+          title: Detail
+      type: object
+      required:
+      - detail
+      title: HTTPExceptionResponse
+      description: HTTPException Model used for error response.
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      description: To authenticate Airflow API requests, clients must include a JWT (JSON Web Token) in the Authorization header of each request. This token is used to verify the identity of the client and ensure that they have the appropriate permissions to access the requested resources. You can use the endpoint ``POST /auth/token`` in order to generate a JWT token. Upon successful authentication, the server will issue a JWT token that contains the necessary information (such as user identity and scope) to authenticate subsequent requests. To learn more about Airflow public API authentication, please read https://airflow.apache.org/docs/apache-airflow/stable/security/api.html.
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /auth/token
+    HTTPBearer:
+      type: http
+      scheme: bearer
