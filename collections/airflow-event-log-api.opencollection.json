@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset Event Log API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event Log",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Event Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/eventLogs/:event_log_id",
+            "params": [
+              {
+                "name": "event_log_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Airflow Get Event Log"
+        },
+        {
+          "info": {
+            "name": "Airflow Get Event Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/eventLogs",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dttm, dag_id, task_id, run_id, event, logical_date, owner, extra, when, event_log_id`"
+              },
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "try_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excluded_events",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "included_events",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "task_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "run_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "owner_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "event_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all Event Logs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

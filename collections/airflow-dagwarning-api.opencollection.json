@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset DagWarning API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DagWarning",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow List Dag Warnings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dagWarnings",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "warning_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `dag_id, warning_type, message, timestamp`"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a list of DAG warnings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

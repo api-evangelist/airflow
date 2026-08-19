@@ -1,0 +1,335 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset XCom API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "XCom",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Xcom Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/xcomEntries/:xcom_key",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "xcom_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deserialize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stringify",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get an XCom entry."
+        },
+        {
+          "info": {
+            "name": "Airflow Update Xcom Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/xcomEntries/:xcom_key",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "xcom_key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing XCom entry."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Xcom Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/xcomEntries/:xcom_key",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "xcom_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete an XCom entry."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Xcom Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/xcomEntries",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "xcom_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "xcom_key_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "dag_display_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "run_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "task_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "map_index_filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all XCom entries.\n\nThis endpoint allows specifying `~` as the dag_id, dag_run_id, task_id to retrieve XCom entries for all DAGs."
+        },
+        {
+          "info": {
+            "name": "Airflow Create Xcom Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/xcomEntries",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an XCom entry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

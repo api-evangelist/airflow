@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset DagSource API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DagSource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Dag Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dagSources/:dag_id",
+            "headers": [
+              {
+                "name": "accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_number",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get source code using file token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

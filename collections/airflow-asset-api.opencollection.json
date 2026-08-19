@@ -1,0 +1,522 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "uri_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "dag_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "only_active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, name, uri, created_at, updated_at`"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get assets."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Asset Aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/aliases",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, name`"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get asset aliases."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Asset Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/aliases/:asset_alias_id",
+            "params": [
+              {
+                "name": "asset_alias_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get an asset alias."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Asset Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/events",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `source_task_id, source_dag_id, source_run_id, source_map_index, timestamp`"
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source_dag_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source_task_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source_run_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source_map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "timestamp_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timestamp_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timestamp_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timestamp_lt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get asset events."
+        },
+        {
+          "info": {
+            "name": "Airflow Create Asset Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/assets/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create asset events."
+        },
+        {
+          "info": {
+            "name": "Airflow Materialize Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/assets/:asset_id/materialize",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Materialize an asset by triggering a DAG run that produces it."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Asset Queued Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/:asset_id/queuedEvents",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get queued asset events for an asset."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Asset Queued Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/assets/:asset_id/queuedEvents",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete queued asset events for an asset."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/:asset_id",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get an asset."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Dag Asset Queued Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/assets/queuedEvents",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get queued asset events for a DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Dag Asset Queued Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/assets/queuedEvents",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Airflow Delete Dag Asset Queued Events"
+        },
+        {
+          "info": {
+            "name": "Airflow Get Dag Asset Queued Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/assets/:asset_id/queuedEvents",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a queued asset event for a DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Dag Asset Queued Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/assets/:asset_id/queuedEvents",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete a queued asset event for a DAG."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

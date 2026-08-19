@@ -1,0 +1,4973 @@
+{
+  "item": [
+    {
+      "id": "541b8e7e-77fd-48d2-a589-1f4051035fd1",
+      "name": "DagRun",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d72f2629-29db-4188-bc52-5c5f1e1c7252",
+          "name": "Airflow Get Dag Run",
+          "request": {
+            "name": "Airflow Get Dag Run",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                ":dag_run_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dfd6d3df-dd09-435d-b1ac-93a34fa07bec",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dag_run_id\": \"string\",\n  \"dag_id\": \"string\",\n  \"logical_date\": \"2003-03-02T01:53:41.603Z\",\n  \"queued_at\": \"1951-11-27T08:37:49.349Z\",\n  \"start_date\": \"1972-05-17T13:53:27.896Z\",\n  \"end_date\": \"1952-04-14T11:31:20.057Z\",\n  \"duration\": 8160.866295270729,\n  \"data_interval_start\": \"1982-10-15T04:32:09.261Z\",\n  \"data_interval_end\": \"2010-10-20T10:14:55.945Z\",\n  \"run_after\": \"1998-05-06T05:01:35.108Z\",\n  \"last_scheduling_decision\": \"1949-11-13T02:54:30.951Z\",\n  \"run_type\": \"asset_materialization\",\n  \"state\": \"failed\",\n  \"triggered_by\": \"timetable\",\n  \"triggering_user_name\": \"string\",\n  \"conf\": {\n    \"key_0\": false,\n    \"key_1\": 9177.202195931877,\n    \"key_2\": 9536.437730430416\n  },\n  \"note\": \"string\",\n  \"dag_versions\": [\n    {\n      \"id\": \"3588b57d-12a9-0a53-8fa3-04623e329c76\",\n      \"version_number\": 5279,\n      \"dag_id\": \"string\",\n      \"bundle_name\": \"string\",\n      \"bundle_version\": \"string\",\n      \"created_at\": \"1962-12-05T04:53:08.867Z\",\n      \"dag_display_name\": \"string\",\n      \"bundle_url\": \"string\"\n    },\n    {\n      \"id\": \"d82b3b38-4896-cb93-674e-8dc394f25c8c\",\n      \"version_number\": 1800,\n      \"dag_id\": \"string\",\n      \"bundle_name\": \"string\",\n      \"bundle_version\": \"string\",\n      \"created_at\": \"2014-05-11T08:52:22.610Z\",\n      \"dag_display_name\": \"string\",\n      \"bundle_url\": \"string\"\n    }\n  ],\n  \"bundle_version\": \"string\",\n  \"dag_display_name\": \"string\",\n  \"partition_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa0888f0-bb9a-4490-b42d-048bfe1b9a95",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff271975-12a8-465e-b8f9-c5d32a02a00c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e72705b-f375-4f30-883d-2a7971aeefb8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a0d226b-06f7-4fba-a5da-e422b26487bb",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf1b54f3-b3f5-4e38-8a2b-2c6c94466120",
+          "name": "Airflow Delete Dag Run",
+          "request": {
+            "name": "Airflow Delete Dag Run",
+            "description": {
+              "content": "Delete a DAG Run entry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                ":dag_run_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "44fad3c5-c401-4070-b937-125b1c6f5d60",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e248a6e-4287-4b19-87dc-edda62f6b1a5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f15d9c68-ba9a-4e01-bf1e-77a81f9d06ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7b81833-e121-402c-a0ec-0dc19208ec05",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90101569-b322-408d-97b6-faee4a719383",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59fc98a3-dc68-4f39-8745-84b1d194b54e",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5921123f-43c5-4717-9af0-9c7a3ff8d82a",
+          "name": "Airflow Patch Dag Run",
+          "request": {
+            "name": "Airflow Patch Dag Run",
+            "description": {
+              "content": "Modify a DAG Run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                ":dag_run_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "update_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "update_mask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"state\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8356ca8-5099-4355-9ec0-f2be3a5678e1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"failed\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dag_run_id\": \"string\",\n  \"dag_id\": \"string\",\n  \"logical_date\": \"2003-03-02T01:53:41.603Z\",\n  \"queued_at\": \"1951-11-27T08:37:49.349Z\",\n  \"start_date\": \"1972-05-17T13:53:27.896Z\",\n  \"end_date\": \"1952-04-14T11:31:20.057Z\",\n  \"duration\": 8160.866295270729,\n  \"data_interval_start\": \"1982-10-15T04:32:09.261Z\",\n  \"data_interval_end\": \"2010-10-20T10:14:55.945Z\",\n  \"run_after\": \"1998-05-06T05:01:35.108Z\",\n  \"last_scheduling_decision\": \"1949-11-13T02:54:30.951Z\",\n  \"run_type\": \"asset_materialization\",\n  \"state\": \"failed\",\n  \"triggered_by\": \"timetable\",\n  \"triggering_user_name\": \"string\",\n  \"conf\": {\n    \"key_0\": false,\n    \"key_1\": 9177.202195931877,\n    \"key_2\": 9536.437730430416\n  },\n  \"note\": \"string\",\n  \"dag_versions\": [\n    {\n      \"id\": \"3588b57d-12a9-0a53-8fa3-04623e329c76\",\n      \"version_number\": 5279,\n      \"dag_id\": \"string\",\n      \"bundle_name\": \"string\",\n      \"bundle_version\": \"string\",\n      \"created_at\": \"1962-12-05T04:53:08.867Z\",\n      \"dag_display_name\": \"string\",\n      \"bundle_url\": \"string\"\n    },\n    {\n      \"id\": \"d82b3b38-4896-cb93-674e-8dc394f25c8c\",\n      \"version_number\": 1800,\n      \"dag_id\": \"string\",\n      \"bundle_name\": \"string\",\n      \"bundle_version\": \"string\",\n      \"created_at\": \"2014-05-11T08:52:22.610Z\",\n      \"dag_display_name\": \"string\",\n      \"bundle_url\": \"string\"\n    }\n  ],\n  \"bundle_version\": \"string\",\n  \"dag_display_name\": \"string\",\n  \"partition_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19720228-7a90-4540-b091-3ed4f022f973",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"failed\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "def56d67-3964-4a28-8894-280bac57500c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"failed\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69124077-994e-4f98-a2e9-0ba521ab7b6d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"failed\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4381de7a-bc2c-475b-b8bc-a537bc549ef2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"failed\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70e7ee21-cd34-40a1-b1ce-52773dc05297",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "update_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"failed\",\n  \"note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "735a490a-b2ba-4e41-beb7-0d71200295aa",
+          "name": "Airflow Get Upstream Asset Events",
+          "request": {
+            "name": "Airflow Get Upstream Asset Events",
+            "description": {
+              "content": "If dag run is asset-triggered, return the asset events that triggered it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                ":dag_run_id",
+                "upstreamAssetEvents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d8def055-550d-4cc0-a196-7f071c1f24ba",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "upstreamAssetEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asset_events\": [\n    {\n      \"id\": 4544,\n      \"asset_id\": 1678,\n      \"source_map_index\": 8728,\n      \"created_dagruns\": [\n        {\n          \"run_id\": \"string\",\n          \"dag_id\": \"string\",\n          \"logical_date\": \"1960-02-23T07:00:30.581Z\",\n          \"start_date\": \"1977-07-08T14:40:51.276Z\",\n          \"end_date\": \"1968-11-26T22:06:04.488Z\",\n          \"state\": \"string\",\n          \"data_interval_start\": \"1985-09-06T15:39:12.198Z\",\n          \"data_interval_end\": \"1987-11-02T08:24:39.009Z\",\n          \"partition_key\": \"string\"\n        },\n        {\n          \"run_id\": \"string\",\n          \"dag_id\": \"string\",\n          \"logical_date\": \"1973-11-02T06:23:46.069Z\",\n          \"start_date\": \"1949-03-14T14:06:56.201Z\",\n          \"end_date\": \"1987-09-02T12:59:03.342Z\",\n          \"state\": \"string\",\n          \"data_interval_start\": \"1999-07-02T22:35:57.132Z\",\n          \"data_interval_end\": \"1958-05-08T02:17:57.140Z\",\n          \"partition_key\": \"string\"\n        }\n      ],\n      \"timestamp\": \"1988-10-02T17:48:40.670Z\",\n      \"uri\": \"string\",\n      \"name\": \"string\",\n      \"group\": \"string\",\n      \"extra\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"source_task_id\": \"string\",\n      \"source_dag_id\": \"string\",\n      \"source_run_id\": \"string\",\n      \"partition_key\": \"string\"\n    },\n    {\n      \"id\": 9798,\n      \"asset_id\": 7977,\n      \"source_map_index\": 4670,\n      \"created_dagruns\": [\n        {\n          \"run_id\": \"string\",\n          \"dag_id\": \"string\",\n          \"logical_date\": \"1990-10-31T04:01:53.824Z\",\n          \"start_date\": \"2008-10-14T20:17:48.636Z\",\n          \"end_date\": \"1994-12-13T20:59:45.623Z\",\n          \"state\": \"string\",\n          \"data_interval_start\": \"1965-03-04T18:08:47.388Z\",\n          \"data_interval_end\": \"1996-06-12T08:36:19.929Z\",\n          \"partition_key\": \"string\"\n        },\n        {\n          \"run_id\": \"string\",\n          \"dag_id\": \"string\",\n          \"logical_date\": \"1973-02-24T08:54:02.975Z\",\n          \"start_date\": \"2010-03-09T03:20:41.786Z\",\n          \"end_date\": \"2023-09-15T01:40:28.224Z\",\n          \"state\": \"string\",\n          \"data_interval_start\": \"2026-08-08T00:09:17.229Z\",\n          \"data_interval_end\": \"1976-07-07T05:17:27.036Z\",\n          \"partition_key\": \"string\"\n        }\n      ],\n      \"timestamp\": \"1992-05-05T05:21:09.215Z\",\n      \"uri\": \"string\",\n      \"name\": \"string\",\n      \"group\": \"string\",\n      \"extra\": {\n        \"key_0\": {}\n      },\n      \"source_task_id\": \"string\",\n      \"source_dag_id\": \"string\",\n      \"source_run_id\": \"string\",\n      \"partition_key\": \"string\"\n    }\n  ],\n  \"total_entries\": 5234\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1d2baed-ec10-49bf-87b0-4ac08caf5948",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "upstreamAssetEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3947e43e-962e-422e-86ba-4676e53b1efc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "upstreamAssetEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e8ca56e-5366-426e-bbe8-6d3fe786b8b1",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "upstreamAssetEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82fedaf8-25d2-4f95-8a0c-033f1998db3b",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "upstreamAssetEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "615440bf-25d8-4831-9665-f00e0a78efe7",
+          "name": "Airflow Clear Dag Run",
+          "request": {
+            "name": "Airflow Clear Dag Run",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                ":dag_run_id",
+                "clear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dry_run\": true,\n  \"only_failed\": false,\n  \"run_on_latest_version\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75d6ee5f-6583-4d29-8b97-8f94506b08e3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dry_run\": true,\n  \"only_failed\": false,\n  \"run_on_latest_version\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"task_instances\": [\n    {\n      \"id\": \"df9283c0-360d-769e-5b62-4079fca27e09\",\n      \"task_id\": \"string\",\n      \"dag_id\": \"string\",\n      \"dag_run_id\": \"string\",\n      \"map_index\": 4765,\n      \"logical_date\": \"1981-07-22T12:16:32.059Z\",\n      \"run_after\": \"1969-08-08T11:29:07.898Z\",\n      \"start_date\": \"1961-10-30T21:02:04.624Z\",\n      \"end_date\": \"2003-04-09T19:41:51.988Z\",\n      \"duration\": 7266.312664018113,\n      \"state\": \"restarting\",\n      \"try_number\": 4959,\n      \"max_tries\": 8500,\n      \"task_display_name\": \"string\",\n      \"dag_display_name\": \"string\",\n      \"hostname\": \"string\",\n      \"unixname\": \"string\",\n      \"pool\": \"string\",\n      \"pool_slots\": 8038,\n      \"queue\": \"string\",\n      \"priority_weight\": 5718,\n      \"operator\": \"string\",\n      \"operator_name\": \"string\",\n      \"queued_when\": \"1973-11-11T15:18:33.053Z\",\n      \"scheduled_when\": \"1986-10-27T09:38:01.632Z\",\n      \"pid\": 4176,\n      \"executor\": \"string\",\n      \"executor_config\": \"string\",\n      \"note\": \"string\",\n      \"rendered_map_index\": \"string\",\n      \"trigger\": {\n        \"id\": 301,\n        \"classpath\": \"string\",\n        \"kwargs\": \"string\",\n        \"created_date\": \"1953-01-04T17:49:39.796Z\",\n        \"queue\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"triggerer_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"triggerer_job\": {\n        \"id\": 5088,\n        \"dag_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"job_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"start_date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"end_date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"latest_heartbeat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"executor_class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hostname\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"unixname\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dag_display_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"dag_version\": {\n        \"id\": \"cc836cf8-6568-f063-3248-e341fa9cdc46\",\n        \"version_number\": 1174,\n        \"dag_id\": \"string\",\n        \"bundle_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"bundle_version\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"created_at\": \"1983-03-10T18:43:32.656Z\",\n        \"dag_display_name\": \"string\",\n        \"bundle_url\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"rendered_fields\": {\n        \"key_0\": 2410.4562836223486,\n        \"key_1\": false\n      }\n    },\n    {\n      \"id\": \"6b046086-4c72-f4c9-1fec-2db32f92fa60\",\n      \"task_id\": \"string\",\n      \"dag_id\": \"string\",\n      \"dag_run_id\": \"string\",\n      \"map_index\": 8487,\n      \"logical_date\": \"1961-09-06T23:48:45.499Z\",\n      \"run_after\": \"2008-12-21T23:02:56.542Z\",\n      \"start_date\": \"1987-07-22T22:19:12.792Z\",\n      \"end_date\": \"1975-04-14T06:32:48.038Z\",\n      \"duration\": 3203.0979344253365,\n      \"state\": \"up_for_reschedule\",\n      \"try_number\": 841,\n      \"max_tries\": 3074,\n      \"task_display_name\": \"string\",\n      \"dag_display_name\": \"string\",\n      \"hostname\": \"string\",\n      \"unixname\": \"string\",\n      \"pool\": \"string\",\n      \"pool_slots\": 3191,\n      \"queue\": \"string\",\n      \"priority_weight\": 6617,\n      \"operator\": \"string\",\n      \"operator_name\": \"string\",\n      \"queued_when\": \"2019-08-10T08:37:16.284Z\",\n      \"scheduled_when\": \"2011-08-11T15:35:31.641Z\",\n      \"pid\": 4959,\n      \"executor\": \"string\",\n      \"executor_config\": \"string\",\n      \"note\": \"string\",\n      \"rendered_map_index\": \"string\",\n      \"trigger\": {\n        \"id\": 560,\n        \"classpath\": \"string\",\n        \"kwargs\": \"string\",\n        \"created_date\": \"1958-06-13T15:35:42.668Z\",\n        \"queue\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"triggerer_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"triggerer_job\": {\n        \"id\": 90,\n        \"dag_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"job_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"start_date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"end_date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"latest_heartbeat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"executor_class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hostname\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"unixname\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dag_display_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"dag_version\": {\n        \"id\": \"ac0e606a-94c6-b340-45df-87ef02504628\",\n        \"version_number\": 1520,\n        \"dag_id\": \"string\",\n        \"bundle_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"bundle_version\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"created_at\": \"1974-01-29T07:57:14.645Z\",\n        \"dag_display_name\": \"string\",\n        \"bundle_url\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"rendered_fields\": {\n        \"key_0\": false\n      }\n    }\n  ],\n  \"total_entries\": 8356,\n  \"next_cursor\": \"string\",\n  \"previous_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccb8aa91-c70f-47d0-94a9-a5ca865ff660",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dry_run\": true,\n  \"only_failed\": false,\n  \"run_on_latest_version\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c1c40eb-d892-432e-b3af-01c6650f9cde",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dry_run\": true,\n  \"only_failed\": false,\n  \"run_on_latest_version\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9016005-40d2-42c2-b317-4e236ad814b5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dry_run\": true,\n  \"only_failed\": false,\n  \"run_on_latest_version\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e7987e9-d167-4f58-9e4b-450c95842363",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dry_run\": true,\n  \"only_failed\": false,\n  \"run_on_latest_version\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86b8b884-bcb4-413d-aaa7-7e3e3863ac9a",
+          "name": "Airflow Get Dag Runs",
+          "request": {
+            "name": "Airflow Get Dag Runs",
+            "description": {
+              "content": "Get all DAG Runs.\n\nThis endpoint allows specifying `~` as the dag_id to retrieve Dag Runs for all DAGs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_after_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_after_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_after_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_after_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "logical_date_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "logical_date_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "logical_date_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "logical_date_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_gte",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_gt",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_lte",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_lt",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "conf_contains",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dag_version",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dag_version",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bundle_version",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "id",
+                  "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, dag_id, run_id, logical_date, run_after, start_date, end_date, updated_at, conf, duration, dag_run_id`"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_id_pattern",
+                  "value": "<string>",
+                  "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "triggering_user_name_pattern",
+                  "value": "<string>",
+                  "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "dag_id_pattern",
+                  "value": "<string>",
+                  "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "partition_key_pattern",
+                  "value": "<string>",
+                  "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "consuming_asset_pattern",
+                  "value": "<string>",
+                  "description": "Filter by consuming asset name or URI using pattern matching"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1c1a3c41-aa18-4abe-b021-0b70bf6eee3e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "run_after_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "duration_gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_gt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "updated_at_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "conf_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundle_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "run_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "triggering_user_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partition_key_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consuming_asset_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dag_runs\": [\n    {\n      \"dag_run_id\": \"string\",\n      \"dag_id\": \"string\",\n      \"logical_date\": \"1982-03-21T12:41:47.480Z\",\n      \"queued_at\": \"1955-05-25T01:02:23.885Z\",\n      \"start_date\": \"1947-12-20T11:43:58.969Z\",\n      \"end_date\": \"1991-01-12T15:26:50.762Z\",\n      \"duration\": 1286.1958899439119,\n      \"data_interval_start\": \"1964-10-21T11:01:45.151Z\",\n      \"data_interval_end\": \"2006-10-09T23:16:55.455Z\",\n      \"run_after\": \"2008-06-23T08:39:21.243Z\",\n      \"last_scheduling_decision\": \"1990-10-27T03:25:48.545Z\",\n      \"run_type\": \"backfill\",\n      \"state\": \"running\",\n      \"triggered_by\": \"rest_api\",\n      \"triggering_user_name\": \"string\",\n      \"conf\": {\n        \"key_0\": true\n      },\n      \"note\": \"string\",\n      \"dag_versions\": [\n        {\n          \"id\": \"4b81561d-e4f0-e489-1136-e60d065cc7b1\",\n          \"version_number\": 7435,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"1968-07-29T06:24:05.414Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        },\n        {\n          \"id\": \"c71cb703-8edb-bafa-cf26-bb60a2f0e8f3\",\n          \"version_number\": 6297,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"1957-11-08T10:23:54.274Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        }\n      ],\n      \"bundle_version\": \"string\",\n      \"dag_display_name\": \"string\",\n      \"partition_key\": \"string\"\n    },\n    {\n      \"dag_run_id\": \"string\",\n      \"dag_id\": \"string\",\n      \"logical_date\": \"1976-01-26T04:19:33.556Z\",\n      \"queued_at\": \"2009-03-13T11:06:08.427Z\",\n      \"start_date\": \"2022-09-28T22:00:18.493Z\",\n      \"end_date\": \"1998-05-13T20:21:32.853Z\",\n      \"duration\": 3049.021692883428,\n      \"data_interval_start\": \"1951-07-06T23:18:04.488Z\",\n      \"data_interval_end\": \"1960-01-01T14:23:09.356Z\",\n      \"run_after\": \"1975-05-11T05:09:56.918Z\",\n      \"last_scheduling_decision\": \"1975-03-08T21:47:24.206Z\",\n      \"run_type\": \"operator_triggered\",\n      \"state\": \"success\",\n      \"triggered_by\": \"timetable\",\n      \"triggering_user_name\": \"string\",\n      \"conf\": {\n        \"key_0\": 5081.0408631602695,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": true\n      },\n      \"note\": \"string\",\n      \"dag_versions\": [\n        {\n          \"id\": \"4bbd85f4-1938-02a3-dc16-2facad0b2a8b\",\n          \"version_number\": 6346,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"2016-11-26T23:04:31.673Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        },\n        {\n          \"id\": \"e459a6e7-ab1b-d6ae-6803-1d3c57924e65\",\n          \"version_number\": 753,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"2001-09-17T09:50:01.984Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        }\n      ],\n      \"bundle_version\": \"string\",\n      \"dag_display_name\": \"string\",\n      \"partition_key\": \"string\"\n    }\n  ],\n  \"total_entries\": 32\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fec53c2-f4a7-42bf-95c1-de598f01049e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "run_after_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "duration_gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_gt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "updated_at_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "conf_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundle_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "run_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "triggering_user_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partition_key_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consuming_asset_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6891f01d-ce16-470d-b20e-3b41f0858978",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "run_after_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "duration_gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_gt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "updated_at_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "conf_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundle_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "run_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "triggering_user_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partition_key_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consuming_asset_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9e5b905-dbea-487b-bb45-0b0b4d11db55",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "run_after_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "duration_gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_gt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "updated_at_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "conf_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundle_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "run_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "triggering_user_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partition_key_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consuming_asset_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0bd579e-870c-48ef-a48b-dd38cdd3b7e2",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "run_after_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "run_after_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "logical_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "duration_gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_gt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "updated_at_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updated_at_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "conf_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dag_version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundle_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "run_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "triggering_user_name_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dag_id_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partition_key_pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consuming_asset_pattern",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59355b80-2453-4693-a75a-0ed97b75c680",
+          "name": "Airflow Trigger Dag Run",
+          "request": {
+            "name": "Airflow Trigger Dag Run",
+            "description": {
+              "content": "Trigger a DAG.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": true,\n    \"key_1\": 9463\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4304012-8e11-4260-bc23-107a45398318",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dag_run_id\": \"string\",\n  \"dag_id\": \"string\",\n  \"logical_date\": \"2003-03-02T01:53:41.603Z\",\n  \"queued_at\": \"1951-11-27T08:37:49.349Z\",\n  \"start_date\": \"1972-05-17T13:53:27.896Z\",\n  \"end_date\": \"1952-04-14T11:31:20.057Z\",\n  \"duration\": 8160.866295270729,\n  \"data_interval_start\": \"1982-10-15T04:32:09.261Z\",\n  \"data_interval_end\": \"2010-10-20T10:14:55.945Z\",\n  \"run_after\": \"1998-05-06T05:01:35.108Z\",\n  \"last_scheduling_decision\": \"1949-11-13T02:54:30.951Z\",\n  \"run_type\": \"asset_materialization\",\n  \"state\": \"failed\",\n  \"triggered_by\": \"timetable\",\n  \"triggering_user_name\": \"string\",\n  \"conf\": {\n    \"key_0\": false,\n    \"key_1\": 9177.202195931877,\n    \"key_2\": 9536.437730430416\n  },\n  \"note\": \"string\",\n  \"dag_versions\": [\n    {\n      \"id\": \"3588b57d-12a9-0a53-8fa3-04623e329c76\",\n      \"version_number\": 5279,\n      \"dag_id\": \"string\",\n      \"bundle_name\": \"string\",\n      \"bundle_version\": \"string\",\n      \"created_at\": \"1962-12-05T04:53:08.867Z\",\n      \"dag_display_name\": \"string\",\n      \"bundle_url\": \"string\"\n    },\n    {\n      \"id\": \"d82b3b38-4896-cb93-674e-8dc394f25c8c\",\n      \"version_number\": 1800,\n      \"dag_id\": \"string\",\n      \"bundle_name\": \"string\",\n      \"bundle_version\": \"string\",\n      \"created_at\": \"2014-05-11T08:52:22.610Z\",\n      \"dag_display_name\": \"string\",\n      \"bundle_url\": \"string\"\n    }\n  ],\n  \"bundle_version\": \"string\",\n  \"dag_display_name\": \"string\",\n  \"partition_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11a9edb3-0d95-4821-a7ac-7e11620a3f01",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a687357-002f-44cb-854a-2d93988742a7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba689ac0-226f-4273-9079-10012690e777",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b51d44d-3149-4695-9f47-d25b51e30228",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3b0527a-f246-484c-8362-7290501f1d47",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca75a4ad-e5c6-4403-8c0c-be59743feaf3",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logical_date\": \"<dateTime>\",\n  \"dag_run_id\": \"<string>\",\n  \"data_interval_start\": \"<dateTime>\",\n  \"data_interval_end\": \"<dateTime>\",\n  \"run_after\": \"<dateTime>\",\n  \"conf\": {\n    \"key_0\": 3737.481024735916,\n    \"key_1\": 8354.218036144213\n  },\n  \"note\": \"<string>\",\n  \"partition_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bd28adb-a4aa-4bdf-a38a-88539747e468",
+          "name": "Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.",
+          "request": {
+            "name": "Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.",
+            "description": {
+              "content": "🚧 This is an experimental endpoint and may change or be removed without notice.Successful response are streamed as newline-delimited JSON (NDJSON). Each line is a JSON object representing the DAG run state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                ":dag_run_id",
+                "wait"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<number>",
+                  "description": "(Required) Seconds to wait between dag run state checks"
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Collect result XCom from task. Can be set multiple times."
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Collect result XCom from task. Can be set multiple times."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9489a2f1-3ed0-4d6e-b8e8-0720637d281f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "wait"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a962a56e-42ef-4db5-8c3d-19dd6a7bf4f1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "wait"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66080672-2da1-4078-ba05-51fc345f5364",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "wait"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d90b3ede-2fbe-46e7-9cc4-563309b8b65c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "wait"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97beeede-e004-4f47-b5d4-7e82a5ddda8f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    ":dag_run_id",
+                    "wait"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6098eb3-4adc-499e-8de4-1f8e10d6a742",
+          "name": "Airflow Get List Dag Runs Batch",
+          "request": {
+            "name": "Airflow Get List Dag Runs Batch",
+            "description": {
+              "content": "Get a list of DAG Runs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "dags",
+                ":dag_id",
+                "dagRuns",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dag_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_by\": \"<string>\",\n  \"page_offset\": 0,\n  \"page_limit\": 100,\n  \"dag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"run_after_gte\": \"<dateTime>\",\n  \"run_after_gt\": \"<dateTime>\",\n  \"run_after_lte\": \"<dateTime>\",\n  \"run_after_lt\": \"<dateTime>\",\n  \"logical_date_gte\": \"<dateTime>\",\n  \"logical_date_gt\": \"<dateTime>\",\n  \"logical_date_lte\": \"<dateTime>\",\n  \"logical_date_lt\": \"<dateTime>\",\n  \"start_date_gte\": \"<dateTime>\",\n  \"start_date_gt\": \"<dateTime>\",\n  \"start_date_lte\": \"<dateTime>\",\n  \"start_date_lt\": \"<dateTime>\",\n  \"end_date_gte\": \"<dateTime>\",\n  \"end_date_gt\": \"<dateTime>\",\n  \"end_date_lte\": \"<dateTime>\",\n  \"end_date_lt\": \"<dateTime>\",\n  \"duration_gte\": \"<number>\",\n  \"duration_gt\": \"<number>\",\n  \"duration_lte\": \"<number>\",\n  \"duration_lt\": \"<number>\",\n  \"conf_contains\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50074506-d50d-46d9-93b2-0632a15a07a7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_by\": \"<string>\",\n  \"page_offset\": 0,\n  \"page_limit\": 100,\n  \"dag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"failed\",\n    \"running\"\n  ],\n  \"run_after_gte\": \"<dateTime>\",\n  \"run_after_gt\": \"<dateTime>\",\n  \"run_after_lte\": \"<dateTime>\",\n  \"run_after_lt\": \"<dateTime>\",\n  \"logical_date_gte\": \"<dateTime>\",\n  \"logical_date_gt\": \"<dateTime>\",\n  \"logical_date_lte\": \"<dateTime>\",\n  \"logical_date_lt\": \"<dateTime>\",\n  \"start_date_gte\": \"<dateTime>\",\n  \"start_date_gt\": \"<dateTime>\",\n  \"start_date_lte\": \"<dateTime>\",\n  \"start_date_lt\": \"<dateTime>\",\n  \"end_date_gte\": \"<dateTime>\",\n  \"end_date_gt\": \"<dateTime>\",\n  \"end_date_lte\": \"<dateTime>\",\n  \"end_date_lt\": \"<dateTime>\",\n  \"duration_gte\": \"<number>\",\n  \"duration_gt\": \"<number>\",\n  \"duration_lte\": \"<number>\",\n  \"duration_lt\": \"<number>\",\n  \"conf_contains\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dag_runs\": [\n    {\n      \"dag_run_id\": \"string\",\n      \"dag_id\": \"string\",\n      \"logical_date\": \"1982-03-21T12:41:47.480Z\",\n      \"queued_at\": \"1955-05-25T01:02:23.885Z\",\n      \"start_date\": \"1947-12-20T11:43:58.969Z\",\n      \"end_date\": \"1991-01-12T15:26:50.762Z\",\n      \"duration\": 1286.1958899439119,\n      \"data_interval_start\": \"1964-10-21T11:01:45.151Z\",\n      \"data_interval_end\": \"2006-10-09T23:16:55.455Z\",\n      \"run_after\": \"2008-06-23T08:39:21.243Z\",\n      \"last_scheduling_decision\": \"1990-10-27T03:25:48.545Z\",\n      \"run_type\": \"backfill\",\n      \"state\": \"running\",\n      \"triggered_by\": \"rest_api\",\n      \"triggering_user_name\": \"string\",\n      \"conf\": {\n        \"key_0\": true\n      },\n      \"note\": \"string\",\n      \"dag_versions\": [\n        {\n          \"id\": \"4b81561d-e4f0-e489-1136-e60d065cc7b1\",\n          \"version_number\": 7435,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"1968-07-29T06:24:05.414Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        },\n        {\n          \"id\": \"c71cb703-8edb-bafa-cf26-bb60a2f0e8f3\",\n          \"version_number\": 6297,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"1957-11-08T10:23:54.274Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        }\n      ],\n      \"bundle_version\": \"string\",\n      \"dag_display_name\": \"string\",\n      \"partition_key\": \"string\"\n    },\n    {\n      \"dag_run_id\": \"string\",\n      \"dag_id\": \"string\",\n      \"logical_date\": \"1976-01-26T04:19:33.556Z\",\n      \"queued_at\": \"2009-03-13T11:06:08.427Z\",\n      \"start_date\": \"2022-09-28T22:00:18.493Z\",\n      \"end_date\": \"1998-05-13T20:21:32.853Z\",\n      \"duration\": 3049.021692883428,\n      \"data_interval_start\": \"1951-07-06T23:18:04.488Z\",\n      \"data_interval_end\": \"1960-01-01T14:23:09.356Z\",\n      \"run_after\": \"1975-05-11T05:09:56.918Z\",\n      \"last_scheduling_decision\": \"1975-03-08T21:47:24.206Z\",\n      \"run_type\": \"operator_triggered\",\n      \"state\": \"success\",\n      \"triggered_by\": \"timetable\",\n      \"triggering_user_name\": \"string\",\n      \"conf\": {\n        \"key_0\": 5081.0408631602695,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": true\n      },\n      \"note\": \"string\",\n      \"dag_versions\": [\n        {\n          \"id\": \"4bbd85f4-1938-02a3-dc16-2facad0b2a8b\",\n          \"version_number\": 6346,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"2016-11-26T23:04:31.673Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        },\n        {\n          \"id\": \"e459a6e7-ab1b-d6ae-6803-1d3c57924e65\",\n          \"version_number\": 753,\n          \"dag_id\": \"string\",\n          \"bundle_name\": \"string\",\n          \"bundle_version\": \"string\",\n          \"created_at\": \"2001-09-17T09:50:01.984Z\",\n          \"dag_display_name\": \"string\",\n          \"bundle_url\": \"string\"\n        }\n      ],\n      \"bundle_version\": \"string\",\n      \"dag_display_name\": \"string\",\n      \"partition_key\": \"string\"\n    }\n  ],\n  \"total_entries\": 32\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b439f97f-d204-4c68-9f86-e00ae9c7af48",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_by\": \"<string>\",\n  \"page_offset\": 0,\n  \"page_limit\": 100,\n  \"dag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"failed\",\n    \"running\"\n  ],\n  \"run_after_gte\": \"<dateTime>\",\n  \"run_after_gt\": \"<dateTime>\",\n  \"run_after_lte\": \"<dateTime>\",\n  \"run_after_lt\": \"<dateTime>\",\n  \"logical_date_gte\": \"<dateTime>\",\n  \"logical_date_gt\": \"<dateTime>\",\n  \"logical_date_lte\": \"<dateTime>\",\n  \"logical_date_lt\": \"<dateTime>\",\n  \"start_date_gte\": \"<dateTime>\",\n  \"start_date_gt\": \"<dateTime>\",\n  \"start_date_lte\": \"<dateTime>\",\n  \"start_date_lt\": \"<dateTime>\",\n  \"end_date_gte\": \"<dateTime>\",\n  \"end_date_gt\": \"<dateTime>\",\n  \"end_date_lte\": \"<dateTime>\",\n  \"end_date_lt\": \"<dateTime>\",\n  \"duration_gte\": \"<number>\",\n  \"duration_gt\": \"<number>\",\n  \"duration_lte\": \"<number>\",\n  \"duration_lt\": \"<number>\",\n  \"conf_contains\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79b46e65-ce50-4c15-ae35-00b28d62d147",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_by\": \"<string>\",\n  \"page_offset\": 0,\n  \"page_limit\": 100,\n  \"dag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"failed\",\n    \"running\"\n  ],\n  \"run_after_gte\": \"<dateTime>\",\n  \"run_after_gt\": \"<dateTime>\",\n  \"run_after_lte\": \"<dateTime>\",\n  \"run_after_lt\": \"<dateTime>\",\n  \"logical_date_gte\": \"<dateTime>\",\n  \"logical_date_gt\": \"<dateTime>\",\n  \"logical_date_lte\": \"<dateTime>\",\n  \"logical_date_lt\": \"<dateTime>\",\n  \"start_date_gte\": \"<dateTime>\",\n  \"start_date_gt\": \"<dateTime>\",\n  \"start_date_lte\": \"<dateTime>\",\n  \"start_date_lt\": \"<dateTime>\",\n  \"end_date_gte\": \"<dateTime>\",\n  \"end_date_gt\": \"<dateTime>\",\n  \"end_date_lte\": \"<dateTime>\",\n  \"end_date_lt\": \"<dateTime>\",\n  \"duration_gte\": \"<number>\",\n  \"duration_gt\": \"<number>\",\n  \"duration_lte\": \"<number>\",\n  \"duration_lt\": \"<number>\",\n  \"conf_contains\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7199862a-99ca-4d0c-bc6f-d2a67ac833f5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_by\": \"<string>\",\n  \"page_offset\": 0,\n  \"page_limit\": 100,\n  \"dag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"failed\",\n    \"running\"\n  ],\n  \"run_after_gte\": \"<dateTime>\",\n  \"run_after_gt\": \"<dateTime>\",\n  \"run_after_lte\": \"<dateTime>\",\n  \"run_after_lt\": \"<dateTime>\",\n  \"logical_date_gte\": \"<dateTime>\",\n  \"logical_date_gt\": \"<dateTime>\",\n  \"logical_date_lte\": \"<dateTime>\",\n  \"logical_date_lt\": \"<dateTime>\",\n  \"start_date_gte\": \"<dateTime>\",\n  \"start_date_gt\": \"<dateTime>\",\n  \"start_date_lte\": \"<dateTime>\",\n  \"start_date_lt\": \"<dateTime>\",\n  \"end_date_gte\": \"<dateTime>\",\n  \"end_date_gt\": \"<dateTime>\",\n  \"end_date_lte\": \"<dateTime>\",\n  \"end_date_lt\": \"<dateTime>\",\n  \"duration_gte\": \"<number>\",\n  \"duration_gt\": \"<number>\",\n  \"duration_lte\": \"<number>\",\n  \"duration_lt\": \"<number>\",\n  \"conf_contains\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "484f49a3-d7a6-4949-833a-ac705df92559",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "dags",
+                    ":dag_id",
+                    "dagRuns",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order_by\": \"<string>\",\n  \"page_offset\": 0,\n  \"page_limit\": 100,\n  \"dag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"failed\",\n    \"running\"\n  ],\n  \"run_after_gte\": \"<dateTime>\",\n  \"run_after_gt\": \"<dateTime>\",\n  \"run_after_lte\": \"<dateTime>\",\n  \"run_after_lt\": \"<dateTime>\",\n  \"logical_date_gte\": \"<dateTime>\",\n  \"logical_date_gt\": \"<dateTime>\",\n  \"logical_date_lte\": \"<dateTime>\",\n  \"logical_date_lt\": \"<dateTime>\",\n  \"start_date_gte\": \"<dateTime>\",\n  \"start_date_gt\": \"<dateTime>\",\n  \"start_date_lte\": \"<dateTime>\",\n  \"start_date_lt\": \"<dateTime>\",\n  \"end_date_gte\": \"<dateTime>\",\n  \"end_date_gt\": \"<dateTime>\",\n  \"end_date_lte\": \"<dateTime>\",\n  \"end_date_lt\": \"<dateTime>\",\n  \"duration_gte\": \"<number>\",\n  \"duration_gt\": \"<number>\",\n  \"duration_lte\": \"<number>\",\n  \"duration_lt\": \"<number>\",\n  \"conf_contains\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "00532c33-0c70-4480-85fc-a409dbe0c448",
+    "name": "Airflow Asset DagRun API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Airflow API. All endpoints located under ``/api/v2`` can be used safely, are stable and backward compatible. Endpoints located under ``/ui`` are dedicated to the UI and are subject to breaking change depending on the need of the frontend. Users should not rely on those but use the public ones instead.",
+      "type": "text/plain"
+    }
+  }
+}

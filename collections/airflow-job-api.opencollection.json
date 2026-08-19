@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset Job API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/jobs",
+            "params": [
+              {
+                "name": "is_alive",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dag_id, state, job_type, start_date, end_date, latest_heartbeat, executor_class, hostname, unixname`"
+              },
+              {
+                "name": "job_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "job_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hostname",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "executor_class",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all jobs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

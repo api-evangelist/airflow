@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset Monitor API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Monitor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Health",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/monitor/health"
+          },
+          "docs": "Airflow Get Health"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

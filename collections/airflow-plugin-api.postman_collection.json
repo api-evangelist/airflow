@@ -1,0 +1,490 @@
+{
+  "item": [
+    {
+      "id": "e0e7d2b8-3a1c-426a-ae0d-56b963c44231",
+      "name": "Plugin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb1abfad-62da-4f78-9d5c-5915b130c51f",
+          "name": "Airflow Get Plugins",
+          "request": {
+            "name": "Airflow Get Plugins",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b96aa6ab-91e2-492e-bf4b-df506916f624",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plugins\": [\n    {\n      \"name\": \"string\",\n      \"macros\": [\n        \"string\",\n        \"string\"\n      ],\n      \"flask_blueprints\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastapi_apps\": [\n        {\n          \"app\": \"string\",\n          \"url_prefix\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"app\": \"string\",\n          \"url_prefix\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"fastapi_root_middlewares\": [\n        {\n          \"middleware\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"middleware\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"external_views\": [\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        },\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        }\n      ],\n      \"react_apps\": [\n        {\n          \"name\": \"string\",\n          \"bundle_url\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        },\n        {\n          \"name\": \"string\",\n          \"bundle_url\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        }\n      ],\n      \"appbuilder_views\": [\n        {\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"view\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"view\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"appbuilder_menu_items\": [\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"category\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"category\": \"string\"\n        }\n      ],\n      \"global_operator_extra_links\": [\n        \"string\",\n        \"string\"\n      ],\n      \"operator_extra_links\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\",\n      \"listeners\": [\n        \"string\",\n        \"string\"\n      ],\n      \"timetables\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"macros\": [\n        \"string\",\n        \"string\"\n      ],\n      \"flask_blueprints\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastapi_apps\": [\n        {\n          \"app\": \"string\",\n          \"url_prefix\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"app\": \"string\",\n          \"url_prefix\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"fastapi_root_middlewares\": [\n        {\n          \"middleware\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"middleware\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"external_views\": [\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        },\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        }\n      ],\n      \"react_apps\": [\n        {\n          \"name\": \"string\",\n          \"bundle_url\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        },\n        {\n          \"name\": \"string\",\n          \"bundle_url\": \"string\",\n          \"icon\": \"string\",\n          \"icon_dark_mode\": \"string\",\n          \"url_route\": \"string\",\n          \"category\": \"string\",\n          \"destination\": \"nav\"\n        }\n      ],\n      \"appbuilder_views\": [\n        {\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"view\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"view\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"appbuilder_menu_items\": [\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"category\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"href\": \"string\",\n          \"category\": \"string\"\n        }\n      ],\n      \"global_operator_extra_links\": [\n        \"string\",\n        \"string\"\n      ],\n      \"operator_extra_links\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\",\n      \"listeners\": [\n        \"string\",\n        \"string\"\n      ],\n      \"timetables\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"total_entries\": 8352\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd9dae92-dbe6-4523-b917-dd75be6a3fd5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59f17930-b631-4b7a-abbf-c87f8fca33f1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "073f8b80-e410-4183-8a75-fabf607f76dd",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25487cd3-1219-4115-abc5-f93f91d2edee",
+          "name": "Airflow Import Errors",
+          "request": {
+            "name": "Airflow Import Errors",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "plugins",
+                "importErrors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "02158455-8c60-4246-821d-ab26a4c6bf3c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins",
+                    "importErrors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"import_errors\": [\n    {\n      \"source\": \"string\",\n      \"error\": \"string\"\n    },\n    {\n      \"source\": \"string\",\n      \"error\": \"string\"\n    }\n  ],\n  \"total_entries\": 4411\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a39a2e0-e10a-4422-9d3f-83151b721342",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins",
+                    "importErrors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "052d9cbc-e0bd-4897-ae47-649dcab3e17f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "plugins",
+                    "importErrors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8c97faaa-2281-4422-a9de-535c6d8f7320",
+    "name": "Airflow Asset Plugin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Airflow API. All endpoints located under ``/api/v2`` can be used safely, are stable and backward compatible. Endpoints located under ``/ui`` are dedicated to the UI and are subject to breaking change depending on the need of the frontend. Users should not rely on those but use the public ones instead.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,713 @@
+{
+  "item": [
+    {
+      "id": "414078ac-4b30-49b1-a30f-7e14b9ce184a",
+      "name": "Job",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e742ac3-9e77-4e73-8926-812f0559edeb",
+          "name": "Airflow Get Jobs",
+          "request": {
+            "name": "Airflow Get Jobs",
+            "description": {
+              "content": "Get all jobs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_alive",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date_lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "id",
+                  "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dag_id, state, job_type, start_date, end_date, latest_heartbeat, executor_class, hostname, unixname`"
+                },
+                {
+                  "disabled": false,
+                  "key": "job_state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "job_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hostname",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "executor_class",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "/auth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "617c071e-29b3-4eec-9b9f-649ea525f33e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_alive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "job_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "job_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "executor_class",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobs\": [\n    {\n      \"id\": 8228,\n      \"dag_id\": \"string\",\n      \"state\": \"string\",\n      \"job_type\": \"string\",\n      \"start_date\": \"2026-07-08T11:02:03.811Z\",\n      \"end_date\": \"1954-01-29T09:36:16.287Z\",\n      \"latest_heartbeat\": \"1989-01-22T22:15:36.340Z\",\n      \"executor_class\": \"string\",\n      \"hostname\": \"string\",\n      \"unixname\": \"string\",\n      \"dag_display_name\": \"string\"\n    },\n    {\n      \"id\": 4517,\n      \"dag_id\": \"string\",\n      \"state\": \"string\",\n      \"job_type\": \"string\",\n      \"start_date\": \"1987-08-13T00:29:03.994Z\",\n      \"end_date\": \"1949-02-07T09:45:06.089Z\",\n      \"latest_heartbeat\": \"2003-08-13T11:46:43.482Z\",\n      \"executor_class\": \"string\",\n      \"hostname\": \"string\",\n      \"unixname\": \"string\",\n      \"dag_display_name\": \"string\"\n    }\n  ],\n  \"total_entries\": 7670\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66ce68ab-9faf-4d09-b590-4dd533e2d5e3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_alive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "job_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "job_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "executor_class",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e273206-7c61-4014-9ba3-12b313a23afa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_alive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "job_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "job_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "executor_class",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22750a1c-1aaa-4244-89c7-6d4c5252d20e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_alive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "job_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "job_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "executor_class",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d46583bc-0df4-4df0-9fcc-fb5f8a46f27d",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_alive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "start_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date_lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "id"
+                    },
+                    {
+                      "key": "job_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "job_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hostname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "executor_class",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "594c76b8-ee3a-4eb9-bc33-1737641f9b42",
+    "name": "Airflow Asset Job API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Airflow API. All endpoints located under ``/api/v2`` can be used safely, are stable and backward compatible. Endpoints located under ``/ui`` are dedicated to the UI and are subject to breaking change depending on the need of the frontend. Users should not rely on those but use the public ones instead.",
+      "type": "text/plain"
+    }
+  }
+}

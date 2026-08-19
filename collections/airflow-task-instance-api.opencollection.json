@@ -1,0 +1,1609 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset Task Instance API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Task Instance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Extra Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/links",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get extra links for task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Task Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Task Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete a task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Mapped Task Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/listMapped",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "run_after_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pool_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queue_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "executor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "try_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, run_after, logical_date, data_interval_start, data_interval_end`"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get list of mapped task instances."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instance Dependencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/dependencies",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get dependencies blocking task from getting scheduled."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instance Dependencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/dependencies",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get dependencies blocking task from getting scheduled."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instance Tries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/tries",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get list of task instances history."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Mapped Task Instance Tries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/tries",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Airflow Get Mapped Task Instance Tries"
+        },
+        {
+          "info": {
+            "name": "Airflow Get Mapped Task Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Task Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for keyset-based pagination. Pass an empty string for the first page, then use ``next_cursor`` from the response. When ``cursor`` is provided, ``offset`` is ignored."
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_display_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "task_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by exact task group ID. Returns all tasks within the specified task group."
+              },
+              {
+                "name": "dag_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "run_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pool",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pool_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queue_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "executor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "try_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, logical_date, run_after, data_interval_start, data_interval_end`"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get list of task instances.\n\nThis endpoint allows specifying `~` as the dag_id, dag_run_id\nto retrieve task instances for all DAGs and DAG runs.\n\nSupports two pagination modes:\n\n**Offset (default):** use `limit` and `offset` query parameters. Returns `total_entries`.\n\n**Cursor:** pass `cursor` (empty string for the first page, then `next_cursor` from the response).\nWhen `cursor` is provided, `offset` is ignored and `total_entries` is not returned.\n``next_cursor`` is ``null`` when there are no mo"
+        },
+        {
+          "info": {
+            "name": "Airflow Bulk Task Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Bulk update, and delete task instances."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instances Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/list",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get list of task instances."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Task Instance Try Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/tries/:task_try_number",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_try_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get task instance details by try number."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Mapped Task Instance Try Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/tries/:task_try_number",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_try_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Airflow Get Mapped Task Instance Try Details"
+        },
+        {
+          "info": {
+            "name": "Airflow Post Clear Task Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/clearTaskInstances",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Clear task instances."
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Task Instance Dry Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/dry_run",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a task instance dry_run mode."
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Task Instance Dry Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/dry_run",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a task instance dry_run mode."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/logs/:try_number",
+            "headers": [
+              {
+                "name": "accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "try_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "full_content",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get logs for a specific task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Get External Log Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/externalLogUrl/:try_number",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "try_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get external log URL for a specific task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Hitl Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/hitlDetails",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a Human-in-the-loop detail of a specific task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Update Hitl Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/hitlDetails",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a Human-in-the-loop detail."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Hitl Detail Try Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/taskInstances/:task_id/:map_index/hitlDetails/tries/:try_number",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "try_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a Human-in-the-loop detail of a specific task instance."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Hitl Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/hitlDetails",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `ti_id, subject, responded_at, created_at, responded_by_user_id, responded_by_user_name, dag_id, run_id, task_display_name, run_after, rendered_map_index, task_instance_operator, task_instance_state`"
+              },
+              {
+                "name": "dag_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "map_index",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "response_received",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "responded_by_user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "responded_by_user_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "subject_search",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "body_search",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "created_at_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_at_lt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get Human-in-the-loop details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,468 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset DAG API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DAG",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Dags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags_match_mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owners",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "dag_display_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "exclude_stale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "paused",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_import_errors",
+                "value": "",
+                "type": "query",
+                "description": "Filter Dags by having import errors. Only Dags that have been successfully loaded before will be returned."
+              },
+              {
+                "name": "last_dag_run_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bundle_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bundle_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_asset_schedule",
+                "value": "",
+                "type": "query",
+                "description": "Filter Dags with asset-based scheduling"
+              },
+              {
+                "name": "asset_dependency",
+                "value": "",
+                "type": "query",
+                "description": "Filter Dags by asset dependency (name or URI)"
+              },
+              {
+                "name": "dag_run_start_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_start_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_start_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_start_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_end_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_end_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_end_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_end_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_run_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `dag_id, dag_display_name, next_dagrun, state, start_date, last_run_state, last_run_start_date`"
+              },
+              {
+                "name": "is_favorite",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timetable_type",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all DAGs."
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Dags",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags",
+            "params": [
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags_match_mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owners",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "exclude_stale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "paused",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Patch multiple DAGs.\n\nIf `dag_id_pattern` is not provided, no DAGs will be matched regardless\nof other filters. To match all DAGs, pass a wildcard value such as `~`\nor `%` for `dag_id_pattern`."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Dag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get basic information about a DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Dag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Patch the specific DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Dag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete the specific DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Dag Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/details",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get details of DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Favorite Dag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/favorite",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Mark the DAG as favorite."
+        },
+        {
+          "info": {
+            "name": "Airflow Unfavorite Dag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/unfavorite",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Unmark the DAG as favorite."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Dag Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dagTags",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `name`"
+              },
+              {
+                "name": "tag_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all DAG tags."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

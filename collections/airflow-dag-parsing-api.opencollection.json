@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset DAG Parsing API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DAG Parsing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Reparse Dag File",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v2/parseDagFile/:file_token",
+            "params": [
+              {
+                "name": "file_token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Request re-parsing a DAG file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

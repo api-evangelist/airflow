@@ -1,0 +1,515 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset DagRun API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DagRun",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Get Dag Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Airflow Get Dag Run"
+        },
+        {
+          "info": {
+            "name": "Airflow Patch Dag Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "update_mask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Modify a DAG Run."
+        },
+        {
+          "info": {
+            "name": "Airflow Delete Dag Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete a DAG Run entry."
+        },
+        {
+          "info": {
+            "name": "Airflow Get Upstream Asset Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/upstreamAssetEvents",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "If dag run is asset-triggered, return the asset events that triggered it."
+        },
+        {
+          "info": {
+            "name": "Airflow Clear Dag Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/clear",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Airflow Clear Dag Run"
+        },
+        {
+          "info": {
+            "name": "Airflow Get Dag Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_after_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logical_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "conf_contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "run_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dag_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bundle_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, dag_id, run_id, logical_date, run_after, start_date, end_date, updated_at, conf, duration, dag_run_id`"
+              },
+              {
+                "name": "run_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "triggering_user_name_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "dag_id_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "partition_key_pattern",
+                "value": "",
+                "type": "query",
+                "description": "SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported."
+              },
+              {
+                "name": "consuming_asset_pattern",
+                "value": "",
+                "type": "query",
+                "description": "Filter by consuming asset name or URI using pattern matching"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all DAG Runs.\n\nThis endpoint allows specifying `~` as the dag_id to retrieve Dag Runs for all DAGs."
+        },
+        {
+          "info": {
+            "name": "Airflow Trigger Dag Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Trigger a DAG."
+        },
+        {
+          "info": {
+            "name": "Airflow Experimental: Wait for a Dag Run to Complete, and Return Task Results if Requested.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/:dag_run_id/wait",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dag_run_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Seconds to wait between dag run state checks"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Collect result XCom from task. Can be set multiple times."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "🚧 This is an experimental endpoint and may change or be removed without notice.Successful response are streamed as newline-delimited JSON (NDJSON). Each line is a JSON object representing the DAG run state."
+        },
+        {
+          "info": {
+            "name": "Airflow Get List Dag Runs Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/dags/:dag_id/dagRuns/list",
+            "params": [
+              {
+                "name": "dag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "resource_owner_password_credentials",
+              "accessTokenUrl": "/auth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a list of DAG Runs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airflow Asset Login API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airflow Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/auth/login",
+            "params": [
+              {
+                "name": "next",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Redirect to the login URL depending on the AuthManager configured."
+        },
+        {
+          "info": {
+            "name": "Airflow Logout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/auth/logout"
+          },
+          "docs": "Logout the user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,105 @@
+{
+  "item": [
+    {
+      "id": "37083c18-37b7-4887-b143-55ca584ef75a",
+      "name": "Monitor",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11bb2e7c-f685-43fb-b446-8e0abc9b3d05",
+          "name": "Airflow Get Health",
+          "request": {
+            "name": "Airflow Get Health",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "monitor",
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fee7b335-d375-46eb-9516-df644321088d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "monitor",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metadatabase\": {\n    \"status\": \"string\"\n  },\n  \"scheduler\": {\n    \"status\": \"string\",\n    \"latest_scheduler_heartbeat\": \"string\"\n  },\n  \"triggerer\": {\n    \"status\": \"string\",\n    \"latest_triggerer_heartbeat\": \"string\"\n  },\n  \"dag_processor\": {\n    \"status\": \"string\",\n    \"latest_dag_processor_heartbeat\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d7153837-6389-4279-aaa3-83284269d919",
+    "name": "Airflow Asset Monitor API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Airflow API. All endpoints located under ``/api/v2`` can be used safely, are stable and backward compatible. Endpoints located under ``/ui`` are dedicated to the UI and are subject to breaking change depending on the need of the frontend. Users should not rely on those but use the public ones instead.",
+      "type": "text/plain"
+    }
+  }
+}
