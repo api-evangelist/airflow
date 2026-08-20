@@ -25,6 +25,15 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/airflow.pn
 tags:
   - Workflow Orchestration
   - Data Pipeline
+  - Open-Source
+  - Apache
+  - DAG
+  - Scheduling
+  - ETL
+  - Data Engineering
+tags_raw:
+  - Workflow Orchestration
+  - Data Pipeline
   - Open Source
   - Apache
   - DAG
@@ -174,6 +183,8 @@ apis:
   humanURL: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
   baseURL: http://localhost:8080/api/v2
   tags:
+  - DAGRun
+  tags_raw:
   - DagRun
   properties:
   - type: OpenAPI
@@ -306,6 +317,8 @@ apis:
   humanURL: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
   baseURL: http://localhost:8080/api/v2
   tags:
+  - Experimental
+  tags_raw:
   - experimental
   properties:
   - type: OpenAPI
@@ -416,6 +429,8 @@ apis:
   humanURL: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
   baseURL: http://localhost:8080/api/v2
   tags:
+  - Monitors
+  tags_raw:
   - Monitor
   properties:
   - type: OpenAPI
