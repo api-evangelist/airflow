@@ -197,7 +197,7 @@ apis:
   humanURL: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
   baseURL: http://localhost:8080/api/v2
   tags:
-  - DAGRun
+  - DagRun
   tags_raw:
   - DagRun
   properties:
