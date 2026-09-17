@@ -191,30 +191,6 @@ apis:
     url: https://pypi.org/project/apache-airflow-client/
   - type: SDKs
     url: https://github.com/apache/airflow
-- aid: airflow:airflow-dagrun-api
-  name: Apache Airflow DagRun API
-  description: The DagRun API from Apache Airflow — 6 operation(s) for dagrun.
-  humanURL: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
-  baseURL: http://localhost:8080/api/v2
-  tags:
-  - DAGRun
-  tags_raw:
-  - DagRun
-  properties:
-  - type: OpenAPI
-    url: openapi/airflow-dagrun-api-openapi.yml
-  - type: Documentation
-    url: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
-  - type: APIReference
-    url: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
-  - type: Authentication
-    url: https://airflow.apache.org/docs/apache-airflow/stable/security/api.html
-  - type: SDKs
-    url: https://pypi.org/project/apache-airflow/
-  - type: SDKs
-    url: https://pypi.org/project/apache-airflow-client/
-  - type: SDKs
-    url: https://github.com/apache/airflow
 - aid: airflow:airflow-dagsource-api
   name: Apache Airflow DagSource API
   description: The DagSource API from Apache Airflow — 1 operation(s) for dagsource.
@@ -625,6 +601,28 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/airflow-xcom-api-openapi.yml
+  - type: Documentation
+    url: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
+  - type: APIReference
+    url: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
+  - type: Authentication
+    url: https://airflow.apache.org/docs/apache-airflow/stable/security/api.html
+  - type: SDKs
+    url: https://pypi.org/project/apache-airflow/
+  - type: SDKs
+    url: https://pypi.org/project/apache-airflow-client/
+  - type: SDKs
+    url: https://github.com/apache/airflow
+- aid: airflow:airflow-dag-run-api
+  name: Apache Airflow DAG Run API
+  description: The DAG Run API from Apache Airflow — 6 operation(s) for dag run.
+  humanURL: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
+  baseURL: http://localhost:8080/api/v2
+  tags:
+  - DAG Run
+  properties:
+  - type: OpenAPI
+    url: openapi/airflow-dag-run-api-openapi.yml
   - type: Documentation
     url: https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html
   - type: APIReference
